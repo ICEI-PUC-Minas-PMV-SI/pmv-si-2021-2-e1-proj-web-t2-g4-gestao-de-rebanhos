@@ -14,7 +14,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Fábio Henrique Santos Pereira
 * Geovanni Henrique Cadorin
 * Markus Antonio Machel
-* Tiago Antonio de Oliveira Mendes
+* Tiago Antônio de Oliveira Mendes
 
 ## Orientador
 
