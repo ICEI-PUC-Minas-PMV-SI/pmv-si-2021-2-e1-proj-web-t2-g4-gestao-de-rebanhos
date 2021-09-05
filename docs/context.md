@@ -9,6 +9,13 @@ Descreva também o contexto em que essa aplicação será usada, se  houver: emp
 
 Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
 
+> **Links Úteis**:
+> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
+> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
+> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+
+
+
 Com base em pesquisa de literatura, nosso grupo definiu a seguinte pergunta como problema: 
 
 Devido a alto número de indivíduos no rebanho que podem incluir raças, idades, peso e sexo diferente,  a gestão de ração e suplementos alimentares pode não ser eficiente levando a prejuízos por nutrição ineficiente do gado, excesso do estoque de ração que pode levar a perda por validade dos produtos e compra de proporções incorretas dos componentes da ração e suplementação alimentar?
@@ -22,11 +29,6 @@ Para validar o problema, foi realizado uma pesquisa por telefone com 8 produtore
 - Ração e suplementação alimentar são mais utilizadas dependendo da idade do animal (mais ofertada para bezerros) e das condições ambientais (época de seca demanda mais utilização de ração e suplementação alimentar).
 - 62,5% dos produtores já relataram problemas com gestão de ração incluindo falta dela (compra inferior a necessidade do rebanho) ou perda de ração por compra excessiva (vencimento da data de validade e acometimento do estoque por fungo/bactéria caracterizada pela presença de mofo que resultou em descarte do produto).
 - 100% dos produtores não fazem o cálculo de oferta de ração e suplemento alimentar com base no peso, idade, sexo e raça dos animais devido a dificuldade de gestão destas informações (número alto de animais do rebanho), embora todos os produtores consultados concordem que a gestão correta poderia otimizar ganho de peso e qualidade dos produtos derivados.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 ## Objetivos
 
