@@ -36,6 +36,21 @@ Aqui você deve descrever os objetivos do trabalho indicando que o objetivo gera
 
 Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
  
+
+Auxiliar pecuaristas com informações da quantidade de alimentos de qualidade a ser distribuída  para o gado, proporcionando  redução do custo de produção em relação ao consumo.
+
+	• Manejo alimentar no confinamento
+
+	• Aumentar a lucratividade com a produção seja na cria, recria ou engorda
+
+	• Evitar prejuízos
+
+	• Conhecer o alimento e manejo ideal para sua condição
+
+	• Balancear dietas
+
+Com isso, o pecuarista consegue oferecer ao rebanho de corte uma alimentação balanceada, com suplementação adequada de proteína e energia, presentes nos concentrados e volumosos.
+
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
