@@ -35,7 +35,10 @@ Para validar o problema, foi realizado uma pesquisa por telefone com 8 produtore
 Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
 
 Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
+
+> **Links Úteis**:
+> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+
 
 Auxiliar pecuaristas com informações da quantidade de alimentos de qualidade a ser distribuída  para o gado, proporcionando  redução do custo de produção em relação ao consumo.
 
@@ -50,9 +53,6 @@ Auxiliar pecuaristas com informações da quantidade de alimentos de qualidade a
 	• Balancear dietas
 
 Com isso, o pecuarista consegue oferecer ao rebanho de corte uma alimentação balanceada, com suplementação adequada de proteína e energia, presentes nos concentrados e volumosos.
-
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
