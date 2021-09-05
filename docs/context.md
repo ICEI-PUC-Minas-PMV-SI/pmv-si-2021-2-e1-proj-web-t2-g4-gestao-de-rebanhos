@@ -9,6 +9,20 @@ Descreva também o contexto em que essa aplicação será usada, se  houver: emp
 
 Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
 
+Com base em pesquisa de literatura, nosso grupo definiu a seguinte pergunta como problema: 
+
+Devido a alto número de indivíduos no rebanho que podem incluir raças, idades, peso e sexo diferente,  a gestão de ração e suplementos alimentares pode não ser eficiente levando a prejuízos por nutrição ineficiente do gado, excesso do estoque de ração que pode levar a perda por validade dos produtos e compra de proporções incorretas dos componentes da ração e suplementação alimentar?
+
+Para validar o problema, foi realizado uma pesquisa por telefone com 8 produtores de gado de corte e leite da região da Zona da Mata de Minas Gerais incluindo as cidades de Ponte Nova, Ubá, Paula Candido, Viçosa e Teixeiras. Um total de 4 propriedades atuavam especificamente na criação de gado de corte, 3 propriedades atuavam apenas na criação de gado de leite e uma propriedade atuavam tanto na criação de gado de corte e leite. Perguntas relacionas a gestão de alimentos para o rebanho foram realizadas e as seguintes informações que validam o nosso problema levantado foram extraídos dos dados obtidos:
+
+- Todos os produtores utilizam ração e suplementação alimentar, pelo menos por um período de idade do rebanho.
+- A ração e suplemento alimentares são utilizados para suprir a necessidades nutricionais dos animais e otimizar o ganho e qualidade de peso dos animais.
+- A ração é produzida da mistura de componentes que são adquiridos separadamente de fornecedores, a saber: milho moído ou inteiro (100% das propriedades), farelo de soja (87,5% das propriedades), ureia (87,5% das propriedades), sal mineral (62,5% das propriedades) e sal comum (100% das propriedades).
+- A mistura para ração segue uma fórmula padrão em 100% das propriedades, embora os produtores confirmem que a necessidade nutricional dos animais podem variar com idade, sexo, peso e raça.
+- Ração e suplementação alimentar são mais utilizadas dependendo da idade do animal (mais ofertada para bezerros) e das condições ambientais (época de seca demanda mais utilização de ração e suplementação alimentar).
+- 62,5% dos produtores já relataram problemas com gestão de ração incluindo falta dela (compra inferior a necessidade do rebanho) ou perda de ração por compra excessiva (vencimento da data de validade e acometimento do estoque por fungo/bactéria caracterizada pela presença de mofo que resultou em descarte do produto).
+- 100% dos produtores não fazem o cálculo de oferta de ração e suplemento alimentar com base no peso, idade, sexo e raça dos animais devido a dificuldade de gestão destas informações (número alto de animais do rebanho), embora todos os produtores consultados concordem que a gestão correta poderia otimizar ganho de peso e qualidade dos produtos derivados.
+
 > **Links Úteis**:
 > - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
 > - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
