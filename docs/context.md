@@ -60,3 +60,11 @@ Adicione informações sobre o público-alvo por meio de uma descrição textual
 > - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
 > - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
 > - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+
+
+O sistema é destinado a pecuaristas de médio e grande porte, dispondo de um rebanho variando entre 250 a 10.000 cabeças. O público-alvo se encontra na parte rural de seus municípios,  geralmente possuindo pouco contato com sistemas web, sendo assim necessário que a interface do usuário seja simples e intuitiva.
+
+A fim de compreender melhor o perfil de nossos futuros consumidores foi elaborado o buyer persona de um cliente ideal de nosso negócio, como podemos observar na imagem abaixo.
+
+<img src = "img/proto_persona.png">
+
