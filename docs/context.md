@@ -75,6 +75,26 @@ O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estat�
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
+
+Uma atividade que vem crescendo consideravelmente na pecuária brasileira é o confinamento de gados de corte. Isso porque uma de suas principais vantagens é o maior controle de tudo que é dado ao animal e o ganho de peso.
+Entretanto, independente do sistema de criação, a escolha dos alimentos desses animais deve levar em consideração primeiramente a qualidade dos mesmos. A quantidade também vai fazer muita diferença, o indicado é servir de duas a três porções diárias para os animais confinados.
+Na dieta de engorda em confinamento, os volumosos costumam ficar disponíveis nos cochos e os concentrados são fornecidos em quantidades controladas e em horários fixos. É fundamental que a água oferecida seja de boa qualidade, fresca e esteja sempre disponível. Proteínas, gordura, açúcares, cálcio, minerais, água e vitaminas são essenciais para esses animais. 
+Dessa forma é necessário um bom manejo nutricional para o gado, ai que o (nome do Site/App/Ferramenta) entra em jogo.
+
+	• Com o devido manejo, as possibilidades de combinação entre volumosos, concentrados e demais alimentos, é possível alcançar maior eficiência alimentar e econômica, fornecendo máxima nutrição com menor preço.
+
+	• Ainda, o uso de um sistema para gestão de alimentos seria ideal, uma vez que, além de melhorar a eficiência da dieta, reduz a chance de acidose ruminal e outras doenças metabólicas associadas (como timpanismo, quando o gás produzido no rúmen não consegue ser liberado, comprime o pulmão do animal, podendo levá-lo à morte). 
+
+	• A necessidade de consumo para cada quilo de ganho de peso pode cair pela metade.
+
+	• A dieta é metabolicamente mais eficiente, produzindo menos metano para cada quilograma de alimento ingerido.
+
+	• Além disso, o bovino atinge o peso final em tempo menor, principal motivo da redução de emissão de gases de efeito estufa (GEEs).
+	
+Pecuaristas brasileiros têm investido em dietas ricas em grãos e alimentos não fibrosos para bovinos de corte. A pesquisa agropecuária comprova que essa prática, já solidificada nos confinamentos norte-americanos, além de ser mitigadora de gases de efeito estufa (GEEs), traz economia significativa para o produtor. Um dos motivos disso é a melhor conversão alimentar dos animais que recebem a dieta adequada.
+
+Resumidamente, o que impulsionou a realização deste desse projeto foi proporcionar aos pecuaristas um melhor manejo nutricional para o gado.
+
 ## Público-Alvo
 
 Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
