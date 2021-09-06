@@ -89,9 +89,24 @@ Adicione informações sobre o público-alvo por meio de uma descrição textual
 > - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
 
 
-O sistema é destinado a pecuaristas de médio e grande porte, dispondo de um rebanho variando entre 250 a 10.000 cabeças. O público-alvo se encontra na parte rural de seus municípios,  geralmente possuindo pouco contato com sistemas web, sendo assim necessário que a interface do usuário seja simples e intuitiva.
+Através de pesquisas em literatura, benchmarking e em conhecimentos prévios adquiridos através de  vivência na área, a equipe conseguiu identificar três categorias que são:  latifundiários pecuaristas, veterinários encarregados das fazendas e funcionários que lidam diretamente com o manejo do rebanho. Descreveremos melhor sobre cada uma delas ao decorrer do texto.
+A primeira categoria e a mais alta na hierarquia é constituída por  latifundiários, pecuaristas e empresários no ramo do agronegócio  dispondo de um rebanho variando entre 250 a 10.000 cabeças, normalmente homens de 30 a 70 anos com pouca experiência em lidar com sistemas web. Esse grupo é quem comprará o sistema e geralmente irá lidar com relatórios envolvendo lucro e perdas.
+A fim de compreender melhor o perfil destes produtores rurais foi elaborado o buyer persona de um cliente ideal de nosso negócio, como podemos observar na imagem abaixo.
 
-A fim de compreender melhor o perfil de nossos futuros consumidores foi elaborado o buyer persona de um cliente ideal de nosso negócio, como podemos observar na imagem abaixo.
 
-<img src = "img/proto_persona.png">
+<img src = "img/persona_prop.png">
+
+
+Embora o proprietário da fazenda seja quem comprará efetivamente o sistema web, ele não será o único usuário do sistema, tornando necessário agregar outros grupos ao nosso público-alvo.
+O segundo grupo, e talvez o mais importante, é constituído por homens, entre 30 e 60 anos, residentes em áreas rurais, com formação superior em medicina veterinária, classe A, renda entre R$ 3.500 e R$ 6.000. É responsável pela mediação entre as outras categorias além de elaborar o planejamento nutricional do rebanho. Na imagem abaixo podemos entender melhor esse perfil através do buyer persona da classe.
+
+
+<img src = "img/persona_vet.png">
+
+A terceira categoria é a mais baixa na hierarquia e indispensável em integrar o nosso grupo de interesse, formada pelos funcionários que lidam diretamente com o manejo do rebanho sendo responsáveis em inserir os dados obtidos através do manejo. Composta por homens, entre 18 e 55 anos, residentes em áreas rurais, com formação no ensino fundamental ou médio, classe B, renda entre R$ 1.200 e R$ 3.000, com pouca utilização de tecnologias em seu cotidiano. Na imagem abaixo podemos entender melhor esse perfil através do buyer persona do grupo.
+
+
+<img src = "img/persona_operador.png">
+
+
 
