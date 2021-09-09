@@ -32,14 +32,6 @@ Para validar o problema, foi realizado uma pesquisa por telefone com 8 produtore
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
-
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
-
-
 Auxiliar pecuaristas com informações da quantidade de alimentos de qualidade a ser distribuída  para o gado, proporcionando  redução do custo de produção em relação ao consumo.
 
 	• Manejo alimentar no confinamento
@@ -55,14 +47,6 @@ Auxiliar pecuaristas com informações da quantidade de alimentos de qualidade a
 Com isso, o pecuarista consegue oferecer ao rebanho de corte uma alimentação balanceada, com suplementação adequada de proteína e energia, presentes nos concentrados e volumosos.
 
 ## Justificativa
-
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
-
 
 Uma atividade que vem crescendo consideravelmente na pecuária brasileira é o confinamento de gados de corte. Isso porque uma de suas principais vantagens é o maior controle de tudo que é dado ao animal e o ganho de peso.
 Entretanto, independente do sistema de criação, a escolha dos alimentos desses animais deve levar em consideração primeiramente a qualidade dos mesmos. A quantidade também vai fazer muita diferença, o indicado é servir de duas a três porções diárias para os animais confinados.
@@ -81,7 +65,7 @@ Dessa forma é necessário um bom manejo nutricional para o gado, ai que o (nome
 	
 Pecuaristas brasileiros têm investido em dietas ricas em grãos e alimentos não fibrosos para bovinos de corte. A pesquisa agropecuária comprova que essa prática, já solidificada nos confinamentos norte-americanos, além de ser mitigadora de gases de efeito estufa (GEEs), traz economia significativa para o produtor. Um dos motivos disso é a melhor conversão alimentar dos animais que recebem a dieta adequada.
 
-Resumidamente, o que impulsionou a realização deste desse projeto foi proporcionar aos pecuaristas um melhor manejo nutricional para o gado.
+Resumidamente, o que impulsionou a realização desse projeto foi proporcionar aos pecuaristas um melhor manejo nutricional para o gado.
 
 ## Público-Alvo
 
