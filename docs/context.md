@@ -15,18 +15,6 @@ Quando se busca maior produtividade por animal, o pasto, a silagem e o feno, nã
 Os insumos passam, então, pelo processamento, que precisa ser adequado à categoria e à produção do animal. O alimento deve ser fornecido respeitando a área de comedouro, para que todos os animais tenham acesso a ele e à água de qualidade. Por fim, é feita uma avaliação pós-alimentação, para verificar se a produção condiz com o esperado. Um bom manejo nutricional do rebanho, portanto, proporciona maiores ganhos em vários sentidos, pois além do ganho de peso, podem ocorrer também melhorias nas taxas reprodutivas e produtivas (no caso do rebanho leiteiro). Ou seja, um planejamento nutricional bem realizado é um fator determinante para se obter uma pecuária bem desenvolvida e lucrativa. 
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
-
-
 
 Com base em pesquisa de literatura, nosso grupo definiu a seguinte pergunta como problema: 
 
