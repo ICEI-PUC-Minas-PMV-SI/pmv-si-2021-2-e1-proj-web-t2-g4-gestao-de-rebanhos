@@ -26,8 +26,8 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`  |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|-------------------------------------|----------------------------------------|
-|Operador 1          | Conferir a quantidade de insumos    | Manter o estoque com quantidade adequda| 
-|Operador 1          | Registrar os fornecedores de insumos| Obter insumos de baixo custo, alta qualidade e custo reduzido |
+|Operador 1          | Conferir a quantidade de insumos  no estoque   | Manter o estoque com quantidade adequada| 
+|Operador 1          | Registrar os fornecedores de insumos| Obter insumos de menor custo, maior qualidade e entrega dentro do prazo |
 |Usuário do sistema  | Registrar minhas tarefas            | Não esquecer de fazê-las               |
 |Administrador       | Alterar permissões                  | Permitir que possam administrar contas |
 
