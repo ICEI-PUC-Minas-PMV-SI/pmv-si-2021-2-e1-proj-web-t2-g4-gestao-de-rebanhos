@@ -6,26 +6,24 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+A fim de compreender melhor o perfil dos clientes ideais que nosso sistema web almeja, foi elaborado o buyer persona de cada um das categorias encontradas no público-alvo, como podemos observar nas imagens abaixo.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+<img src = "img/persona_prop.png">
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+<img src = "img/persona_vet.png">
+
+<img src = "img/persona_operador.png">
+
+
 
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`  |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|-------------------------------------|----------------------------------------|
+| Proprietário | Relatório de controle financeiro lucro/perdas| Gerenciar o negócio com mais facilidade e eficácia.
+| Proprietário | Controle eficiente de usuário| Verificar quem está cumprindo com as devidas tarefas.
 |Veterinário Encarregado| Informações sobre a quantidade de alimentos volumosos e concentrados no estoque| Formular a melhor combinação de ração
 |Veterinário Encarregado| Relatório de ganho de peso dos animais| Saber se o animal se encontra na idade correta e peso adequado para abate
 |Veterinário Encarregado| Informações referente a raça, peso vivo, idade, sexo e taxa de ganho em peso esperado quando pesquisar pela ID do animal|Saber se o animal vai atingir as exigências nutricionais no período previsto
@@ -37,7 +35,6 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Operador 1          | Registrar os fornecedores de insumos| Obter insumos de menor custo, maior qualidade e entrega dentro do prazo |
 |Operador 3          | Documentar frequência de alimentação e quantidade de insumos consumidos |  Acompanhar a evolução do ganho ou perda de peso do animal |
 |Operador 3          | Acessar as informações necessárias sobre condição geral do animal | Definir o melhor momento para o abate |
-|Usuário do sistema  | Registrar minhas tarefas            | Não esquecer de fazê-las               |
 |Administrador       | Alterar permissões                  | Permitir que possam administrar contas |
 
 
