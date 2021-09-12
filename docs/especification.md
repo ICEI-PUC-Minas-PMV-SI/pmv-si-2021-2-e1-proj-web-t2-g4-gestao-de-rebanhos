@@ -33,6 +33,8 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 |Veterinário Encarregado|Relação entre a nutrição e bem-estar animal|Obter os melhores indicadores para realizar futuras aplicações de determinada dieta
 |Operador 1          | Conferir a quantidade de insumos  no estoque   | Manter o estoque com quantidade adequada| 
 |Operador 1          | Registrar os fornecedores de insumos| Obter insumos de menor custo, maior qualidade e entrega dentro do prazo |
+|Operador 2          | Gerar cálculo da quantidade de insumos necessários por animal | Diminuir perdas de ração e suplemento alimentar|
+|Operador 2          | Acessar o resultado do cálculo alimentar por animal | Alimentar o animal de acordo com as suas necessidades nutricionais | 
 |Operador 3          | Documentar frequência de alimentação e quantidade de insumos consumidos |  Acompanhar a evolução do ganho ou perda de peso do animal |
 |Operador 3          | Acessar as informações necessárias sobre condição geral do animal | Definir o melhor momento para o abate |
 |Administrador       | Alterar permissões                  | Permitir que possam administrar contas |
