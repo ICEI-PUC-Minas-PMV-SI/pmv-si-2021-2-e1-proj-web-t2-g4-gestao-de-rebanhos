@@ -37,6 +37,7 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 |Operador 2          | Acessar o resultado do cálculo alimentar por animal | Alimentar o animal de acordo com as suas necessidades nutricionais | 
 |Operador 3          | Documentar frequência de alimentação e quantidade de insumos consumidos |  Acompanhar a evolução do ganho ou perda de peso do animal |
 |Operador 3          | Acessar as informações necessárias sobre condição geral do animal | Definir o melhor momento para o abate |
+|Operador 4          | Atualizar cadastro do animal | Registrar novos ou dar baixa de animais no sistema | 
 |Administrador       | Alterar permissões                  | Permitir que possam administrar contas |
 
 
