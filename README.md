@@ -16,6 +16,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Mariana Rodrigues de Lima
 * Markus Antonio Machel
 * Tiago Antônio de Oliveira Mendes
+* Túlio Almeida Lopes
 
 ## Orientador
 
