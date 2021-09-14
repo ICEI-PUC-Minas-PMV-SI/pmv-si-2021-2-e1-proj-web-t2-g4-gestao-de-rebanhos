@@ -59,8 +59,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| Permitir que o usuário master (Proprietário) cadastre seus colaboradores | ALTA | 
+|RF-002| Emitir um relatório de lucro/perdas   | MÉDIA |
 |RF-003| Permitir que o operador 1 cadastre estoque de ração e suplemento alimentar| ALTA|
 |RF-004| Permitir que o operador 1 cadastre informação sobre data de validade dos lotes de ração e suplemento alimentar| MÉDIA |
 |RF-005| Permitir que o operador 1 cadastre informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
@@ -97,6 +97,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-015| O sistema deve apresentar o valor que será gasto ao escolher uma dieta específica | MÉDIA |
 |RNF-016| O sistema deve adotar adotar recomendações para acessibilidade de seu conteúdo | BAIXA |
 |RNF-017| O sistema deve possibilitar visualização em Alto Contraste | BAIXA |
+|RNF-018| O sistema deve acessar e armazenar dados em um banco NoSQL | MÉDIA |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
