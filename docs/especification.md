@@ -63,6 +63,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-003| Permitir que o operador 1 cadastre estoque de ração e suplemento alimentar| ALTA|
 |RF-004| Permitir que o operador 1 cadastre informação sobre data de validade dos lotes de ração e suplemento alimentar| MÉDIA |
 |RF-005| Permitir que o operador 1 cadastre informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
+|RF-006| Permitir que o operador 3 cadastre no sistema a frequência e a quantidade de insumos consumidos| ALTA |
+|RF-007| Permitir que o operador 3 acesse relatórios sobre condição geral do animal | MÉDIA |
+|RF-008| Permitir que o veterinário encarregado cadastre informações sobre as dietas| ALTA |
+|RF-009| Permitir que o veterinário encarregado obtenha um relatório sobre a nutrição do animal | ALTA |
 
 
 ### Requisitos não Funcionais
@@ -73,6 +77,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
 |RNF-003| O sistema deve calcular por quanto tempo o estoque de ração e suplemento alimentar irá durar |  ALTA |
 |RNF-004| O sistema deve informar ao usuário que o estoque de ração e suplemento alimentar está baixo |  MÉDIA | 
+|RNF-005| O sistema deve informar quantas vezes o animal se alimenta por dia |  ALTA |
+|RNF-006| O sistema deve calcular quantidade de alimento consumido pelo animal por dia |  MÉDIA | 
+|RNF-007| O sistema deve mostrar a(s) dieta(s) disponíveis para um animal específico |  ALTA |
+|RNF-008| O sistema deve  mostrar se o animal está com um bom nível de nutrição |  MÉDIA | 
 
 
 
