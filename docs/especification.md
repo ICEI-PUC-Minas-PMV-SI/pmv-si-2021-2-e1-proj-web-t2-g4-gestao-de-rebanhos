@@ -24,6 +24,7 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 |--------------------|-------------------------------------|----------------------------------------|
 | Proprietário | Relatório de controle financeiro lucro/perdas| Gerenciar o negócio com mais facilidade e eficácia.
 | Proprietário | Controle eficiente de usuário| Verificar quem está cumprindo com as devidas tarefas.
+| Proprietário | Selecionar a estratégia adequada para meu tipo de fazenda | Obter maior lucratividade e eficiência 
 |Veterinário Encarregado| Informações sobre a quantidade de alimentos volumosos e concentrados no estoque| Formular a melhor combinação de ração
 |Veterinário Encarregado| Relatório de ganho de peso dos animais| Saber se o animal se encontra na idade correta e peso adequado para abate
 |Veterinário Encarregado| Informações referente a raça, peso vivo, idade, sexo e taxa de ganho em peso esperado quando pesquisar pela ID do animal|Saber se o animal vai atingir as exigências nutricionais no período previsto
