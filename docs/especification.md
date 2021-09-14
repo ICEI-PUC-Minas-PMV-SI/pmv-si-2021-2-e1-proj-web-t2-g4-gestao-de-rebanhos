@@ -64,17 +64,18 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-003| Permitir que o operador 1 cadastre estoque de ração e suplemento alimentar| ALTA|
 |RF-004| Permitir que o operador 1 cadastre informação sobre data de validade dos lotes de ração e suplemento alimentar| MÉDIA |
 |RF-005| Permitir que o operador 1 cadastre informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
-|RF-006| Permitir que o operador 3 cadastre no sistema a frequência e a quantidade de insumos consumidos| ALTA |
-|RF-007| Permitir que o operador 3 acesse relatórios sobre condição geral do animal | MÉDIA |
-|RF-008| Permitir que o veterinário encarregado cadastre informações sobre as dietas| ALTA |
-|RF-009| Permitir que o veterinário encarregado obtenha um relatório sobre a nutrição do animal | ALTA |
-|RF-010| Emitir um relatório de controle financeiro | MÉDIA
-|RF-011| Permitir que o veterinário encarregado obtenha relatório da quantidade de alimentos MS (Matéria Seca)| ALTA |
-|RF-012| Permitir que o veterinário encarregado obtenha um relatório de ganho de peso dos animais | ALTA |
-|RF-013| Permitir que o veterinário encarregado obtenha informações detalhadas do animal quando pesquisar pela sua ID | ALTA |
-|RF-014| Permitir que o veterinário encarregado obtenha um comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
-|RF-015| Emitir um relatório de dos registros realizados pelos usuários no sistema | MÉDIA |
-|RF-016| Permitir que usuário Administrador possa gerenciar permissões dos outros usuários | MÉDIA |
+|RF-006| Permitir que o operador 2 gere cálculos | Alta|
+|RF-007| Permitir que o operador 3 cadastre no sistema a frequência e a quantidade de insumos consumidos| ALTA |
+|RF-008| Permitir que o operador 3 acesse relatórios sobre condição geral do animal | MÉDIA |
+|RF-009| Permitir que o veterinário encarregado cadastre informações sobre as dietas| ALTA |
+|RF-010| Permitir que o veterinário encarregado obtenha um relatório sobre a nutrição do animal | ALTA |
+|RF-011| Emitir um relatório de controle financeiro | MÉDIA
+|RF-012| Permitir que o veterinário encarregado obtenha relatório da quantidade de alimentos MS (Matéria Seca)| ALTA |
+|RF-013| Permitir que o veterinário encarregado obtenha um relatório de ganho de peso dos animais | ALTA |
+|RF-014| Permitir que o veterinário encarregado obtenha informações detalhadas do animal quando pesquisar pela sua ID | ALTA |
+|RF-015| Permitir que o veterinário encarregado obtenha um comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
+|RF-016| Emitir um relatório de dos registros realizados pelos usuários no sistema | MÉDIA |
+|RF-017| Permitir que usuário Administrador possa gerenciar permissões dos outros usuários | MÉDIA |
 
 ### Requisitos não Funcionais
 
