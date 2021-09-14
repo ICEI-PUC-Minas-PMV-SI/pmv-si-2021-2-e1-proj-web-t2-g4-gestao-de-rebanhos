@@ -84,8 +84,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-007| O sistema deve mostrar a(s) dieta(s) disponíveis para um animal específico |  ALTA |
 |RNF-008| O sistema deve  mostrar se o animal está com um bom nível de nutrição |  MÉDIA | 
 |RNF-009| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
-
-
+|RNF-010| O sistema deve adotar adotar recomendações para acessibilidade de seu conteúdo | Baixa |
+|RNF-010| O sistema deve possibilitar visualização em Alto Contraste | Baixa |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
