@@ -69,6 +69,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-008| Permitir que o veterinário encarregado cadastre informações sobre as dietas| ALTA |
 |RF-009| Permitir que o veterinário encarregado obtenha um relatório sobre a nutrição do animal | ALTA |
 |RF-010| Emitir um relatório de controle financeiro | MÉDIA
+|RF-011| Permitir que o veterinário encarregado obtenha relatório da quantidade de alimentos MS (Matéria Seca)| ALTA |
+|RF-012| Permitir que o veterinário encarregado obtenha um relatório de ganho de peso dos animais | ALTA |
+|RF-013| Permitir que o veterinário encarregado obtenha informações detalhadas do animal quando pesquisar pela sua ID | ALTA |
+|RF-014| Permitir que o veterinário encarregado obtenha um comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
 
 
 ### Requisitos não Funcionais
@@ -84,7 +88,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-007| O sistema deve mostrar a(s) dieta(s) disponíveis para um animal específico |  ALTA |
 |RNF-008| O sistema deve  mostrar se o animal está com um bom nível de nutrição |  MÉDIA | 
 |RNF-009| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
-
+|RNF-010| O sistema deve apresentar a melhor combinação de ração | MÉDIA |
+|RNF-011| O sistema deve apresentar as informações de cada animal através de sua ID | ALTA |
+|RNF-012| O sistema deve apresentar um relatório de ganho de peso dos animais | MÉDIA |
+|RNF-013| O sistema deve apresentar uma dieta adequada para determinada época do ano | BAIXA |
+|RNF-014| O sistema deve apresentar a dieta ideal para cada grupo do rebanho | MÉDIA |
+|RNF-015| O sistema deve apresentar o valor que será gasto ao escolher uma dieta específica | MÉDIA |
 
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
