@@ -68,6 +68,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-007| Permitir que o operador 3 acesse relatórios sobre condição geral do animal | MÉDIA |
 |RF-008| Permitir que o veterinário encarregado cadastre informações sobre as dietas| ALTA |
 |RF-009| Permitir que o veterinário encarregado obtenha um relatório sobre a nutrição do animal | ALTA |
+|RF-010| Emitir um relatório de controle financeiro | MÉDIA
 
 
 ### Requisitos não Funcionais
