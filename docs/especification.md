@@ -34,6 +34,7 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 |Veterinário Encarregado|Relação entre a nutrição e bem-estar animal|Obter os melhores indicadores para realizar futuras aplicações de determinada dieta
 |Operador 1          | Conferir a quantidade de insumos  no estoque   | Manter o estoque com quantidade adequada| 
 |Operador 1          | Registrar os fornecedores de insumos| Obter insumos de menor custo, maior qualidade e entrega dentro do prazo |
+|Operador 1          | Calcular sugestão de aquisição de insumos com base no estoque e no consumo estimado| Realizar aquisições eficientes sem necessidade de grandes estoques |
 |Operador 2          | Gerar cálculo da quantidade de insumos necessários por animal | Diminuir perdas de ração e suplemento alimentar|
 |Operador 2          | Acessar o resultado do cálculo alimentar por animal | Alimentar o animal de acordo com as suas necessidades nutricionais | 
 |Operador 3          | Documentar frequência de alimentação e quantidade de insumos consumidos |  Acompanhar a evolução do ganho ou perda de peso do animal |
@@ -76,7 +77,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-015| Permitir que o veterinário encarregado obtenha um comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
 |RF-016| Emitir um relatório de dos registros realizados pelos usuários no sistema | MÉDIA |
 |RF-017| Permitir que usuário Administrador possa gerenciar permissões dos outros usuários | MÉDIA |
-|RF-018| Permitir que o proprietário selecione através de um menu o tipo de fazenda | MÉDIA |
+|RF-017| Calcular sugestão de aquisição de insumos levando em conta o estoque e o consumo estimado | ALTA |
 
 ### Requisitos não Funcionais
 
