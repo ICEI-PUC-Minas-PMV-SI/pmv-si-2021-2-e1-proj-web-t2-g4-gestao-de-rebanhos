@@ -76,6 +76,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-015| Permitir que o veterinário encarregado obtenha um comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
 |RF-016| Emitir um relatório de dos registros realizados pelos usuários no sistema | MÉDIA |
 |RF-017| Permitir que usuário Administrador possa gerenciar permissões dos outros usuários | MÉDIA |
+|RF-018| Permitir que o proprietário selecione através de um menu o tipo de fazenda | MÉDIA |
 
 ### Requisitos não Funcionais
 
