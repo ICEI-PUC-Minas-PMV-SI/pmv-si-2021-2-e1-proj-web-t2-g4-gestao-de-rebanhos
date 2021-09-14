@@ -69,7 +69,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-008| Permitir que o veterinário encarregado cadastre informações sobre as dietas| ALTA |
 |RF-009| Permitir que o veterinário encarregado obtenha um relatório sobre a nutrição do animal | ALTA |
 |RF-010| Emitir um relatório de controle financeiro | MÉDIA
-
+|RF-011| Emitir um relatório de dos registros realizados pelos usuários no sistema | MÉDIA |
+|RF-012| Permitir que usuário Administrador possa gerenciar permissões dos outros usuários | MÉDIA |
 
 ### Requisitos não Funcionais
 
@@ -85,7 +86,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-008| O sistema deve  mostrar se o animal está com um bom nível de nutrição |  MÉDIA | 
 |RNF-009| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
 |RNF-010| O sistema deve adotar adotar recomendações para acessibilidade de seu conteúdo | Baixa |
-|RNF-010| O sistema deve possibilitar visualização em Alto Contraste | Baixa |
+|RNF-011| O sistema deve possibilitar visualização em Alto Contraste | Baixa |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
