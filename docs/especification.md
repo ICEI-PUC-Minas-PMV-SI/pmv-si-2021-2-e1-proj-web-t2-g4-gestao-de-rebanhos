@@ -82,6 +82,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-006| O sistema deve calcular quantidade de alimento consumido pelo animal por dia |  MÉDIA | 
 |RNF-007| O sistema deve mostrar a(s) dieta(s) disponíveis para um animal específico |  ALTA |
 |RNF-008| O sistema deve  mostrar se o animal está com um bom nível de nutrição |  MÉDIA | 
+|RNF-009| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
 
 
 
