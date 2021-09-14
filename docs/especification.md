@@ -73,7 +73,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-012| Permitir que o veterinário encarregado obtenha um relatório de ganho de peso dos animais | ALTA |
 |RF-013| Permitir que o veterinário encarregado obtenha informações detalhadas do animal quando pesquisar pela sua ID | ALTA |
 |RF-014| Permitir que o veterinário encarregado obtenha um comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
-
+|RF-015| Emitir um relatório de dos registros realizados pelos usuários no sistema | MÉDIA |
+|RF-016| Permitir que usuário Administrador possa gerenciar permissões dos outros usuários | MÉDIA |
 
 ### Requisitos não Funcionais
 
@@ -88,16 +89,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-007| O sistema deve mostrar a(s) dieta(s) disponíveis para um animal específico |  ALTA |
 |RNF-008| O sistema deve  mostrar se o animal está com um bom nível de nutrição |  MÉDIA | 
 |RNF-009| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
-|RNF-011| O sistema deve apresentar a melhor combinação de ração | MÉDIA |
-|RNF-012| O sistema deve apresentar as informações de cada animal através de sua ID | ALTA |
-|RNF-013| O sistema deve apresentar um relatório de ganho de peso dos animais | MÉDIA |
-|RNF-014| O sistema deve apresentar uma dieta adequada para determinada época do ano | BAIXA |
-|RNF-015| O sistema deve apresentar a dieta ideal para cada grupo do rebanho | MÉDIA |
-|RNF-016| O sistema deve apresentar o valor que será gasto ao escolher uma dieta específica | MÉDIA |
-
-=======
-|RNF-010| O sistema deve adotar adotar recomendações para acessibilidade de seu conteúdo | Baixa |
-|RNF-010| O sistema deve possibilitar visualização em Alto Contraste | Baixa |
+|RNF-010| O sistema deve apresentar a melhor combinação de ração | MÉDIA |
+|RNF-011| O sistema deve apresentar as informações de cada animal através de sua ID | ALTA |
+|RNF-012| O sistema deve apresentar um relatório de ganho de peso dos animais | MÉDIA |
+|RNF-013| O sistema deve apresentar uma dieta adequada para determinada época do ano | BAIXA |
+|RNF-014| O sistema deve apresentar a dieta ideal para cada grupo do rebanho | MÉDIA |
+|RNF-015| O sistema deve apresentar o valor que será gasto ao escolher uma dieta específica | MÉDIA |
+|RNF-016| O sistema deve adotar adotar recomendações para acessibilidade de seu conteúdo | BAIXA |
+|RNF-017| O sistema deve possibilitar visualização em Alto Contraste | BAIXA |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
