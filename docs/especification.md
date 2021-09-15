@@ -62,45 +62,34 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |------|-----------------------------------------|----|
 |RF-001| Permitir que o usuário master (Proprietário) cadastre seus colaboradores | ALTA | 
 |RF-002| Emitir um relatório de lucro/perdas   | MÉDIA |
-|RF-003| Permitir que o operador 1 cadastre estoque de ração e suplemento alimentar| ALTA|
-|RF-004| Permitir que o operador 1 cadastre informação sobre data de validade dos lotes de ração e suplemento alimentar| MÉDIA |
-|RF-005| Permitir que o operador 1 cadastre informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
-|RF-006| Permitir que o operador 2 insira dados para cálcular insumos necessários por animal | ALTA |
-|RF-007| Permitir que o operador 3 cadastre no sistema a frequência e a quantidade de insumos consumidos| ALTA |
-|RF-008| Permitir que o operador 3 acesse relatórios sobre condição geral do animal | MÉDIA |
-|RF-009| Permitir que o veterinário encarregado cadastre informações sobre as dietas| ALTA |
-|RF-010| Permitir que o veterinário encarregado obtenha um relatório sobre a nutrição do animal | ALTA |
-|RF-011| Emitir um relatório de controle financeiro | MÉDIA
-|RF-012| Permitir que o veterinário encarregado obtenha relatório da quantidade de alimentos MS (Matéria Seca)| ALTA |
-|RF-013| Permitir que o veterinário encarregado obtenha um relatório de ganho de peso dos animais | ALTA |
-|RF-014| Permitir que o veterinário encarregado obtenha informações detalhadas do animal quando pesquisar pela sua ID | ALTA |
-|RF-015| Permitir que o veterinário encarregado obtenha um comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
-|RF-016| Emitir um relatório de dos registros realizados pelos usuários no sistema | MÉDIA |
-|RF-017| Permitir que usuário Administrador possa gerenciar permissões dos outros usuários | MÉDIA |
+|RF-003| Permitir o cadastro da informação sobre data de validade dos lotes de ração e suplemento alimentar| MÉDIA |
+|RF-004| Permitir o cadastros de informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
+|RF-005| Permitir a inserção de dados para cálcular insumos necessários por animal | ALTA |
+|RF-006| Permitir o cadastro no sistema sobre frequência e a quantidade de insumos consumidos| ALTA |
+|RF-007| Permitir acesso a relatórios sobre condição geral do animal | MÉDIA |
+|RF-008| Permitir cadastro de informações sobre as dietas| ALTA |
+|RF-009| Emitir um relatório da nutrição do animal | ALTA |
+|RF-010| Emitir um relatório de controle financeiro | MÉDIA
+|RF-011| Emitir um relatório da quantidade de alimentos MS (Matéria Seca)| ALTA |
+|RF-012| Emitir um relatório de ganho de peso do animal | ALTA |
+|RF-013| Emitir informações detalhadas do animal quando pesquisar pela sua ID | ALTA |
+|RF-014| Emitir comparativo entre uma dieta com maior teor de concentrados em relação aos volumosos | ALTA |
+|RF-015| Emitir um relatório dos registros realizados pelos usuários no sistema | MÉDIA |
+|RF-016| Permitir gerenciamento de permissões dos outros usuários | MÉDIA |
 |RF-017| Calcular sugestão de aquisição de insumos levando em conta o estoque e o consumo estimado | ALTA |
-
+|RF-018| Calcular por quanto tempo o estoque de ração e suplemento alimentar irá durar |  ALTA |
+|RF-019| Informar ao usuário que o estoque de ração e suplemento alimentar está baixo |  MÉDIA |
+|RF-020| Apresentar a dieta ideal para cada grupo do rebanho | MÉDIA |
+|RF-021| Apresentar uma dieta adequada para determinada época do ano | BAIXA |
+|RF-022| Apresentar recomendações para acessibilidade de seu conteúdo | BAIXA |
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
 |RNF-001| O sistema deve ser responsivo para rodar em um dispositivo móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-|RNF-003| O sistema deve calcular por quanto tempo o estoque de ração e suplemento alimentar irá durar |  ALTA |
-|RNF-004| O sistema deve informar ao usuário que o estoque de ração e suplemento alimentar está baixo |  MÉDIA | 
-|RNF-005| O sistema deve informar quantas vezes o animal se alimenta por dia |  ALTA |
-|RNF-006| O sistema deve calcular quantidade de alimento consumido pelo animal por dia |  MÉDIA | 
-|RNF-007| O sistema deve mostrar a(s) dieta(s) disponíveis para um animal específico |  ALTA |
-|RNF-008| O sistema deve  mostrar se o animal está com um bom nível de nutrição |  MÉDIA | 
-|RNF-009| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
-|RNF-010| O sistema deve apresentar a melhor combinação de ração | MÉDIA |
-|RNF-011| O sistema deve apresentar as informações de cada animal através de sua ID | ALTA |
-|RNF-012| O sistema deve apresentar um relatório de ganho de peso dos animais | MÉDIA |
-|RNF-013| O sistema deve apresentar uma dieta adequada para determinada época do ano | BAIXA |
-|RNF-014| O sistema deve apresentar a dieta ideal para cada grupo do rebanho | MÉDIA |
-|RNF-015| O sistema deve apresentar o valor que será gasto ao escolher uma dieta específica | MÉDIA |
-|RNF-016| O sistema deve adotar adotar recomendações para acessibilidade de seu conteúdo | BAIXA |
-|RNF-017| O sistema deve possibilitar visualização em Alto Contraste | BAIXA |
-|RNF-018| O sistema deve acessar e armazenar dados em um banco NoSQL | MÉDIA |
+|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA |  
+|RNF-003| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
+|RNF-004| O sistema deve possibilitar visualização em Alto Contraste | BAIXA |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
