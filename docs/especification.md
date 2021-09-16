@@ -22,15 +22,15 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`  |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|-------------------------------------|----------------------------------------|
-| Proprietário | Emitir relatório de controle financeiro lucro/perdas| Gerenciar o negócio com mais facilidade e eficácia.
-| Proprietário | Emitir relatório de controle ações dos usuários| Verificar quem está cumprindo com as devidas tarefas.
+| Proprietário | Obter relatório de controle financeiro lucro/perdas| Gerenciar o negócio com mais facilidade e eficácia.
+| Proprietário | Obter relatório de controle ações dos usuários| Verificar quem está cumprindo com as devidas tarefas.
 | Proprietário | Selecionar a estratégia adequada para meu tipo de fazenda | Obter maior lucratividade e eficiência 
 |Veterinário Encarregado| Consultar informações sobre a quantidade de alimentos volumosos e concentrados no estoque| Formular a melhor combinação de ração
-|Veterinário Encarregado| Emitir relatório de ganho de peso dos animais| Saber se o animal se encontra na idade correta e peso adequado para abate
+|Veterinário Encarregado| Obter relatório de ganho de peso dos animais| Saber se o animal se encontra na idade correta e peso adequado para abate
 |Veterinário Encarregado| Consultar informações referente a raça, peso vivo, idade, sexo e taxa de ganho em peso esperado quando pesquisar pela ID do animal|Saber se o animal vai atingir as exigências nutricionais no período previsto
 |Veterinário Encarregado| Realizar comparação entre uma dieta com maior teor de alimentos concentrados em relação a volumosos|Apresentar a melhor conversão alimentar para determinada época do ano
 |Veterinário Encarregado| Verificar qualidade, validade e quantidade dos alimentos que serão distribuídos|Formulação da ração com o menor custo e máximo desempenho possível
-|Veterinário Encarregado| Emitir relatório que apresente desempenho do animal com dieta x e y|Descobrir a melhor dieta para cada grupo do rebanho
+|Veterinário Encarregado| Obter relatório que apresente desempenho do animal com dieta x e y|Descobrir a melhor dieta para cada grupo do rebanho
 |Veterinário Encarregado| Consultar relação entre a nutrição e bem-estar animal|Obter os melhores indicadores para realizar futuras aplicações de determinada dieta
 |Operador 1          | Conferir a quantidade de insumos  no estoque   | Manter o estoque com quantidade adequada| 
 |Operador 1          | Registrar os fornecedores de insumos| Obter insumos de menor custo, maior qualidade e entrega dentro do prazo |
