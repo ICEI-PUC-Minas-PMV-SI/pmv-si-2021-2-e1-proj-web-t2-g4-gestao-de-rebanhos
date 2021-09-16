@@ -23,24 +23,19 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`  |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|-------------------------------------|----------------------------------------|
 | Proprietário | Obter relatório de controle financeiro lucro/perdas| Gerenciar o negócio com mais facilidade e eficácia.
-| Proprietário | Obter relatório de controle ações dos usuários| Verificar quem está cumprindo com as devidas tarefas.
+| Proprietário | Gerenciar usuários| Administrar usuários e verificar ações realizadas
 | Proprietário | Selecionar a estratégia adequada para meu tipo de fazenda | Obter maior lucratividade e eficiência 
-|Veterinário Encarregado| Consultar informações sobre a quantidade de alimentos volumosos e concentrados no estoque| Formular a melhor combinação de ração
 |Veterinário Encarregado| Obter relatório de ganho de peso dos animais| Saber se o animal se encontra na idade correta e peso adequado para abate
 |Veterinário Encarregado| Consultar informações referente a raça, peso vivo, idade, sexo e taxa de ganho em peso esperado quando pesquisar pela ID do animal|Saber se o animal vai atingir as exigências nutricionais no período previsto
 |Veterinário Encarregado| Realizar comparação entre uma dieta com maior teor de alimentos concentrados em relação a volumosos|Apresentar a melhor conversão alimentar para determinada época do ano
-|Veterinário Encarregado| Verificar qualidade, validade e quantidade dos alimentos que serão distribuídos|Formulação da ração com o menor custo e máximo desempenho possível
-|Veterinário Encarregado| Obter relatório que apresente desempenho do animal com dieta x e y|Descobrir a melhor dieta para cada grupo do rebanho
-|Veterinário Encarregado| Consultar relação entre a nutrição e bem-estar animal|Obter os melhores indicadores para realizar futuras aplicações de determinada dieta
-|Operador 1          | Conferir a quantidade de insumos  no estoque   | Manter o estoque com quantidade adequada| 
-|Operador 1          | Registrar os fornecedores de insumos| Obter insumos de menor custo, maior qualidade e entrega dentro do prazo |
-|Operador 1          | Calcular sugestão de compras de insumos com base no estoque e no consumo estimado| Realizar aquisições eficientes sem necessidade de grandes estoques |
-|Operador 2          | Gerar cálculo da quantidade de insumos necessários por animal | Diminuir perdas de ração e suplemento alimentar|
-|Operador 2          | Acessar o resultado do cálculo alimentar por animal | Alimentar o animal de acordo com as suas necessidades nutricionais | 
+|Veterinário Encarregado| Obter relatório que apresente desempenho do animal com dieta x e y| Descobrir a melhor dieta para cada grupo do rebanho
+|Veterinário Encarregado| Consultar relação entre a nutrição e bem-estar animal | Obter os melhores indicadores para realizar futuras aplicações de determinada dieta
+|Operador 1          | Gerenciar controle de estoque e fornecedores de insumos  | Manter o estoque com quantidade adequada | 
+|Operador 1          | Obter relatório de controle de insumos e sugestão de compras | Realizar aquisições eficientes sem necessidade de grandes estoques |
+|Operador 2          | Obter cálculo da quantidade de insumos necessários por animal | Diminuir perdas de ração e suplemento alimentar|
 |Operador 3          | Documentar frequência de alimentação e quantidade de insumos consumidos |  Acompanhar a evolução do ganho ou perda de peso do animal |
 |Operador 3          | Acessar as informações necessárias sobre condição geral do animal | Definir o melhor momento para o abate |
 |Operador 4          | Atualizar cadastro do animal | Registrar novos animais ou dar baixa de animais no sistema | 
-|Administrador       | Alterar permissões                  | Permitir que possam administrar contas |
 
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
@@ -60,7 +55,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário master (Proprietário) cadastre seus colaboradores | ALTA | 
+|RF-001| Permitir que o usuário master  cadastre seus colaboradores | ALTA | 
 |RF-002| Emitir um relatório de lucro/perdas   | MÉDIA |
 |RF-003| Permitir o cadastro da informação sobre data de validade dos lotes de ração e suplemento alimentar| MÉDIA |
 |RF-004| Permitir o cadastros de informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
