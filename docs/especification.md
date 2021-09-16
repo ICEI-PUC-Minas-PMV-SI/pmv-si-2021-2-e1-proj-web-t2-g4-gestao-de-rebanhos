@@ -24,7 +24,6 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 |--------------------|-------------------------------------|----------------------------------------|
 | Proprietário | Obter relatório de controle financeiro lucro/perdas| Gerenciar o negócio com mais facilidade e eficácia.
 | Proprietário | Gerenciar usuários| Administrar usuários e verificar ações realizadas
-| Proprietário | Selecionar a estratégia adequada para meu tipo de fazenda | Obter maior lucratividade e eficiência 
 |Veterinário Encarregado| Obter relatório de ganho de peso dos animais| Saber se o animal se encontra na idade correta e peso adequado para abate
 |Veterinário Encarregado| Consultar informações referente a raça, peso vivo, idade, sexo e taxa de ganho em peso esperado quando pesquisar pela ID do animal|Saber se o animal vai atingir as exigências nutricionais no período previsto
 |Veterinário Encarregado| Realizar comparação entre uma dieta com maior teor de alimentos concentrados em relação a volumosos|Apresentar a melhor conversão alimentar para determinada época do ano
@@ -47,22 +46,22 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |------|-----------------------------------------|----|
 |RF-001| Permitir que o usuário master  cadastre seus colaboradores | ALTA | 
 |RF-002| Permitir o gerenciamento dos insumos| ALTA |
-|RF-003| Permitir o cadastros de informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
 |RF-004| Permitir a inserção de dados para cálcular insumos necessários por animal | ALTA |
 |RF-005| Permitir o gerenciamento sobre condição geral do animal | ALTA |
-|RF-006| Emitir um relatório de controle financeiro | BAIXA
-|RF-007| Apresentar sugestões de dietas adequadas as condições gerais dos animais | MÉDIA |
+|RF-006| Apresentar sugestões de dietas adequadas as condições gerais dos animais | MÉDIA |
+|RF-007| Emitir um relatório de controle financeiro | BAIXA |
+|RF-008| Permitir o cadastros de informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivo móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA |  
+|RNF-001| Autenticação do sistema | ALTA |
+|RNF-002| O sistema deve ser responsivo para rodar em um dispositivo móvel | MÉDIA |  
 |RNF-003| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
-|RNF-004| O sistema deve possibilitar visualização em Alto Contraste | BAIXA |
-|RNF-005| Registrar as ações de cada usuário do sistema | BAIXA |
-
+|RNF-004| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-005| O sistema deve possibilitar visualização em Alto Contraste | BAIXA |
+|RNF-006| Registrar as ações de cada usuário do sistema | BAIXA |
 
 ## Restrições
 
