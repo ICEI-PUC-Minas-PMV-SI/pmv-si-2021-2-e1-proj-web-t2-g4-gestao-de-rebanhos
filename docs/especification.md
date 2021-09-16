@@ -81,7 +81,6 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-019| Informar ao usuário que o estoque de ração e suplemento alimentar está baixo |  MÉDIA |
 |RF-020| Apresentar a dieta ideal para cada grupo do rebanho | MÉDIA |
 |RF-021| Apresentar uma dieta adequada para determinada época do ano | BAIXA |
-|RF-022| Apresentar recomendações para acessibilidade de seu conteúdo | BAIXA |
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
