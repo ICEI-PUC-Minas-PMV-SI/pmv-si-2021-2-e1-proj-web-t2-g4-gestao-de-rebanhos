@@ -18,7 +18,7 @@ Os insumos passam, então, pelo processamento, que precisa ser adequado à categ
 
 Com base em pesquisa de literatura, nosso grupo definiu a seguinte pergunta como problema: 
 
-Devido a alto número de indivíduos no rebanho que podem incluir raças, idades, peso e sexo diferente,  a gestão de ração e suplementos alimentares pode não ser eficiente levando a prejuízos por nutrição ineficiente do gado, excesso do estoque de ração que pode levar a perda por validade dos produtos e compra de proporções incorretas dos componentes da ração e suplementação alimentar?
+Devido ao alto número de indivíduos no rebanho que podem incluir raças, idades, peso e sexo diferente,  a gestão de ração e suplementos alimentares pode não ser eficiente levando a prejuízos por nutrição ineficiente do gado, excesso do estoque de ração que pode levar a perda por validade dos produtos e compra de proporções incorretas dos componentes da ração e suplementação alimentar.Quais são os fatores que levam a essa ineficiência de gestão?
 
 Para validar o problema, foi realizado uma pesquisa por telefone com 8 produtores de gado de corte e leite da região da Zona da Mata de Minas Gerais incluindo as cidades de Ponte Nova, Ubá, Paula Candido, Viçosa e Teixeiras. Um total de 4 propriedades atuavam especificamente na criação de gado de corte, 3 propriedades atuavam apenas na criação de gado de leite e uma propriedade atuavam tanto na criação de gado de corte e leite. Perguntas relacionadas a gestão de alimentos para o rebanho foram realizadas e as seguintes informações que validam o nosso problema levantado foram extraídos dos dados obtidos:
 
