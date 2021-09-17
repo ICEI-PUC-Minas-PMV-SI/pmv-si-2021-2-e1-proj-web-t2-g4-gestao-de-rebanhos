@@ -7,7 +7,7 @@
 
 `SEMESTRE: 1º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Sistema de gerenciamento de rebanhos em fazendas que otimiza o controle e manutenção de estoque de alimentos e insumos alimentares, gestão e otimização de dietas e acompanhamento ganho de peso dos animais.
 
 ## Integrantes
 
