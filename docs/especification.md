@@ -39,10 +39,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário master  cadastre seus colaboradores | ALTA | 
-|RF-002| Permitir o gerenciamento dos insumos| ALTA |
-|RF-004| Permitir a inserção de dados para cálcular insumos necessários por animal | ALTA |
-|RF-005| Permitir o gerenciamento sobre condição geral do animal | ALTA |
+|RF-001| Permitir que o usuário master (Propietário) cadastre seus colaboradores | ALTA | 
+|RF-002| Permitir o gerenciamento do estoque e consumo de insumos| ALTA |
+|RF-004| Permitir a inserção de dados para cálcular a quantidade de insumos necessários por animal | ALTA |
+|RF-005| Permitir o gerenciamento sobre condições gerais de saúde e desenvolvimento de cada animal | ALTA |
 |RF-006| Apresentar sugestões de dietas adequadas as condições gerais dos animais | MÉDIA |
 |RF-007| Emitir um relatório de controle financeiro | BAIXA |
 |RF-008| Permitir o cadastros de informações sobre fornecedores de ração e suplemento alimentar| BAIXA |
@@ -54,9 +54,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-001| Autenticação do sistema | ALTA |
 |RNF-002| O sistema deve ser responsivo para rodar em um dispositivo móvel | MÉDIA |  
 |RNF-003| O sistema deve permitir o registro de informações mesmo offline | MÉDIA |
-|RNF-004| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-004| O sistema deve processar requisições do usuário em no máximo 3s |  BAIXA | 
 |RNF-005| O sistema deve possibilitar visualização em Alto Contraste | BAIXA |
-|RNF-006| Registrar as ações de cada usuário do sistema | BAIXA |
+|RNF-006| O sistema deve registrar as ações de cada usuário do sistema | BAIXA |
 
 ## Restrições
 
