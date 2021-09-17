@@ -7,7 +7,7 @@
 
 `SEMESTRE: 1º`
 
-Sistema de gerenciamento de rebanhos em fazendas que otimiza o controle e manutenção de estoque de alimentos e insumos alimentares, gestão e otimização de dietas e acompanhamento ganho de peso dos animais.
+Sistema de gerenciamento de rebanhos em fazendas que otimiza o controle e manutenção de estoque de alimentos e insumos alimentares, gestão e otimização de dietas e acompanhamento de ganho de peso dos animais.
 
 ## Integrantes
 
