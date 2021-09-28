@@ -2,7 +2,6 @@
 
 Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
 
-Introdução:
 
 1 https://www.embrapa.br/qualidade-da-carne/carne-bovina. <br />
 
