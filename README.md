@@ -16,8 +16,8 @@ Sistema de gerenciamento de rebanhos em fazendas que otimiza o controle e manute
 * Mariana Rodrigues de Lima
 * Markus Antonio Machel
 * Tiago Antônio de Oliveira Mendes
-* Túlio Almeida Lopes
 * Thiago Augusto Cardoso e Silva
+* Túlio Almeida Lopes
 
 ## Orientador
 
