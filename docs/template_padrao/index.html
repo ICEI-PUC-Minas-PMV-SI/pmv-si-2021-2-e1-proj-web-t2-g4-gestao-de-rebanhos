@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="keywords for site" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    		function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- /for-mobile-apps -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- /js -->
+    <link href='//fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+	<script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+</head>
+<body>
+<!-- header -->
+<div class="top-nav">
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header navbar-left">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+				<nav class="menu menu--shylock">
+					<ul class="nav navbar-nav link-effect-7" id="link-effect-7">
+						<li ><a href="index.html" data-hover="Início">Início</a></li>
+						<li><a href="#about" data-hover="Sobre Nós">Sobre Nós</a></li>
+						<li><a href="#cases" data-hover="Cases">Cases</a></li>
+						<li><a href="#prices" data-hover="Planos e Preços">Planos e Preços</a></li>
+						<li><a href="template_padrao.html" data-hover="Template">Template</a></li>
+					</ul>
+				</nav>
+			</div>
+		</nav>	
+	</div>	
+</div>	
+<!-- //header -->
+<!-- banner -->
+	<div class="banner">
+		<div class="container">
+			<div class="logo text-center">
+				<h1><a href="index.html">Gado de <span style="color: goldenrod;">Ouro</span></a></h1>
+			</div>
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="banner_info">
+								<h3>Calcule com facilidade os resultados do seu negócio, tome as melhores decisões!</h3>
+							</div>
+						</li>
+						<li>
+							<div class="banner_info">
+								<h3>Analise a situação da sua fazenda de qualquer lugar e a qualquer hora.</h3>
+							</div>
+						</li>
+						<li>
+							<div class="banner_info">
+								<h3>Acompanhe em uma única tela as informações mais importantes  do rebanho.</h3>
+							</div>
+							
+						</li>
+						
+					</ul>
+				</div>
+			</section>
+			<!-- flexSlider -->
+				<script defer src="js/jquery.flexslider.js"></script>
+				<script type="text/javascript">
+				$(window).load(function(){
+				  $('.flexslider').flexslider({
+					animation: "slide",
+					start: function(slider){
+					  $('body').removeClass('loading');
+					}
+				  });
+				});
+			  </script>
+			<!-- /flexSlider -->
+		</div>
+	</div>
+<!-- /banner -->
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="text-center banner_bottom_left">
+				<h2>Controle do gado sem complicação.</h2>
+			</div>
+			<div class="justify-content-center">
+				<div class="more">
+					<a href="#" class="button button--nina button--size-s" data-text="Contratar">
+						<span>C</span><span>o</span><span>n</span><span>t</span><span>r</span><span>a</span><span>t</span><span>a</span><span>r</span>
+					</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+<!-- /banner-bottom -->
+	<!-- about -->
+	<div class="about" id="about">
+		<div class="container">
+			<div class="agileits-about-grids">
+				<div class="col-md-4 agileinfo-about-left">
+					<div class="about-left-img">
+						
+					</div>
+				</div>
+				<div class="col-md-8 about-right">
+					<div class="about-right-info">
+						<h2>Sobre Nós</h2>
+						<div class="border"> </div>
+					</div>
+					<div class="about-slider">
+						<div class="slider">
+							<div class="callbacks_container">
+								<ul class="rslides" id="slider4">
+									<li>
+										<div class="site-text">
+											<p>O Gado de Ouro nasceu com o objetivo de facilitar a vida dos pecuaristas, por meio da oferta de soluções tecnológicas simples, precisas e seguras que ajudem a melhorar a produtividade e a rentabilidade das fazendas.</p>
+										</div>
+										<div class="site-text">
+											<p>Somos apaixonados por pecuária, orgulhosos por alimentar muitas pessoas no mundo, defensores da pecuária sustentável e felizes pelo contato e respeito que temos pela natureza.</p>
+										</div>
+										<div class="site-text">
+											<p>Nossa missão é criar e oferecer soluções de tecnologia que aumentem a produtividade e a rentabilidade do produtor e, ao mesmo tempo, tornem a sua vida mais fácil.</p>
+										</div>
+									</li>
+								
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- /about -->
+		<!-- Stats -->
+		<div class="stats  agileits" id="stats">
+			<div class="container">
+	
+				<h2 style="text-align: center; padding-bottom: 1em; " class="numscroller">STATUS</h2>
+	
+				<div class="stats-info  agileits">
+					<div class="col-md-4 col-sm-4  agileits stats-grid stats-grid-1 ">
+						<div class="stats-img  agileits">
+							<img src="images/fazenda.svg" >
+						</div>
+						<div class='numscroller  agileits numscroller-big-bottom' data-slno='1' data-min='0' data-max='1285' data-delay='5' data-increment="50">1.285</div>
+						<p>fazendas usando o método de gestão Gado de <span style="color: goldenrod;">Ouro</span> </p>
+					</div>
+					<div class="col-md-4 col-sm-4  agileits stats-grid stats-grid-2">
+						<div class="stats-img  agileits">
+							<img src="images/cabeca_gado.svg" >
+						</div>
+						<div class='numscroller  agileits numscroller-big-bottom' data-slno='1' data-min='0' data-max='7224171' data-delay='5' data-increment="80000">7.224.171</div>
+						<p>de cabeças de gado já passaram pela nossa porteira.</p>
+					</div>
+					<div class="col-md-4 col-sm-4  agileits stats-grid stats-grid-3">
+						<div class="stats-img  agileits">
+							<img src="images/insumos.svg" >
+						</div>
+						<div class='numscroller  agileits numscroller-big-bottom' data-slno='1' data-min='0' data-max='986091157' data-delay='5' data-increment="500000">986.091.157</div>
+						<p>toneladas de insumos consumidos.</p>
+					</div>
+					
+				</div>
+			</div>
+	
+		</div>
+		<!-- /Stats -->
+	<!-- Why -->
+	<div id="why" class="why agileits">
+		<div class="container">
+
+			<h3 class="text-center">Por que nos escolher</h3>
+
+			<div class="why-grids  agileits">
+
+				<div class="col-md-4 col-sm-4  agileits why-grid why-grid-1">
+					<nav class="why-effect  agileits">
+						<a href=""><img src="images/interface.svg" ></a>
+					</nav>
+					<div class="why-info  agileits">
+						<h4>Fácil de Usar</h4>
+						<p>Ferramenta prática e intuitiva, que facilita a gestão da fazenda, criação de manejos, controle de vacinações e medicamentos. O Gado de Ouro também ajuda a organizar todo o seu estoque, contatos de fornecedores, parceiros e clientes.</p>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4 col-sm-4  agileits why-grid why-grid-2">
+					<nav class="why-effect  agileits">
+						<a href=""><img src="images/grafico.svg"></a>
+					</nav>
+					<div class="why-info  agileits">
+						<h4>Relatórios</h4>
+						<p>Elimine de vez os cadernos e planilhas. O Gado de Ouro disponibiliza gráficos e relatórios com todas as informações que você precisa para acompanhar o desempenho da sua fazenda. Tais como extrato do rebanho, indicadores de produtividade, análises Zootécnicas e estatísticas reprodutivas.</p>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4 col-sm-4  agileits why-grid why-grid-3">
+					<nav class="why-effect  agileits">
+						<a href=""><img src="images/saco_grana.svg" ></a>
+					</nav>
+					<div class="why-info  agileits">
+						<h4>Avaliação gratuita</h4>
+						<p>Experimente a ferramenta de forma gratuita e tenha muito mais segurança na hora de fechar o negócio.</p>
+					</div>
+					
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+	<!-- /Why -->
+	<!-- banner 2 -->
+	<div class="container-fluid">
+		<div class="row banner-2-container" >
+			<div class=" col-sm-8"> 
+				<h3 class="banner-2-text" >Quero melhorar agora mesmo os resultados do meu rebanho!</h3>
+			</div>
+			<div class=" col-sm-4 justify-content-center banner_bottom_right">
+				<div class="more">
+					<a href="#" class="button button--nina button--size-s" data-text="Contratar">
+						<span>C</span><span>o</span><span>n</span><span>t</span><span>r</span><span>a</span><span>t</span><span>a</span><span>r</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /banner 2 -->
+	<!-- cases -->
+	<div id="cases" class="container cases">
+		<h3 class="text-center">Histórias de <span style="color: #449D46;">Sucesso</span></h3>
+		
+			<div >
+				<!-- case1 -->
+				<div class="col-sm-4">
+					<div class="container-case" >
+						<div class="title-container-case" >
+							<p>Agrobov</p>
+						</div>
+						<div class="container-info-case" >
+							<span  class="text-info-case text-center">3.900 ANIMAIS</span>
+							<div class="pull-left icon-case">
+								<img src="images/vaca.svg" >
+							</div>
+						</div>
+						<div class="container-info-case" >
+							<span  class="text-info-case text-center">RECRIA E ENGORDA</span>
+							<div class="pull-left icon-case" >
+								<img  style="width: 1em;" src="images/grama.svg" >
+							</div>
+						</div>
+						<div class="container-info-case" >
+							<span class="text-info-case text-center">CURVELO/MG</span>
+							<div class="pull-left icon-case" >
+								<img style="width: .8em;" src="images/point.svg" >
+							</div>
+						</div>
+						<div class="background-case background-case1">
+							<div>
+								<div style="padding-top: 5em;" >
+									<div>
+										<a href="#" class="button button--nina button--size-s" data-text="+ Detalhes">
+											<span>+</span><span>D</span><span>e</span><span>t</span><span>a</span><span>l</span><span>h</span><span>e</span><span>s</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /case 1 -->
+				<!-- case 2 -->
+				<div class=" col-sm-4">
+					<div class="container-case" >
+						<div class="title-container-case" >
+							<p>Rei do Gado</p>
+						</div>
+						<div class="container-info-case" >
+							<span  class="text-info-case text-center">10.900 ANIMAIS</span>
+							<div class="pull-left icon-case">
+								<img src="images/vaca.svg" >
+							</div>
+						</div>
+						<div class="container-info-case" >
+							<span  class="text-info-case text-center">RECRIA E ENGORDA</span>
+							<div class="pull-left icon-case" >
+								<img  style="width: 1em;" src="images/grama.svg" >
+							</div>
+						</div>
+						<div class="container-info-case" >
+							<span class="text-info-case text-center">RIBEIRÃO PRETO/MG</span>
+							<div class="pull-left icon-case" >
+								<img style="width: .8em;" src="images/point.svg" >
+							</div>
+						</div>
+						<div class="background-case background-case2">
+							<div>
+								<div style="padding-top: 5em;" >
+									<div>
+										<a href="#" class="button button--nina button--size-s" data-text="+ Detalhes">
+											<span>+</span><span>D</span><span>e</span><span>t</span><span>a</span><span>l</span><span>h</span><span>e</span><span>s</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /case 2 -->
+				<!-- case 3 -->
+				<div class=" col-sm-4">
+					<div class="banner-case">
+						<div class="title-banner-case" >
+							<p>SEJA O PRÓXIMO CASE DE SUCESSO !</p>
+						</div>
+						<div class="icon-banner-case">
+							<img src="images/homem_grana.svg" >
+						</div>
+						<div class="btn-banner-case" >
+							<a href="#" class="button button--nina button--size-s" data-text="Contratar">
+								<span>C</span><span>o</span><span>n</span><span>t</span><span>r</span><span>a</span><span>t</span><span>a</span><span>r</span>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+				<!-- /case 3 -->
+			</div>
+	</div>
+	<!-- /cases -->
+	<!-- Customers -->
+	<div class="clients agileits" id="clients">
+		<div class="container">
+
+			<h3 class="text-center">Clientes Felizes</h3>
+
+			<section class="slider  agileits">
+				<div class="flexslider  agileits">
+					<ul class="slides  agileits">
+						<li>
+							<div class="client-info agileits">
+								<h4 class="text-center">"Faz. Rei do Gado/Ribeirao Preto,SP"</h4>
+								<p>O Gado De Ouro permite gerar e gerir informações com muita agilidade e eficiência! Fiz uma participação em um evento da Genex e eles me pediram algumas informações. Não demorei 10 min para estar com os dados desde 2012 na mão! Aí que damos valor à ferramenta que temos...</p>
+							</div>
+							<div class="client-image  agileits">
+								<img class="client-img" src="images/client-4.jpg" >
+								<h5>- Bruno B. Mezenga</h5>
+							</div>
+						</li>
+						<li>
+							<div class="client-info agileits">
+								<h4 class="text-center">"Faz. Lageadinho/Lages,SC"</h4>
+								<p>Além de ser especializado na pecuária de corte, a facilidade na navegação é outro diferencial – muitas vezes é o próprio funcionário que lança os dados.</p>
+							</div>
+							<div class="client-image  agileits">
+								<img class="client-img" src="images/client-1.jpg" >
+								<h5>- José Leôncio</h5>
+							</div>
+						</li>
+						<li>
+							<div class="client-info  agileits">
+								<h4 class="text-center">"Agrobov/Curvelo,MG"</h4>
+								<p>Já no primeiro manejo ficamos impressionados. A média do número de animais manejados em um dia aumentou em 42% e o retrabalho que antes era um problema enorme praticamente não existe mais.</p>
+							</div>
+							<div class="client-image agileits">
+								<img class="client-img" src="images/client-2.jpg">
+								<h5>- Tom Howard</h5>
+							</div>
+						</li>
+						<li>
+							<div class="client-info  agileits">
+								<h4 class="text-center">"Faz. Sabiá/Curitiba,PR"</h4>
+								<p>Eu sabia os números que eu queria alcançar, porém eu não sabia quais eram os números que eu estava obtendo naquela época. O único modo de descobrir era começar a controlar, e com o Gado de Ouro eu consigo fazer isso muito bem.</p>
+							</div>
+							<div class="client-image  agileits">
+								<img class="client-img" src="images/client-3.jpg" >
+								<h5>- Eva Dias</h5>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+		</div>
+	</div>
+		<!-- /Customers -->
+		<!-- prices -->
+		<h3 id="prices" class="text-center title-prices">Planos e <span style="color: #449D46;">Preços</span></h3>
+		<div class="module" >
+			<div class="container">
+			  <div class="row multi-columns-row">
+				<div class="col-sm-6 col-md-3 col-lg-3">
+				  <div class="price-table font-alt">
+					<h4>1 a 500 ANIMAIS</h4>
+					<div class="borderline"></div>
+					<p class="price"><span>R$</span>140<span style="vertical-align: baseline; padding-top: 0;">,90</span>
+					</p>
+					<ul class="price-details">
+					  <li>Mensais</li>
+					  <div class="btn-banner-case" >
+						<a href="#" class="button button--nina button--size-s" data-text="Contratar">
+							<span>C</span><span>o</span><span>n</span><span>t</span><span>r</span><span>a</span><span>t</span><span>a</span><span>r</span>
+						</a>
+					</div>
+				  </div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+					<div class="price-table font-alt">
+					  <h4>501 a 3000 ANIMAIS</h4>
+					  <div class="borderline"></div>
+					  <p class="price"><span>R$</span>440<span style="vertical-align: baseline; padding-top: 0;">,00</span>
+					  </p>
+					  <ul class="price-details">
+						<li>Mensais</li>
+						<div class="btn-banner-case" >
+						  <a href="#" class="button button--nina button--size-s" data-text="Contratar">
+							  <span>C</span><span>o</span><span>n</span><span>t</span><span>r</span><span>a</span><span>t</span><span>a</span><span>r</span>
+						  </a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+				  <div class="price-table font-alt best">
+					<h4>3001 a 5000 ANIMAIS</h4>
+					<p class="small">Mais Popular</p>
+					<div class="borderline"></div>
+					<p class="price"><span>R$</span>599<span style="vertical-align: baseline; padding-top: 0;">,99</span>
+					</p>
+					<ul class="price-details">
+					  <li>Mensais</li>
+					  <div class="btn-banner-case" >
+						<a href="#" class="button button--nina button--size-s" data-text="Contratar">
+							<span>C</span><span>o</span><span>n</span><span>t</span><span>r</span><span>a</span><span>t</span><span>a</span><span>r</span>
+						</a>
+					</div>
+				  </div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3">
+					<div class="price-table font-alt">
+					  <h4>5001 a 10000 ANIMAIS</h4>
+					  <div class="borderline"></div>
+					  <p class="price"><span>R$</span>825<span style="vertical-align: baseline; padding-top: 0;">,50</span>
+					  </p>
+					  <ul class="price-details">
+						<li>Mensais</li>
+						<div class="btn-banner-case" >
+						  <a href="#" class="button button--nina button--size-s" data-text="Contratar">
+							  <span>C</span><span>o</span><span>n</span><span>t</span><span>r</span><span>a</span><span>t</span><span>a</span><span>r</span>
+						  </a>
+					  </div>
+					</div>
+				</div>
+			  </div>
+			  <div >
+				<div class="text-center">
+				  <p>Para planos acima de 10 mil animais, <span style="color:#36AE6A; font-weight: bolder;">fale conosco.</span></p>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<!-- /prices -->
+		<!-- footer -->
+		<div class="module-small bg-dark">
+			<div class="container">
+			  <div class="row">
+				<div class="col-sm-4">
+				  <div class="widget">
+					<h5 class="widget-title font-alt">Sobre a Seven Noobs</h5>
+					<p>Seven Noobs é a empresa por trás do desenvolvimento do Gado de Ouro. Nasceu quando sete malucos se juntaram e resolveram facilitar a vida dos pecuaristas plantadores de churrasco, por meio da oferta de soluções tecnológicas simples, precisas e seguras. </p>
+					<br>
+					<p>Telefone: (31) 9 9876-5432</p>
+					<br>
+					<p>Email:<a href="#"> email@example.com</a></p>
+				  </div>
+				</div>
+				<div class="col-sm-4">
+				  <div class="widget">
+					<h5 class="widget-title font-alt">Nosso Time</h5>
+					<ul class="icon-list">
+					  <li>Fábio Henrique: <a href="#">Designer UX</a></li>
+					  <li>Geovanni Cadorin: <a href="#">Analista de Sistemas</a></li>
+					  <li>Mariana Rodrigues: <a href="#">Programador Front-end</a></li>
+					  <li>Markus Antonio: <a href="#">Programador Front-end</a></li>
+					  <li>Tiago Antônio: <a href="#">Gerente de projetos</a></li>
+					  <li>Thiago Augusto <a href="#">Especialista BI</a></li>
+					  <li>Túlio Almeida <a href="#">Gerente de TI</a></li>
+					</ul>
+				  </div>
+				</div>
+				
+				<div class="col-sm-4">
+				  <div class="widget">
+					<h5 class="widget-title font-alt">Apoio Técnico e Científico</h5>
+					<div class="img-footer-1">
+						<img src="../images/embrapa.png">
+					</div>
+					<div class="img-footer-2">
+						<img src="../images/puc.png" />
+					</div>
+					
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <hr class="divider-d">
+		  <footer class="footer bg-dark">
+			<div class="container">
+			  <div class="row">
+				<div class="col-sm-6">
+				  <p class="copyright font-alt">&copy; 2021&nbsp;<a href="index.html">Gado de Ouro</a>, All Rights Reserved</p>
+				</div>
+				<div class="col-sm-6">
+				  <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </footer>
+		</div>
+		<div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+
+		
+
+		
+</body>
+</html>

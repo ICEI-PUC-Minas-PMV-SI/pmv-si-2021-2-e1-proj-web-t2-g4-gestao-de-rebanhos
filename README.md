@@ -40,6 +40,3 @@ Sistema de gerenciamento de rebanhos em fazendas que otimiza o controle e manute
 # Apresentação
 
 <li><a href="presentation/README.md"> Apresentação da solução</a></li>
-
-<li><a href="presentation/README.md"> Só um Teste</a></li>
-
