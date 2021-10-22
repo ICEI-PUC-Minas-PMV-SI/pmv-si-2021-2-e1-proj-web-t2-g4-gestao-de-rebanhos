@@ -1,0 +1,87 @@
+import { db } from '../system_utilities/db.js'; // cria o banco de dados sqlite no próprio navegador
+
+
+let tpUser;
+
+window.addEventListener('load', redy); // quando a página estiver completamente carregada executa a funcão redy
+
+// Cria a tabela de usuários => users
+function createTableUser() {
+    var query = "CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY,name TEXT,password TEXT, email TEXT, typeUser INTEGER, isLogged INTEGER)";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+    });
+}
+
+// Insere novos usuários na tabela users
+function insertUsers(name, pass, mail, typeUser, isLogged) {
+    var query = "INSERT INTO users ( name, password, email, typeUser, isLogged) VALUES (?, ?, ?, ?, ?)";
+    db.transaction(function(tx) {
+        tx.executeSql(query, [name, pass, mail, typeUser, isLogged]);
+    });
+
+}
+
+// Verifica se há algum usuário inserido na tabela users e se necessário insere
+function usersIsEmpty() {
+
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT * FROM users', [], function(tx, result) {
+            if (result.rows.length == 0) {
+                insertUsers('Bruno Mezenga', '123456', 'bruno@reidogado.com', 1, 0);
+                insertUsers('Adolf Stalin', '123456', 'adolf@reidogado.com', 2, 0);
+            }
+        }, null);
+    });
+
+}
+
+
+function login() {
+    // TODO: implementar resposta para o usuario usando o swegger
+    var email = document.getElementById('email').value;
+    var pass = document.getElementById('password').value;
+
+    if ((email && email.length > 6) && (pass && pass.length > 3)) {
+        db.transaction(function(tx) {
+            tx.executeSql('SELECT * FROM users WHERE email = ? AND password = ?', [email, pass], function(tx, result) {
+                if (result.rows.length > 0) {
+                    var id = result.rows[0].id;
+                    tx.executeSql('UPDATE users SET isLogged=1 WHERE id=?', [id], null);
+                    window.location.replace("../../views/shared/work.html");
+                } else {
+                    console.log('Usuário não encontrado');
+                    swal.fire({
+                        icon: "error",
+                        title: "Usuário não encontrado",
+                    });
+                }
+            }, null);
+        });
+    } else {
+        console.log('Preencha os campos corretamente!');
+        swal.fire({
+            icon: "error",
+            title: "Preencha os campos corretamente!",
+
+        });
+    }
+}
+
+function isLogged() {
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT * FROM users WHERE isLogged = 1', [], function(tx, result) {
+            if (result.rows.length > 0) {
+                // É utilizado o replace() porque não mantém a página de origem no histórico da sessão
+                window.location.replace("../../views/shared/work.html");
+            }
+        }, null);
+    });
+}
+
+function redy() {
+    document.getElementById('btn-login').addEventListener('click', login);
+    createTableUser();
+    usersIsEmpty();
+    isLogged();
+}
