@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- /css -->
+    <!-- js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <!-- /js -->
+    <title>Pesquisa e Relatório de Animais</title>
+
+    <style>
+        .navbar .navbar-nav>li>.dropdown-menu>a:hover,
+        .navbar .navbar-nav>li>.dropdown-menu>a:focus {
+            /*background-color: rgba(33, 136, 56, 0.46) !important;*/
+            background-color: rgba(225, 212, 31, .4);
+
+        }
+        #btn-logout {
+            background-color: goldenrod;
+            color: whitesmoke;
+        }
+        
+        #btn-logout:hover {
+            background-color: #e3ab1f;
+            border-color: goldenrod;
+        }
+
+
+        .totalizador-search {
+            float: right;
+            font-size: 14px;
+        }
+
+        .page-header {
+            border-color: #e7e7e7;
+            margin-top: 3em;
+            margin-bottom: 1.3em;
+        }
+
+        .btn-delete {
+            margin-left: 1rem;
+        }
+
+        .form-search {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+
+        .spinner {
+            margin-top: 5%;
+            display: none;
+        }
+
+        .table-response {
+            display: none;
+
+        }
+
+        .td-btn-options {
+            display: none;
+        }
+
+        /* @midia */
+        @media (max-width: 568px) {
+            .td-btn-options {
+                display: block;
+            }
+
+            .td-default {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(38 151 64)">
+        <a class="navbar-brand" href="#">Gado de <span style="color:
+                    goldenrod;">Ouro</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- Dropdown Colaborador-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                            Colaborador
+                        </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                    </div>
+                </li>
+                <!-- Dropdown Insumos-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                            Insumos
+                        </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                        <a class="dropdown-item" href="#">Baixa</a>
+                    </div>
+                </li>
+                <!-- Dropdown Animal-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                            Animal
+                        </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                        <a class="dropdown-item" href="#">Baixa</a>
+                    </div>
+                </li>
+                <!-- Dropdown Dieta-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                            Dieta
+                        </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                        <a class="dropdown-item" href="#">Baixa</a>
+                    </div>
+                </li>
+            </ul>
+
+
+            <button class="btn my-2 b ml-auto text-white" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true"></i> Logout</button>
+
+        </div>
+    </nav>
+    <!--/NavBar-->
+    <br>
+    <!-- Filters -->
+    <form id="form" class="form-search">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row page-header">
+                        <div class="col-sm-6">
+                            <h3>Pesquisa e Relatório de Animais</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="totalizador-search float-right"><strong id="total">0</strong> Resultados
+                                encontrados</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>ID Animal</label>
+                                <input class="form-control text-uppercase" type="text" name="ID Animal" maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="Cargo">Raça</label>
+                                <select class="form-control" id="Raça" name="Raça">
+                                    <option></option>
+                                    <option>Nelore</option>
+                                    <option>Guzerá</option>
+                                    <option>Brahman</option>
+                                    <option>Canchim</option>
+                                    <option>Caracu</option>
+                                    <option>Girolando</option>
+                                    <option>Sindi</option>
+                                    <option>Indubrasil</option>
+                                    <option>Limousin</option>
+                                    <option>Pantaneiro</option>
+                                    <option>Crioulo Lageano</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="Cargo">Sexo</label>
+                                <select class="form-control" id="Sexo" name="Sexo">
+                                    <option></option>
+                                    <option>Macho</option>
+                                    <option>Fêmea</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Idade</label>
+                                <input class="form-control text-uppercase Idade" type="text" name="Idade" maxlength="100" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label></label>
+                                <button id="btn-search" type="button"
+                                    class="btn btn-warning float-right semlabel-formgroup"
+                                    onclick="search()">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>    
+            <br>
+    <!-- /Filters -->
+    <!-- List results -->
+                <div >
+                    <div class="row d-flex justify-content-center">
+                        <div  id="spinner" class="spinner-border text-warning spinner"></div>
+                    </div>
+                </div>
+    <!-- /List results -->
+    <div class="container"> 
+        <div id="table-response" class="row table-response">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID Animal</th>
+                            <th scope="col">Raça</th>
+                            <th scope="col">Sexo</th>
+                            <th scope="col">Idade</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-warning dropdown-toggle"
+                                        data-toggle="dropdown">
+                                        <i aria-hidden="true">#001</i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#"> <i
+                                                class="fa fa-info-circle"></i><span
+                                                style="margin-left: 9px;">Info</span></a>
+                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
+                                                style="margin-left: 2px;">Editar</span></a>
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal"> <i class="fa fa-trash"></i> <span
+                                                style="margin-left: 6px;">Excluir</span></a>
+                                    </div>
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    Se clicar em "Excluir", todos os dados do animal serão apagados.
+                                                </div>
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                Angus
+                            </td>
+                            <td>
+                                Macho
+                            </td>
+                            <td>
+                                18 meses
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-warning dropdown-toggle"
+                                        data-toggle="dropdown">
+                                        <i aria-hidden="true">#002</i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#"> <i
+                                                class="fa fa-info-circle"></i><span
+                                                style="margin-left: 9px;">Info</span></a>
+                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
+                                                style="margin-left: 2px;">Editar</span></a>
+                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal"> <i class="fa fa-trash"></i> <span
+                                                    style="margin-left: 6px;">Excluir</span></a>
+                                        </div>
+                                        <div class="modal" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Se clicar em "Excluir", todos os dados do animal serão apagados.
+                                                    </div>
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </td>
+                            <td>
+                                Indubrasil
+                            </td>
+                            <td>
+                                Macho
+                            </td>
+                            <td>
+                                15 meses
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-warning dropdown-toggle"
+                                        data-toggle="dropdown">
+                                        <i aria-hidden="true">#003</i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#"> <i
+                                                class="fa fa-info-circle"></i><span
+                                                style="margin-left: 9px;">Info</span></a>
+                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
+                                                style="margin-left: 2px;">Editar</span></a>
+                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal"> <i class="fa fa-trash"></i> <span
+                                                    style="margin-left: 6px;">Excluir</span></a>
+                                        </div>
+                                        <div class="modal" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Se clicar em "Excluir", todos os dados do animal serão apagados.
+                                                    </div>
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </td>
+                            <td>
+                                Angus
+                            </td>
+                            <td>
+                                Macho
+                            </td>
+                            <td>
+                                12 meses
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-warning dropdown-toggle"
+                                        data-toggle="dropdown">
+                                        <i aria-hidden="true">#004</i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#"> <i
+                                                class="fa fa-info-circle"></i><span
+                                                style="margin-left: 9px;">Info</span></a>
+                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
+                                                style="margin-left: 2px;">Editar</span></a>
+                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal"> <i class="fa fa-trash"></i> <span
+                                                    style="margin-left: 6px;">Excluir</span></a>
+                                        </div>
+                                        <div class="modal" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Se clicar em "Excluir", todos os dados do animal serão apagados.
+                                                    </div>
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </td>
+                            <td>
+                                Nelore
+                            </td>
+                            <td>
+                                Fêmea
+                            </td>
+                            <td>
+                                13 meses
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+        </div>
+    </div>            
+</body>
+<!--Scrip-->
+<script type="text/javascript">
+
+    function search(){
+        var spinner = document.querySelector("#spinner");
+        var table = document.querySelector("#table-response");
+        var total = document.querySelector("#total");
+        spinner.style.display = 'block';
+        $( "#btn-search" ).prop( "disabled", true );
+        $("#btn-search").text("Pesquisando");
+        setTimeout(function(){  setDisplay() }, 500);
+    }
+    function setDisplay(){
+        var spinner = document.querySelector("#spinner");
+        var table = document.querySelector("#table-response");
+        spinner.style.display = 'none';
+        table.style.display = 'block';
+        $("#total").text("4");
+        $("#btn-search").text("Pesquisar");
+        $( "#btn-search" ).prop( "disabled", false );
+
+    }
+
+</script>
