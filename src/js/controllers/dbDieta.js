@@ -1,4 +1,4 @@
-//criar database e abrir
+//Criar database e abrir
 var Database_Name = 'DietasDatabase';    
 var Version = 1.0;    
 var Text_Description = 'Database das Dietas';    

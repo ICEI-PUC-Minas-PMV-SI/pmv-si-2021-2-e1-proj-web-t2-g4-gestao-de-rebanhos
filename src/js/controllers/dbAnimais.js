@@ -1,4 +1,4 @@
-     //criar ou abrir database
+     //Criar ou abrir database
      var Database_Name = 'AnimaisDatabase';    
      var Version = 1.0;    
      var Text_Description = 'Database dos Animais';    
