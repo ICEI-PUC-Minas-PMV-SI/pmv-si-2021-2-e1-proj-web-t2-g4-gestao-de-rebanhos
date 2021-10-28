@@ -70,7 +70,7 @@
 
     <!--Form-->
     <div class="container-fluid">
-        <form>
+        <form onsubmit="Insert();">
             <legend>Cadastro de Animal</legend>
         <div class="row">
             <div class="form-group col-sm-2">
@@ -93,14 +93,24 @@
                 </select>
             </div>
             <div class="form-group col-sm-2">
+                <label for="Dieta">Dieta</label>
+                <select name="Dieta" id="Diet" class="form-control">
+                    <option value="Dieta 1">Dieta 1</option>
+                    <option value="Dieta 2">Dieta 2</option>
+                    <option value="Dieta 3">Dieta 3</option>
+                    <option value="Dieta 4">Dieta 4</option>
+                    <option value="Dieta 5">Dieta 5</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-2">
                 <label for="data">Data Entrada</label>
                 <input type="date" id="DataEntrada" class="form-control" name="data"  required>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 <div class="form-group">
-                    <input class="btn btn-success float-right" type="submit" value="Salvar"id="enviar" onclick="Insert()">
+                    <input class="btn btn-success float-right" type="submit" value="Salvar"id="enviar">
                 </div>
             </div>
         </div>
