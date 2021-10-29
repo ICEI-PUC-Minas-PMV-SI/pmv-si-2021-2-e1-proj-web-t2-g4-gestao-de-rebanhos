@@ -91,10 +91,49 @@ function search() {
 
 }
 
+function createSelectUser() {
+
+    //Pega a div onde vai ser inserido o select pelo ID
+    var divSelect = document.getElementById('select-user');
+
+
+    db.transaction(function(tx) {
+        //Busca os valores Banco de dados 
+        tx.executeSql('SELECT * FROM users ', [], function(a, result) {
+            var rows = result.rows;
+            // Inicia a string com valores necessários para montar o select
+            var options = ' <label>Usuários</label>\
+                            <select class="form-control" id="user" name="user">\
+                            <option></option>';
+
+
+
+
+
+            // Insere cada usuario do banco de dados como uma opção no select
+            for (var i = 0; i < rows.length; i++) {
+                options += `<option>${rows[i].name}</option>`;
+            }
+
+            // Finaliza a string necessaria para montar o select
+            options += '</select>';
+
+            // Insere o select montado na div
+            divSelect.innerHTML = options;
+
+
+        });
+    });
+
+}
+
 
 
 function redy() {
-    if (document.getElementById('btn-save')) document.getElementById('btn-save').addEventListener('click', save);
+    if (document.getElementById('btn-save')) {
+        document.getElementById('btn-save').addEventListener('click', save);
+        createSelectUser();
+    }
     if (document.getElementById('btn-search')) document.getElementById('btn-search').addEventListener('click', search);
     createTableSupplies();
 
