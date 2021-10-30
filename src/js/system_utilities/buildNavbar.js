@@ -70,7 +70,7 @@ function buildNav() {
                     </a>\
                 <div class="dropdown-menu">\
                     <a class="dropdown-item" href="#">Relatório Animal</a>\
-                    <a class="dropdown-item" href="#">Relatório de Custos</a>\
+                    <a class="dropdown-item" href="../relatorios/relatorio_de_custos.html">Relatório de Custos</a>\
                 </div>\
             </li>\
          </ul>\
