@@ -81,6 +81,285 @@
 <body>
     <div id="div-nav"></div>
     <br>
-    <div class="container"></div>
+    <div class="container">
+        <div class="p-2 float-left">
+            <h3>Relatório de Custos</h3>
+        </div>
+        <div class="p-2 float-right">
+         <select class="browser-default custom-select">
+           <option selected>Cadastrar nova...</option>
+           <option value="1">COMPRA</option>
+           <option value="2">BAIXA</option>
+           <option value="3">PERDA</option>
+         </select>
+        </div>
+      
+   <br>
+        <table class="table table-hover table-editor">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">COMPRA</th>
+                <th scope="col">VALOR TOTAL</th>
+                <th scope="col">DATA</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Sal e Minerais</td>
+                <td>R$ 5124,00</td>
+                <td>12/08/2021</td>
+                <td class="td-default">
+                    <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                      ><i class="fas fas fa-edit"></i></a
+                    ><a
+                      href="#"
+                      class="btn btn-danger btn-sm btn-delete"
+                      title="Excluir"
+                      ><i class="fas fa-trash"></i
+                    ></a>
+                  </td>
+                  <td class="float-right td-btn-options">
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-primary dropdown-toggle btn-sm"
+                        data-toggle="dropdown"
+                      >
+                        <i class="fa fa-bars"></i>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fas fa-edit"></i>
+                          <span style="padding-left: 0.2em">Ver</span>
+                        </a>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-trash"></i>
+                          <span style="padding-left: 0.3em">Excluir</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Ração tipo a/b</td>
+                <td>R$ 4546,90</td>
+                <td>15/06/2021</td>
+                <td class="td-default">
+                    <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                      ><i class="fas fas fa-edit"></i></a
+                    ><a
+                      href="#"
+                      class="btn btn-danger btn-sm btn-delete"
+                      title="Excluir"
+                      ><i class="fas fa-trash"></i
+                    ></a>
+                  </td>
+                  <td class="float-right td-btn-options">
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-primary dropdown-toggle btn-sm"
+                        data-toggle="dropdown"
+                      >
+                        <i class="fa fa-bars"></i>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fas fa-edit"></i>
+                          <span style="padding-left: 0.2em">Ver</span>
+                        </a>
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-trash"></i>
+                          <span style="padding-left: 0.3em">Excluir</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        <br >
+        <!-- Table Baixa-->
+            <table class="table table-hover table-editor">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">BAIXA </th>
+                  <th scope="col">VALOR TOTAL</th>
+                  <th scope="col">DATA</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>vilsmsov</td>
+                  <td>R$ 457,54</td>
+                  <td>28/09/2021</td>
+                  <td class="td-default">
+                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                        ><i class="fas fas fa-edit"></i></a
+                      ><a
+                        href="#"
+                        class="btn btn-danger btn-sm btn-delete"
+                        title="Excluir"
+                        ><i class="fas fa-trash"></i
+                      ></a>
+                    </td>
+                    <td class="float-right td-btn-options">
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-primary dropdown-toggle btn-sm"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fas fa-edit"></i>
+                            <span style="padding-left: 0.2em">Ver</span>
+                          </a>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fa-trash"></i>
+                            <span style="padding-left: 0.3em">Excluir</span></a
+                          >
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Remedios Consumidos</td>
+                  <td>R$3681,23</td>
+                  <td>03/09/2021</td>
+                  <td class="td-default">
+                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                        ><i class="fas fas fa-edit"></i></a
+                      ><a
+                        href="#"
+                        class="btn btn-danger btn-sm btn-delete"
+                        title="Excluir"
+                        ><i class="fas fa-trash"></i
+                      ></a>
+                    </td>
+                    <td class="float-right td-btn-options">
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-primary dropdown-toggle btn-sm"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fas fa-edit"></i>
+                            <span style="padding-left: 0.2em">Ver</span>
+                          </a>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fa-trash"></i>
+                            <span style="padding-left: 0.3em">Excluir</span></a
+                          >
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          <br >
+          <!-- Table Perda-->
+            <table class="table table-hover table-editor">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">PERDA</th>
+                  <th scope="col">VALOR TOTAL</th>
+                  <th scope="col">DATA</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Bezerro</td>
+                  <td>R$ 3200,00</td>
+                  <td>28/09/2021</td>
+                  <td class="td-default">
+                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                        ><i class="fas fas fa-edit"></i></a
+                      ><a
+                        href="#"
+                        class="btn btn-danger btn-sm btn-delete"
+                        title="Excluir"
+                        ><i class="fas fa-trash"></i
+                      ></a>
+                    </td>
+                    <td class="float-right td-btn-options">
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-primary dropdown-toggle btn-sm"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fas fa-edit"></i>
+                            <span style="padding-left: 0.2em">Ver</span>
+                          </a>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fa-trash"></i>
+                            <span style="padding-left: 0.3em">Excluir</span></a
+                          >
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Animal #028</td>
+                  <td>R$ 3500,00</td>
+                  <td>03/09/2021</td>
+                  <td class="td-default">
+                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                        ><i class="fas fas fa-edit"></i></a
+                      ><a
+                        href="#"
+                        class="btn btn-danger btn-sm btn-delete"
+                        title="Excluir"
+                        ><i class="fas fa-trash"></i
+                      ></a>
+                    </td>
+                    <td class="float-right td-btn-options">
+                      <div class="btn-group">
+                        <button
+                          type="button"
+                          class="btn btn-primary dropdown-toggle btn-sm"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fa fa-bars"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fas fa-edit"></i>
+                            <span style="padding-left: 0.2em">Ver</span>
+                          </a>
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fa-trash"></i>
+                            <span style="padding-left: 0.3em">Excluir</span></a
+                          >
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+    </div>
 </body>
 </html>
