@@ -64,6 +64,15 @@ function buildNav() {
                     <a class="dropdown-item" href="#">Baixa</a>\
                 </div>\
             </li>\
+            <li class="nav-item dropdown">\
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">\
+                        Relatórios\
+                    </a>\
+                <div class="dropdown-menu">\
+                    <a class="dropdown-item" href="#">Relatório Animal</a>\
+                    <a class="dropdown-item" href="#">Relatório de Custos</a>\
+                </div>\
+            </li>\
          </ul>\
          <button class="btn my-2 my-sm-0 ml-auto" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true" ></i> Logout</button>\
         </div>\
