@@ -9,25 +9,30 @@ var dbObj = openDatabase(Database_Name, Version, Text_Description, Database_Size
 function OnSuccessCreate() {    
     console.log('Database Created Sucessfully');    
 } 
+ //cria tabela
+ dbObj.transaction (function(tx){
+    tx.executeSql('CREATE TABLE IF NOT EXISTS Cadastro_Dietas (id integer primary key asc, nomeDieta string, QuantidadeInsumos integer, NomeInsumo string, Quantidade integer, duração integer)',
+    [],
+    function (){console.log("Tabela criada com sucesso!")},
+    function (){console.log ("Erro ao criar tabela!!")}  
+    );
+}   
+);
 
 function Insert(){
-    //cria tabela
-    dbObj.transaction (function(tx){
-        tx.executeSql('CREATE TABLE IF NOT EXISTS Cadastro_Dietas (id integer primary key asc, nomeDieta string, QuantidadeInsumos integer, NomeInsumo string, Quantidade integer, duração integer)',
-        [],
-        function (){console.log("Tabela criada com sucesso!")},
-        function (){console.log ("Erro ao criar tabela!!")}  
-        );
-    }   
-    );
 
     //pega valor dos inputs do formulario
     var dieta = document.getElementById("dietname").value;
     var qtdinsumos = document.getElementById("Quantidadeinsumos").value;
-    var nomeinsumo = document.getElementById("supplyname").value;
-    var quantidade = document.getElementById("quantity").value;
-    var duracao = document.getElementById("duration").value;
 
+    var nomeinsumo = "";
+    var quantidade = "";
+    var duracao = "";
+    
+    for (var i= 1; i <= qtdinsumos;i++){
+    nomeinsumo +=  document.getElementById("supplyname"+i).value + "   ";
+    quantidade +=  document.getElementById("quantity"+i).value + "   ";
+    duracao += document.getElementById("duration"+i).value + "   ";
     //inserir na tabela
     dbObj.transaction (function(tx){
         tx.executeSql ('INSERT INTO Cadastro_Dietas(nomeDieta, QuantidadeInsumos, NomeInsumo, Quantidade, duração) values(?,?,?,?,?)',
@@ -37,4 +42,6 @@ function Insert(){
         );
     }
     );
-}
+    }
+
+}''
