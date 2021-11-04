@@ -1371,3 +1371,19 @@ body a:hover{
 	width: 210px; 
 	height: 40px
 }
+
+#close-image img {
+    display: block;
+    height: 230px;  
+    width: 180px;
+	margin-right: 45px;
+	margin-left: 45px;
+	margin-top: 45px;
+	margin-bottom: 45px;
+}
+
+.buttom1 {
+	padding: 0;
+	border: none;
+	background: none;
+}
