@@ -10,6 +10,18 @@
     <title>Cadastro de Animal</title>
     <script src="../../js/controllers/dbAnimais.js"></script>
 
+    <style>
+        #btn-logout {
+            background-color: goldenrod;
+            color: whitesmoke;
+        }
+
+        #btn-logout:hover {
+            background-color: #e3ab1f;
+            border-color: goldenrod;
+        }
+    </style>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-md  navbar-dark" style="background-color: rgb(71, 155, 71);">
@@ -64,6 +76,7 @@
                     </div>
                 </li>
             </ul>
+            <button class="btn my-2 b ml-auto text-white" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true"></i> Logout</button>
         </div>
     </nav>
     <!-- /NavBar -->
