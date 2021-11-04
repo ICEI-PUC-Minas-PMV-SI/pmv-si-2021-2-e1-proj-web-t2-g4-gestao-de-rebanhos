@@ -1355,3 +1355,19 @@ body a:hover{
 		width: 80%;
 	}
 }
+.obsTextbox {
+	width: 600px; 
+	height: 100px
+}
+.nameTextbox {
+	width: 600px; 
+	height: 40px
+}
+.ageTextbox {
+	width: 150px; 
+	height: 40px
+}
+.dateTextbox {
+	width: 210px; 
+	height: 40px
+}
