@@ -12,70 +12,70 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>       
-        <title>Busca Insumos</title>
+        <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>     
+        <title>Busca Colaborador</title>
 
         <style>
-        .navbar .navbar-nav>li>.dropdown-menu>a:hover,
-        .navbar .navbar-nav>li>.dropdown-menu>a:focus {
-            /*background-color: rgba(33, 136, 56, 0.46) !important;*/
-            background-color: rgba(225, 212, 31, .4);
-        }
-        
-        #btn-logout {
-            background-color: goldenrod;
-            color: whitesmoke;
-        }
-        
-        #btn-logout:hover {
-            background-color: #e3ab1f;
-            border-color: goldenrod;
-        }
-        
-        .totalizador-search {
-            float: right;
-            font-size: 14px;
-        }
-        
-        .page-header {
-            border-color: #e7e7e7;
-            margin-top: 3em;
-            margin-bottom: 1.3em;
-        }
-        .btn-delete{
-            margin-left: 1rem;
-        }
-        .form-search{
-            margin-left: 2em;
-            margin-right: 2em;
-        }
-        .spinner{
-            margin-top: 5%;
-            display: none;
-        }
-        .table-response{
-            display: none;
-            
-        }
-        .td-btn-options{
-            display: none;
-        }
-        
-        /* @midia */
-        @media (max-width: 568px){
-            .td-btn-options{
-                display: block;
+            .navbar .navbar-nav>li>.dropdown-menu>a:hover,
+            .navbar .navbar-nav>li>.dropdown-menu>a:focus {
+                /*background-color: rgba(33, 136, 56, 0.46) !important;*/
+                background-color: rgba(225, 212, 31, .4);
             }
-            .td-default{
+            
+            #btn-logout {
+                background-color: goldenrod;
+                color: whitesmoke;
+            }
+            
+            #btn-logout:hover {
+                background-color: #e3ab1f;
+                border-color: goldenrod;
+            }
+            
+            .totalizador-search {
+                float: right;
+                font-size: 14px;
+            }
+            
+            .page-header {
+                border-color: #e7e7e7;
+                margin-top: 3em;
+                margin-bottom: 1.3em;
+            }
+            .btn-delete{
+                margin-left: 1rem;
+            }
+            .form-search{
+                margin-left: 2em;
+                margin-right: 2em;
+            }
+            .spinner{
+                margin-top: 5%;
                 display: none;
             }
-        }
+            .table-response{
+                display: none;
+                
+            }
+            .td-btn-options{
+                display: none;
+            }
+            
+            /* @midia */
+            @media (max-width: 568px){
+                .td-btn-options{
+                    display: block;
+                }
+                .td-default{
+                    display: none;
+                }
+            }
     </style>
     </head>
 
     <body>
         <div id="div-nav">
-    
+        <!-- /NavBar -->
         </div>
         <br>
         <!-- Filters -->
@@ -85,7 +85,7 @@
                     <div class="col-sm-12">
                         <div class="row page-header">
                             <div class="col-sm-6">
-                                <h3>Busca Insumos</h3>
+                                <h3>Busca Colaborador</h3>
                             </div>
                             <div class="col-sm-6">
                                 <span class="totalizador-search float-right"><strong id="total">0</strong> Resultados encontrados</span>
@@ -95,44 +95,28 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label>Insumo</label>
+                                    <label>Nome</label>
                                     <input  class="form-control text-uppercase" type="text" name="Nome" maxlength="100" />
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label>Fabricante</label>
-                                    <input class="form-control text-uppercase" type="text" name="Fabricante" maxlength="50" />
+                                    <label>CPF</label>
+                                    <input class="form-control text-uppercase cpfcnpj" type="text" name="CPFCNPJ" maxlength="20" />
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label>Quantidade</label>
-                                    <input class="form-control text-uppercase" id="Quantidade" name="Quantidade" maxlenght="10">
-                                </input>
+                                    <label for="Cargo">Cargo</label>
+                                    <select class="form-control" id="Cargo" name="Cargo">
+                                      <option></option>
+                                      <option>Veterinário</option>
+                                      <option>Vaqueiro</option>
+                                      <option>Operador 1</option>
+                                      <option>Operador 2</option>
+                                    </select>
                                 </div>
-                            </div>                            
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Validade</label>
-                                                <input  class="form-control text-uppercase" type="text" name="Validade" maxlength="100" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Lote</label>
-                                                <input class="form-control text-uppercase " type="text" name="Lote" maxlength="100" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Data de Entrada</label>
-                                                <input  type="date" class="form-control text-uppercase" id="Data de Entrada" name="Data de Entrada">                                              
-                                            </input>
-                                            </div>
-                                        </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
@@ -161,25 +145,17 @@
                             <table class="table table-striped">
                                 <thead>
                                   <tr>
-                                    <th>ID</th>
-                                    <th>Insumo</th>
-                                    <th>Fabricante</th>
-                                    <th>Quantidade</th>
-                                    <th>Validade</th>
-                                    <th>Lote</th>
-                                    <th>Data de Entrada</th>
+                                    <th>Nome</th>
+                                    <th>Idade</th>
+                                    <th>Email</th>
                                     <th class="col-sm-3 col-md-2"></th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
-                                    <td>01</td> 
-                                    <td>Uno</td>
-                                    <td>fabrica1</td>
-                                    <td style="text-align: center">50</td> 
-                                    <td>20/12/2021</td>
-                                    <td>2030</td>
-                                    <td>01/01/2021</td>
+                                    <td>John</td>
+                                    <td>36</td>
+                                    <td>john@example.com</td>
                                     <td class="float-right td-default"><a href="#" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
                                     <td class="float-right td-btn-options">
                                         <div class="btn-group">
@@ -194,13 +170,9 @@
                                     </td>
                                   </tr>
                                   <tr>
-                                    <td>02</td>
-                                    <td>Dos</td>
-                                    <td>fabrica2</td>
-                                    <td style="text-align: center">23</td>
-                                    <td>01/01/2022</td>
-                                    <td>2031</td>
-                                    <td>01/01/2021</td>
+                                    <td>Mary</td>
+                                    <td>25</td>
+                                    <td>mary@example.com</td>
                                     <td class="float-right td-default"><a href="#" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
                                     <td class="float-right td-btn-options">
                                         <div class="btn-group">
@@ -215,13 +187,9 @@
                                     </td>
                                   </tr>
                                   <tr>
-                                    <td>02</td>
-                                    <td>tres</td>
-                                    <td>fabrica3</td>
-                                    <td style="text-align: center">19</td>
-                                    <td>01/01/2022</td>
-                                    <td>2032</td>
-                                    <td>01/01/2021</td>
+                                    <td>July</td>
+                                    <td>19</td>
+                                    <td>july@example.com</td>
                                     <td class="float-right td-default"><a href="#" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
                                     <td class="float-right td-btn-options">
                                         <div class="btn-group">
