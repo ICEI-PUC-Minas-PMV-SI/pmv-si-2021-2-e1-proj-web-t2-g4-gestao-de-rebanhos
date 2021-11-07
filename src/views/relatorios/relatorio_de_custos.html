@@ -77,28 +77,6 @@
             }
         }
     </style>
-    <script>
-    function addRow(id) {
-        let table = document.getElementById(id).insertRow();
-       
-        table.id = "newTr";
-    
-        const parent = document.getElementById("newTr");
-        let child_nodes = parent.childNodes;
-        console.log(child_nodes.length);
-        parent.appendChild(document.createElement("th"));
-        console.log(child_nodes.length);
-        
-        let cell1 = table.insertCell(1);
-        let cell2 = table.insertCell(2);
-        let cell3 = table.insertCell(3);
-        let cell4 = table.insertCell(4);
-        cell4.className = "td-default";
-        console.log(child_nodes.length);
-        table.removeAttribute('id');
-
-}
-   </script>
 </head>
 <body>
     <div id="div-nav"></div>
@@ -118,7 +96,67 @@
                 <th scope="col"><button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">+</button></th>
               </tr>
             </thead>
-            <tbody id="tabela">
+            <tbody id="tabelaCompra">
+              <tr>
+                <th scope="row">1</th>
+                <td>Sal e Minerais</td>
+                <td>R$ 5124,00</td>
+                <td>12/08/2021</td>
+                <td class="td-default">
+                    <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                      ><i class="fas fas fa-edit"></i></a
+                    ><a
+                      href="#"
+                      class="btn btn-danger btn-sm btn-delete"
+                      title="Excluir"
+                      ><i class="fas fa-trash"></i
+                    ></a>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <table class="table table-hover table-editor">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">BAIXA</th>
+                <th scope="col">VALOR TOTAL</th>
+                <th scope="col">DATA</th>
+                <th scope="col"><button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">+</button></th>
+              </tr>
+            </thead>
+            <tbody id="tabelaBaixa">
+              <tr>
+                <th scope="row">1</th>
+                <td>Sal e Minerais</td>
+                <td>R$ 5124,00</td>
+                <td>12/08/2021</td>
+                <td class="td-default">
+                    <a href="#" class="btn btn-primary btn-sm" title="Editar"
+                      ><i class="fas fas fa-edit"></i></a
+                    ><a
+                      href="#"
+                      class="btn btn-danger btn-sm btn-delete"
+                      title="Excluir"
+                      ><i class="fas fa-trash"></i
+                    ></a>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <table class="table table-hover table-editor">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">PERDA</th>
+                <th scope="col">VALOR TOTAL</th>
+                <th scope="col">DATA</th>
+                <th scope="col"><button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">+</button></th>
+              </tr>
+            </thead>
+            <tbody id="tabelaPerda">
               <tr>
                 <th scope="row">1</th>
                 <td>Sal e Minerais</td>
@@ -155,7 +193,7 @@
               <input type="text" class="form-control" placeholder="Compra" id="compraField" maxlength="16">
             </div>
             <div class="col">
-              <input type="text" class="form-control" placeholder="Valor" id="valor_compra_Field">
+              <input type="text" class="form-control" placeholder="Valor" id="valor_compra_Field" maxlength="16">
             </div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Data" id="data_compra_Field">
@@ -165,10 +203,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn btn-primary" id="modal-compra">Salvar</button>
       </div>
     </div>
   </div>
 </div>
 </body>
+<script src="/src/views/relatorios/rowLogic.js"></script>
 </html>
