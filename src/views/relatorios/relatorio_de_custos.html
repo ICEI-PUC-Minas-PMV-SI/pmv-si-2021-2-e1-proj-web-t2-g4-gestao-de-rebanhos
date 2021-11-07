@@ -85,281 +85,145 @@
         <div class="p-2 float-left">
             <h3>Relatório de Custos</h3>
         </div>
-        <div class="p-2 float-right">
-         <select class="browser-default custom-select">
-           <option selected>Cadastrar nova...</option>
-           <option value="1">COMPRA</option>
-           <option value="2">BAIXA</option>
-           <option value="3">PERDA</option>
-         </select>
-        </div>
-      
    <br>
         <table class="table table-hover table-editor">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">COMPRA</th>
-                <th scope="col">VALOR TOTAL</th>
-                <th scope="col">DATA</th>
-                <th scope="col"></th>
+                <th style="width: 5%" scope="col">#</th>
+                <th style="width: 25%" scope="col">COMPRA</th>
+                <th style="width: 25%" scope="col">VALOR TOTAL</th>
+                <th style="width: 10%" scope="col">DATA</th>
+                <th style="width: 10%" scope="col"><button type="button" id="botaoCompra" class="btn btn-outline-success" data-toggle="modal" data-target="#modal1">+</button></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Sal e Minerais</td>
-                <td>R$ 5124,00</td>
-                <td>12/08/2021</td>
-                <td class="td-default">
-                    <a href="#" class="btn btn-primary btn-sm" title="Editar"
-                      ><i class="fas fas fa-edit"></i></a
-                    ><a
-                      href="#"
-                      class="btn btn-danger btn-sm btn-delete"
-                      title="Excluir"
-                      ><i class="fas fa-trash"></i
-                    ></a>
-                  </td>
-                  <td class="float-right td-btn-options">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-primary dropdown-toggle btn-sm"
-                        data-toggle="dropdown"
-                      >
-                        <i class="fa fa-bars"></i>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#"
-                          ><i class="fas fas fa-edit"></i>
-                          <span style="padding-left: 0.2em">Ver</span>
-                        </a>
-                        <a class="dropdown-item" href="#"
-                          ><i class="fas fa-trash"></i>
-                          <span style="padding-left: 0.3em">Excluir</span></a
-                        >
-                      </div>
-                    </div>
-                  </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Ração tipo a/b</td>
-                <td>R$ 4546,90</td>
-                <td>15/06/2021</td>
-                <td class="td-default">
-                    <a href="#" class="btn btn-primary btn-sm" title="Editar"
-                      ><i class="fas fas fa-edit"></i></a
-                    ><a
-                      href="#"
-                      class="btn btn-danger btn-sm btn-delete"
-                      title="Excluir"
-                      ><i class="fas fa-trash"></i
-                    ></a>
-                  </td>
-                  <td class="float-right td-btn-options">
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-primary dropdown-toggle btn-sm"
-                        data-toggle="dropdown"
-                      >
-                        <i class="fa fa-bars"></i>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#"
-                          ><i class="fas fas fa-edit"></i>
-                          <span style="padding-left: 0.2em">Ver</span>
-                        </a>
-                        <a class="dropdown-item" href="#"
-                          ><i class="fas fa-trash"></i>
-                          <span style="padding-left: 0.3em">Excluir</span></a
-                        >
-                      </div>
-                    </div>
-                  </td>
-              </tr>
+            <tbody id="tabelaCompra">
             </tbody>
           </table>
-        <br >
-        <!-- Table Baixa-->
-            <table class="table table-hover table-editor">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">BAIXA </th>
-                  <th scope="col">VALOR TOTAL</th>
-                  <th scope="col">DATA</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>vilsmsov</td>
-                  <td>R$ 457,54</td>
-                  <td>28/09/2021</td>
-                  <td class="td-default">
-                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
-                        ><i class="fas fas fa-edit"></i></a
-                      ><a
-                        href="#"
-                        class="btn btn-danger btn-sm btn-delete"
-                        title="Excluir"
-                        ><i class="fas fa-trash"></i
-                      ></a>
-                    </td>
-                    <td class="float-right td-btn-options">
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-primary dropdown-toggle btn-sm"
-                          data-toggle="dropdown"
-                        >
-                          <i class="fa fa-bars"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fas fa-edit"></i>
-                            <span style="padding-left: 0.2em">Ver</span>
-                          </a>
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-trash"></i>
-                            <span style="padding-left: 0.3em">Excluir</span></a
-                          >
-                        </div>
-                      </div>
-                    </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Remedios Consumidos</td>
-                  <td>R$3681,23</td>
-                  <td>03/09/2021</td>
-                  <td class="td-default">
-                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
-                        ><i class="fas fas fa-edit"></i></a
-                      ><a
-                        href="#"
-                        class="btn btn-danger btn-sm btn-delete"
-                        title="Excluir"
-                        ><i class="fas fa-trash"></i
-                      ></a>
-                    </td>
-                    <td class="float-right td-btn-options">
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-primary dropdown-toggle btn-sm"
-                          data-toggle="dropdown"
-                        >
-                          <i class="fa fa-bars"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fas fa-edit"></i>
-                            <span style="padding-left: 0.2em">Ver</span>
-                          </a>
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-trash"></i>
-                            <span style="padding-left: 0.3em">Excluir</span></a
-                          >
-                        </div>
-                      </div>
-                    </td>
-                </tr>
-              </tbody>
-            </table>
-          <br >
-          <!-- Table Perda-->
-            <table class="table table-hover table-editor">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">PERDA</th>
-                  <th scope="col">VALOR TOTAL</th>
-                  <th scope="col">DATA</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Bezerro</td>
-                  <td>R$ 3200,00</td>
-                  <td>28/09/2021</td>
-                  <td class="td-default">
-                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
-                        ><i class="fas fas fa-edit"></i></a
-                      ><a
-                        href="#"
-                        class="btn btn-danger btn-sm btn-delete"
-                        title="Excluir"
-                        ><i class="fas fa-trash"></i
-                      ></a>
-                    </td>
-                    <td class="float-right td-btn-options">
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-primary dropdown-toggle btn-sm"
-                          data-toggle="dropdown"
-                        >
-                          <i class="fa fa-bars"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fas fa-edit"></i>
-                            <span style="padding-left: 0.2em">Ver</span>
-                          </a>
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-trash"></i>
-                            <span style="padding-left: 0.3em">Excluir</span></a
-                          >
-                        </div>
-                      </div>
-                    </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Animal #028</td>
-                  <td>R$ 3500,00</td>
-                  <td>03/09/2021</td>
-                  <td class="td-default">
-                      <a href="#" class="btn btn-primary btn-sm" title="Editar"
-                        ><i class="fas fas fa-edit"></i></a
-                      ><a
-                        href="#"
-                        class="btn btn-danger btn-sm btn-delete"
-                        title="Excluir"
-                        ><i class="fas fa-trash"></i
-                      ></a>
-                    </td>
-                    <td class="float-right td-btn-options">
-                      <div class="btn-group">
-                        <button
-                          type="button"
-                          class="btn btn-primary dropdown-toggle btn-sm"
-                          data-toggle="dropdown"
-                        >
-                          <i class="fa fa-bars"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fas fa-edit"></i>
-                            <span style="padding-left: 0.2em">Ver</span>
-                          </a>
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-trash"></i>
-                            <span style="padding-left: 0.3em">Excluir</span></a
-                          >
-                        </div>
-                      </div>
-                    </td>
-                </tr>
-              </tbody>
-            </table>
+          <br>
+          <table class="table table-hover table-editor">
+            <thead>
+              <tr>
+                <th style="width: 5%" scope="col">#</th>
+                <th style="width: 25%" scope="col">BAIXA</th>
+                <th style="width: 25%" scope="col">VALOR TOTAL</th>
+                <th style="width: 10%" scope="col">DATA</th>
+                <th style="width: 10%" scope="col"><button type="button" id="botaoBaixa" class="btn btn-outline-success" data-toggle="modal" data-target="#modal2">+</button></th>
+              </tr>
+            </thead>
+            <tbody id="tabelaBaixa">
+            </tbody>
+          </table>
+          <br>
+          <table class="table table-hover table-editor">
+            <thead>
+              <tr>
+                <th style="width: 5%" scope="col">#</th>
+                <th style="width: 25%" scope="col">PERDA</th>
+                <th style="width: 25%" scope="col">VALOR TOTAL</th>
+                <th style="width: 10%" scope="col">DATA</th>
+                <th style="width: 10%" scope="col"><button type="button" id="botaoPerda" class="btn btn-outline-success" data-toggle="modal" data-target="#modal3">+</button></th>
+              </tr>
+            </thead>
+            <tbody id="tabelaPerda">
+            </tbody>
+          </table>
     </div>
+    <!-- Modal 1 -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Adicionar nova compra</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Compra" id="compraField" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Valor" id="valor_compra_Field" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Data" id="data_compra_Field">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="modal-compra">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal 2-->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Adicionar nova baixa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Baixa" id="baixaField" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Valor" id="valor_baixa_Field" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Data" id="data_baixa_Field">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="modal-baixa">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal 3-->
+<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Adicionar nova perda</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Perda" id="perdaField" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Valor" id="valor_perda_Field" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Data" id="data_perda_Field">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="modal-perda">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+<script src="/src/js/controllers/cadastroCustos.js"></script>
 </html>
