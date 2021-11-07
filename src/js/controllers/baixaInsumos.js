@@ -2,16 +2,36 @@ import { db } from "../system_utilities/db.js";
 
 window.addEventListener("load", redy);
 
-// Cria a tabela de usuários => users
-function createTableSupplies() {
-  var query =
-    "CREATE TABLE IF NOT EXISTS supplies ( id INTEGER PRIMARY KEY,name TEXT,lote  TEXT, validade INTEGER,quantityIn TEXT, quantityOut TEXT)";
-  db.transaction(function (tx) {
-    tx.executeSql(query);
-  });
+var Database_Name = "InsumosDatabase";
+var Version = 1.0;
+var Text_Description = "Database de Insumos";
+var Database_Size = 2 * 1024 * 1024;
+var dbObj = openDatabase(
+  Database_Name,
+  Version,
+  Text_Description,
+  Database_Size,
+  OnSuccessCreate()
+);
+
+function OnSuccessCreate() {
+  console.log("Database Created Sucessfully");
 }
 
-function save() {
+function insert() {
+  dbObj.transaction(function (tx) {
+    tx.executeSql(
+      "CREATE TABLE IF NOT EXISTS Baixa_Insumos ( id INTEGER PRIMARY KEY,name TEXT,lote  TEXT, validade INTEGER,quantityIn TEXT, quantityOut TEXT)",
+      [],
+      function () {
+        console.log("Tabela criada com sucesso!");
+      },
+      function () {
+        alert("tabela não criada!");
+      }
+    );
+  });
+
   var id = document.getElementById("id").value;
   var name = document.getElementById("name").value;
   var lote = document.getElementById("lote").value;
@@ -22,17 +42,17 @@ function save() {
   db.transaction(function (tx) {
     if (id) {
       tx.executeSql(
-        "UPDATE supplies SET name=?, lote=?, validade=?, quantityIn=?, quantityOut=? WHERE id=?",
+        "UPDATE Baixa_Insumos  SET name=?, lote=?, validade=?, quantityIn=?, quantityOut=? WHERE id=?",
         [name, lote, validade, quantityIn, quantityOut, id],
         null
       );
       swal.fire({
         icon: "success",
-        title: "Alteração feita com sucesso!",
+        title: "Baixa alterada com sucesso!!",
       });
     } else {
       tx.executeSql(
-        "INSERT INTO supplies ( name, quantity, quantityMin) VALUES (?, ?, ?)",
+        "INSERT INTO Baixa_Insumos  ( name, quantity, quantityMin) VALUES (?, ?, ?)",
         [name, lote, validade, quantityIn, quantityOut]
       );
       swal.fire({
@@ -51,10 +71,8 @@ function save() {
 
 function redy() {
   if (document.getElementById("btn-save")) {
-    document.getElementById("btn-save").addEventListener("click", save);
-    createSelectUser();
+    document.getElementById("btn-save").addEventListener("click", insert);
   }
   if (document.getElementById("btn-search"))
     document.getElementById("btn-search").addEventListener("click", search);
-  createTableSupplies();
 }
