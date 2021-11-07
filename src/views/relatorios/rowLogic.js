@@ -1,11 +1,27 @@
 // DOM CACHING
 const buttonModalCompra = document.getElementById('modal-compra');
+const buttonModalBaixa = document.getElementById('modal-baixa');
+const buttonModalPerda = document.getElementById('modal-perda');
 
 const tabelaCompra = document.getElementById('tabelaCompra');
+const tabelaBaixa = document.getElementById('tabelaBaixa');
+const tabelaPerda = document.getElementById('tabelaPerda');
 
 let compraField = document.getElementById("compraField");
 let valor_compra_Field = document.getElementById("valor_compra_Field");
 let data_compra_Field = document.getElementById("data_compra_Field");
+
+let baixaField = document.getElementById("baixaField");
+let valor_baixa_Field = document.getElementById("valor_baixa_Field");
+let data_baixa_Field = document.getElementById("data_baixa_Field");
+
+let perdaField = document.getElementById("perdaField");
+let valor_perda_Field = document.getElementById("valor_perda_Field");
+let data_perda_Field = document.getElementById("data_perda_Field");
+
+// const botaoCompra = document.getElementById('botaoCompra');
+// const botaoBaixa = document.getElementById('botaoBaixa');
+// const botaoPerda = document.getElementById('botaoPerda');
 
 
 // REGEX
@@ -60,6 +76,7 @@ function addButtons(id) {
 
 function validateInputs(input1, input2, input3) {
     if (input1.length < 1 || input2.length < 1) {
+        console.log(input1,input2,input3);
         alert('Todos os campos devem ser preenchidos!');
        return false;
     } else if (!input3.match(dateCheck)) {
@@ -83,12 +100,25 @@ function compra() {
 }
 
 function baixa() {
-    
+    let validacao = validateInputs(baixaField.value, valor_baixa_Field.value, data_baixa_Field.value);
+    if (validacao) {
+        addRow(tabelaBaixa, baixaField.value, valor_baixa_Field.value, data_baixa_Field.value);
+        buttonModalBaixa.setAttribute('data-dismiss','modal');
+    }
 }
 
 function perda() {
-    
+    let validacao = validateInputs(perdaField.value, valor_perda_Field.value, data_perda_Field.value);
+    if (validacao) {
+        addRow(tabelaPerda, perdaField.value, valor_perda_Field.value, data_perda_Field.value);
+        buttonModalPerda.setAttribute('data-dismiss','modal');
+    }
 }
+
 
 buttonModalCompra.addEventListener('click', function () {
     compra()});
+buttonModalBaixa.addEventListener('click', function () {
+    baixa()});
+buttonModalPerda.addEventListener('click', function () {
+    perda()});
