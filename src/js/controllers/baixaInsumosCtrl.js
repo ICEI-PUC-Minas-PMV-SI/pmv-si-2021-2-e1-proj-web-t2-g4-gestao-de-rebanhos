@@ -2,42 +2,11 @@ import { db } from "../system_utilities/db.js";
 
 window.addEventListener("load", redy);
 
-// Cria a tabela
 function createTableSupplies() {
   var query =
     "CREATE TABLE IF NOT EXISTS Baixa_Insumos ( id INTEGER PRIMARY KEY,name TEXT,lote  TEXT, validade INTEGER,quantityIn TEXT, quantityOut TEXT, observacao TEXT)";
   db.transaction(function (tx) {
     tx.executeSql(query);
-  });
-}
-function insert(name, lote, validade, quantityIn, quantityOut, observacao) {
-  var query =
-    "INSERT INTO Baixa_Insumos ( name, lote, validade, quantityIn, quantityOut, observacao) VALUES (?, ?, ?, ?, ?,?)";
-  db.transaction(function (tx) {
-    tx.executeSql(query, [
-      name,
-      lote,
-      validade,
-      quantityIn,
-      quantityOut,
-      observacao,
-    ]);
-  });
-}
-
-function insumoIsEmpty() {
-  db.transaction(function (tx) {
-    tx.executeSql(
-      "SELECT * FROM Baixa_Insumos",
-      [],
-      function (tx, result) {
-        if (result.rows.length == 0) {
-          insert("Bruno Mezenga", "123456", "bruno@reidogado.com", 1, 0, "rrr");
-          insert("Adolf Stalin", "123456", "adolf@reidogado.com", 2, 0, "sss");
-        }
-      },
-      null
-    );
   });
 }
 
@@ -54,7 +23,7 @@ function save() {
     if (id) {
       tx.executeSql(
         "UPDATE Baixa_Insumos SET name=?, lote=?, validade=?, quantityIn=?, quantityOut=?, observacao =? WHERE id=?",
-        [id, name, lote, validade, quantityIn, quantityOut, observacao],
+        [name, lote, validade, quantityIn, quantityOut, observacao],
         null
       );
       swal.fire({
@@ -63,7 +32,7 @@ function save() {
       });
     } else {
       tx.executeSql(
-        "INSERT INTO Baixa_Insumos ( name, lote, validade, quantityIn, quantityOut, obsrvacao) VALUES (?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Baixa_Insumos ( name, lote, validade, quantityIn, quantityOut, observacao) VALUES (?, ?, ?, ?, ?, ?)",
         [name, lote, validade, quantityIn, quantityOut, observacao]
       );
       swal.fire({
@@ -84,10 +53,9 @@ function save() {
 function redy() {
   if (document.getElementById("btn-save")) {
     document.getElementById("btn-save").addEventListener("click", save);
-    createTableSupplies();
-    // insumoIsEmpty();
   }
-  if (document.getElementById("btn-search"))
+  if (document.getElementById("btn-search")) {
     document.getElementById("btn-search").addEventListener("click", search);
+  }
   createTableSupplies();
 }

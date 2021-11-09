@@ -10,45 +10,6 @@ function createTableSupplies() {
   });
 }
 
-function insert(name, fabricante, qty, validade, lote, entrada, observacao) {
-  var query =
-    "INSERT INTO Cadastro_Insumos  ( name, fabricante, qty, validade, lote, entrada, observacao) VALUES (?, ?, ?, ?, ?, ?, ?)";
-  db.transaction(function (tx) {
-    tx.executeSql(query, [
-      name,
-      fabricante,
-      qty,
-      validade,
-      lote,
-      entrada,
-      observacao,
-    ]);
-  });
-}
-
-function insumoIsEmpty() {
-  db.transaction(function (tx) {
-    tx.executeSql(
-      "SELECT * FROM Cadastro_Insumos",
-      [],
-      function (tx, result) {
-        if (result.rows.length == 0) {
-          insert(
-            "Teste",
-            "123456",
-            "10kg",
-            "11/11/2021",
-            "12345678910",
-            "01/11/2021",
-            "Perto de vencer, usar logo"
-          );
-        }
-      },
-      null
-    );
-  });
-}
-
 function save() {
   var id = document.getElementById("id").value;
   var name = document.getElementById("name").value;
@@ -63,7 +24,7 @@ function save() {
     if (id) {
       tx.executeSql(
         "UPDATE Cadastro_Insumos  SET name=?, fabricante=?, qty=?, validade=?,lote=?, entrada=?, observacao=? WHERE id=?",
-        [name, fabricante, qty, validade, lote, entrada, observacao, id],
+        [name, fabricante, qty, validade, lote, entrada, observacao],
         null
       );
       swal.fire({
@@ -72,7 +33,7 @@ function save() {
       });
     } else {
       tx.executeSql(
-        "INSERT INTO Cadastro_Insumos  ( name, fabricante, qty, validade, lote, entrada, observacao) VALUES (?, ?, ?, ? , ? , ? )",
+        "INSERT INTO Cadastro_Insumos  ( name, fabricante, qty, validade, lote, entrada, observacao) VALUES (?, ?, ?, ? , ? , ?, ? )",
         [name, fabricante, qty, validade, lote, entrada, observacao]
       );
       swal.fire({
@@ -93,9 +54,9 @@ function save() {
 function redy() {
   if (document.getElementById("btn-save")) {
     document.getElementById("btn-save").addEventListener("click", save);
-    createTableSupplies();
-    insumoIsEmpty();
   }
-  if (document.getElementById("btn-search"))
+  if (document.getElementById("btn-search")) {
     document.getElementById("btn-search").addEventListener("click", search);
+  }
+  createTableSupplies();
 }
