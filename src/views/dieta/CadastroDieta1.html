@@ -91,7 +91,7 @@
 
     <!-- form-->
    <div class="container-fluid">
-       <form>
+       <form onsubmit="Insert()">
            <legend>Cadastro de dieta</legend>
        <div class="row" id="qtd">
             <div class="form-group col-md-4">
@@ -137,7 +137,7 @@
         };
         document.getElementById("InserirDados").innerHTML +=  `<div class="row">
             <div class="form-group col-sm-12">
-                <input type="submit" class="btn btn-success float-right" value="Salvar" onClick="Insert()" >
+                <input type="submit" class="btn btn-success float-right" value="Salvar" >
             </div>
         </div>`;
     };  
