@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
+    <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/colaboradoresCtrl.js" type="module"></script>
+    <title>Cadastro Colaboradores</title>
+
+    <style>
+        .navbar .navbar-nav>li>.dropdown-menu>a:hover,
+        .navbar .navbar-nav>li>.dropdown-menu>a:focus {
+            /*background-color: rgba(33, 136, 56, 0.46) !important;*/
+            background-color: rgba(225, 212, 31, .4);
+        }
+        
+        #btn-logout {
+            background-color: goldenrod;
+            color: whitesmoke;
+        }
+        
+        #btn-logout:hover {
+            background-color: #e3ab1f;
+            border-color: goldenrod;
+        }
+        
+        .page-header {
+            border-color: #e7e7e7;
+            margin-top: 3em;
+            margin-bottom: 1.3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div-nav">
+
+    </div>
+    <br>
+
+    <form>
+        <input type="hidden" id="id" value="" />
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row page-header">
+                        <div class="col-sm-12">
+                            <h3>Cadastro Colaboradores</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Nome*</label>
+                                <input class="form-control text-uppercase" type="text" id="nome" maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Idade*</label>
+                                <input class="form-control text-uppercase" type="number" id="idade" maxlength="3" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>E-mail*</label>
+                                <input class="form-control" type="text" id="email" maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Cargo*</label>
+                                <select class="form-control" id="cargo">
+                                    <option value=""></option>
+                                    <option value="2">Veterinario</option>
+                                    <option value="3">Operador 1</option>
+                                    <option value="4">Operador 2</option>
+                                    <option value="5">Operador 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label></label>
+                                <button id="btn-save" type="button" class="btn btn-success float-right semlabel-formgroup">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+</body>
+
+
+</html>
