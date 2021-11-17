@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- /js -->
     <title>Pesquisa e Relatório de Animais</title>
 
@@ -85,64 +86,7 @@
 
 <body>
     <!--NavBar-->
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(38 151 64)">
-        <a class="navbar-brand" href="#">Gado de <span style="color:
-                    goldenrod;">Ouro</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <!-- Dropdown Colaborador-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                            Colaborador
-                        </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="#">Busca</a>
-                    </div>
-                </li>
-                <!-- Dropdown Insumos-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                            Insumos
-                        </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="#">Busca</a>
-                        <a class="dropdown-item" href="#">Baixa</a>
-                    </div>
-                </li>
-                <!-- Dropdown Animal-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                            Animal
-                        </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="pesquisarelatorioanimais.html">Busca</a>
-                        <a class="dropdown-item" href="#">Baixa</a>
-                    </div>
-                </li>
-                <!-- Dropdown Dieta-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                            Dieta
-                        </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="#">Busca</a>
-                        <a class="dropdown-item" href="#">Baixa</a>
-                    </div>
-                </li>
-            </ul>
-
-
-            <button class="btn my-2 b ml-auto text-white" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true"></i> Logout</button>
-
-        </div>
-    </nav>
+    <div id="div-nav"></div>
     <!--/NavBar-->
     <br>
     <!-- Filters -->
@@ -252,27 +196,8 @@
                                                 style="margin-left: 9px;">Info</span></a>
                                         <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
                                                 style="margin-left: 2px;">Editar</span></a>
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal"> <i class="fa fa-trash"></i> <span
+                                        <a class="dropdown-item" href="#" id="Swal.fire"> <i class="fa fa-trash"></i> <span
                                                 style="margin-left: 6px;">Excluir</span></a>
-                                    </div>
-                                    <div class="modal" id="myModal">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <!-- Modal body -->
-                                                <div class="modal-body">
-                                                    Se clicar em "Excluir", todos os dados do animal serão apagados.
-                                                </div>
-                                                <!-- Modal footer -->
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </td>
@@ -299,28 +224,8 @@
                                                 style="margin-left: 9px;">Info</span></a>
                                         <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
                                                 style="margin-left: 2px;">Editar</span></a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal"> <i class="fa fa-trash"></i> <span
+                                                <a class="dropdown-item" href="#" id="Swal.fire"> <i class="fa fa-trash"></i> <span
                                                     style="margin-left: 6px;">Excluir</span></a>
-                                        </div>
-                                        <div class="modal" id="myModal">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    </div>
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-                                                        Se clicar em "Excluir", todos os dados do animal serão apagados.
-                                                    </div>
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                             </td>
                             <td>
                                 Indubrasil
@@ -452,5 +357,24 @@
         $( "#btn-search" ).prop( "disabled", false );
 
     }
+    document.getElementById('Swal.fire').addEventListener('click', function (){
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não vai conseguir reverter essa ação!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, excluir!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Excluido!',
+            'Animal excluido com sucesso.',
+            'success'
+                )
+            }
+        })
+    })
 
 </script>
