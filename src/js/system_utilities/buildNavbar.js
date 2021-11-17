@@ -61,7 +61,7 @@ function buildNav() {
                 <div class="dropdown-menu">\
                     <a class="dropdown-item" href="../exemplo/cadastro_insumo.html">Cadastro</a>\
                     <a class="dropdown-item" href="../exemplo/busca_insumo.html"">Busca</a>\
-                    <a class="dropdown-item" href="#">Baixa</a>\
+                    <a class="dropdown-item" href="../exemplo/cadastro_dieta.html"">Cadastrar Dieta</a>\
                 </div>\
             </li>\
             <li class="nav-item dropdown">\

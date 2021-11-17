@@ -14,8 +14,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="../../js/controllers/dietaExemploCtrl.js" type="module"></script>
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
+
+
     <!--/CSS-->
-    <script src="../../js/controllers/dbDieta.js"></script>
     <style>
         #botao {
             margin: 33px 0;
@@ -93,12 +96,12 @@
 
     <!-- form-->
     <div class="container-fluid">
-        <form onsubmit="Insert()">
+        <form>
             <legend>Cadastro de dieta</legend>
             <div class="row" id="qtd">
                 <div class="form-group col-md-4">
                     <label for="NomeDieta" class="control-label">Nome da Dieta</label>
-                    <input type="text" class="form-control" name="NomeDieta" id="dietname" required></input>
+                    <input type="text" class="form-control" name="NomeDieta" id="nome" required></input>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="QuantidadeInsumos" class="control-label">Quantidade de insumos</label>
@@ -108,8 +111,14 @@
                     <input class="btn btn-success" type="button" id="botao" value="Gerar" onclick="noClique();">
                 </div>
             </div>
+
             <div id="InserirDados">
 
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <input id="btn-save" type="button" class="btn btn-success float-right" value="Salvar">
+                </div>
             </div>
         </form>
     </div>
@@ -128,7 +137,7 @@
                     <input type="text" class="form-control" name="NomeInsumo" id="supplyname${i}" required></input>        
                  </div>
                 <div class="form-group col-md-4">
-                    <label for="Quantidade" class="control-label">Quantidade (gramas)/dia</label>
+                    <label for="Quantidade" class="control-label">Quantidade/dia</label>
                      <input type="number" class="form-control" name="Quantidade" min="1" id="quantity${i}" required></input> 
                </div>
                 <div class="form-group col-md-4">
@@ -137,11 +146,12 @@
                 </div>
             </div>`;
                 };
-                document.getElementById("InserirDados").innerHTML += `<div class="row">
-            <div class="form-group col-sm-12">
-                <input type="submit" class="btn btn-success float-right" value="Salvar" >
-            </div>
-        </div>`;
+                //         document.getElementById("InserirDados").innerHTML += `<div class="row">
+                //     <div class="form-group col-sm-12">
+                //         <input id="btn-save" type="button" class="btn btn-success float-right" value="Salvar" >
+                //     </div>
+                // </div>`;
+
             };
         };
 
@@ -153,6 +163,8 @@
             check = true;
         }
     </script>
+
+
 </body>
 
 </html>
