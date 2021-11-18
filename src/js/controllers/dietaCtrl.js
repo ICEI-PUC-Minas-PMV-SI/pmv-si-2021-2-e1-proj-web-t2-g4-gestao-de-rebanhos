@@ -84,6 +84,7 @@ function redy() {
     criarTabelaDietaseInsumos();
     console.log("Chamou controller");
 
+    //preencher select dietas na página cadastro animal
     getDietas(function(resultado){
         console.log("Chamou getdietas");
         $(resultado.rows).each(function(index,dados){
