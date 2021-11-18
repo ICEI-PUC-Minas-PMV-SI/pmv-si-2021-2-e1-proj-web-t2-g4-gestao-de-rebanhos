@@ -17,6 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/animalCtrl.js" type="module"></script>
     <!-- /js -->
     <title>Pesquisa e Relatório de Animais</title>
 
@@ -181,26 +182,13 @@
                             <th scope="col">Raça</th>
                             <th scope="col">Sexo</th>
                             <th scope="col">Idade</th>
+                            <th></th>
                         </tr>
                     </thead>
                         <tbody>
                         <tr>
                             <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-warning dropdown-toggle"
-                                        data-toggle="dropdown">
-                                        <i aria-hidden="true">#001</i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i
-                                                class="fa fa-info-circle"></i><span
-                                                style="margin-left: 9px;">Info</span></a>
-                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
-                                                style="margin-left: 2px;">Editar</span></a>
-                                        <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash"></i> <span
-                                                style="margin-left: 6px;">Excluir</span></a>
-                                    </div>
-                                </div>
+                                #001
                             </td>
                             <td>
                                 Angus
@@ -211,48 +199,27 @@
                             <td>
                                 18 meses
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-warning dropdown-toggle"
                                         data-toggle="dropdown">
-                                        <i aria-hidden="true">#002</i>
+                                        <i aria-hidden="true" class="fa fa-bars"></i>
                                     </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i
                                                 class="fa fa-info-circle"></i><span
                                                 style="margin-left: 9px;">Info</span></a>
-                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
+                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i class="fa fa-edit"></i> <span
                                                 style="margin-left: 2px;">Editar</span></a>
-                                                <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash Swal.fire"></i> <span
-                                                    style="margin-left: 6px;">Excluir</span></a>
-                            </td>
-                            <td>
-                                Indubrasil
-                            </td>
-                            <td>
-                                Macho
-                            </td>
-                            <td>
-                                15 meses
+                                        <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash"></i> <span
+                                                style="margin-left: 6px;">Excluir</span></a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-warning dropdown-toggle"
-                                        data-toggle="dropdown">
-                                        <i aria-hidden="true">#003</i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i
-                                                class="fa fa-info-circle"></i><span
-                                                style="margin-left: 9px;">Info</span></a>
-                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
-                                                style="margin-left: 2px;">Editar</span></a>
-                                                <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash Swal.fire"></i> <span
-                                                    style="margin-left: 6px;">Excluir</span></a>
+                                #002
                             </td>
                             <td>
                                 Angus
@@ -261,33 +228,86 @@
                                 Macho
                             </td>
                             <td>
-                                12 meses
+                                18 meses
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-warning dropdown-toggle"
                                         data-toggle="dropdown">
-                                        <i aria-hidden="true">#004</i>
+                                        <i aria-hidden="true" class="fa fa-bars"></i>
                                     </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i
                                                 class="fa fa-info-circle"></i><span
                                                 style="margin-left: 9px;">Info</span></a>
-                                        <a class="dropdown-item" href="#"> <i class="fa fa-edit"></i> <span
+                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i class="fa fa-edit"></i> <span
                                                 style="margin-left: 2px;">Editar</span></a>
-                                                <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash Swal.fire"></i> <span
-                                                    style="margin-left: 6px;">Excluir</span></a>
+                                        <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash"></i> <span
+                                                style="margin-left: 6px;">Excluir</span></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #003
                             </td>
                             <td>
-                                Nelore
+                                Angus
                             </td>
                             <td>
-                                Fêmea
+                                Macho
                             </td>
                             <td>
-                                13 meses
+                                18 meses
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-warning dropdown-toggle"
+                                        data-toggle="dropdown">
+                                        <i aria-hidden="true" class="fa fa-bars"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i
+                                                class="fa fa-info-circle"></i><span
+                                                style="margin-left: 9px;">Info</span></a>
+                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i class="fa fa-edit"></i> <span
+                                                style="margin-left: 2px;">Editar</span></a>
+                                        <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash"></i> <span
+                                                style="margin-left: 6px;">Excluir</span></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #004
+                            </td>
+                            <td>
+                                Angus
+                            </td>
+                            <td>
+                                Macho
+                            </td>
+                            <td>
+                                18 meses
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-warning dropdown-toggle"
+                                        data-toggle="dropdown">
+                                        <i aria-hidden="true" class="fa fa-bars"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i
+                                                class="fa fa-info-circle"></i><span
+                                                style="margin-left: 9px;">Info</span></a>
+                                        <a class="dropdown-item" href="pesquisarelatorioanimais2.html"> <i class="fa fa-edit"></i> <span
+                                                style="margin-left: 2px;">Editar</span></a>
+                                        <a class="dropdown-item" href="#" id="Swal.fire" onclick="chamarSwal()"> <i class="fa fa-trash"></i> <span
+                                                style="margin-left: 6px;">Excluir</span></a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -337,26 +357,5 @@
             )
   }
 })
-    }
-    //* digita alguma coisa ai
-    // document.getElementById('Swal.fire').addEventListener('click', function (){
-    // Swal.fire({
-    //     title: 'Tem certeza?',
-    //     text: "Você não vai conseguir reverter essa ação!",
-    //     icon: 'warning',
-    //     showCancelButton: true,
-    //     confirmButtonColor: '#3085d6',
-    //     cancelButtonColor: '#d33',
-    //     confirmButtonText: 'Sim, excluir!'
-    //     }).then((result) => {
-    //     if (result.isConfirmed) {
-    //         Swal.fire(
-    //         'Excluido!',
-    //         'Animal excluido com sucesso.',
-    //         'success'
-    //             )
-    //         }
-    //     })
-    // })
-
+}
 </script>
