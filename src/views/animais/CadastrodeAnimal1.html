@@ -15,7 +15,9 @@
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!--/CSS-->
     <title>Cadastro de Animal</title>
-    <script src="../../js/controllers/dietaCtrl.js" type="module"></script>
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
+   <script src="../../js/controllers/dietaCtrl.js" type="module"></script>
+   <script src="../../js/controllers/dbanimalteste.js" type="module"></script>
 
     <style>
         #btn-logout {
@@ -90,33 +92,32 @@
 
     <!--Form-->
     <div class="container-fluid">
-        <form onsubmit="Insert();">
+        <form>
+            <input type="hidden" id="id" value=""/>
             <legend>Cadastro de Animal</legend>
         <div class="row">
             <div class="form-group col-sm-2">
                 <label for="Idade">Idade(meses)</label>
-                <input type="number" class="form-control" name="Idade" id="age" min="1" required>
+                <input type="number" class="form-control" name="Idade" id="idade" min="1" required>
             </div>
             <div class="form-group col-sm-2">
                 <label for="Peso">Peso(Kg)</label>
-                <input type="number" class="form-control" name="Peso" id="weight" min="1" required>
+                <input type="number" class="form-control" name="Peso" id="peso" min="1" required>
             </div>
             <div class="form-group col-sm-2">
                 <label for="Raça">Raça</label>
-                <input type="text" class="form-control" name="Raça"id="breed" required>
+                <input type="text" class="form-control" name="Raça"id="raca" required>
             </div>
             <div class="form-group col-sm-2">
                 <label for="Sexo">Sexo</label>
-                <select id="Sexo" name="Sexo" class="form-control">
+                <select id="sexo" name="Sexo" class="form-control">
                     <option value="Macho">Macho</option>
                     <option value="Fêmea">Fêmea</option>
                 </select>
             </div>
             <div class="form-group col-sm-2">
-                <label for="Dieta">Dieta</label>
-                <select name="Dieta" id="listaDietas" class="form-control">
-                  
-                </select>
+                <label for="Dietas">Dieta</label>
+                <select name="Dietas" id="listaDietas" class="form-control"></select>
             </div>
             <div class="form-group col-sm-2">
                 <label for="data">Data Entrada</label>
@@ -126,7 +127,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <input class="btn btn-success float-right" type="submit" value="Salvar"id="enviar">
+                    <input class="btn btn-success float-right" type="submit" value="Salvar"id="salvar">
                 </div>
             </div>
         </div>

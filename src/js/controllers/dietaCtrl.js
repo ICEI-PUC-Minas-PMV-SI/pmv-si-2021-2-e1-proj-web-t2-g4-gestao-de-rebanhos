@@ -2,6 +2,8 @@ import { db } from '../system_utilities/db.js';
 
 window.addEventListener('load', redy);
 
+window.addEventListener('load', redy);
+
 function criarTabelaDietaseInsumos() {
     var query = "CREATE TABLE IF NOT EXISTS dietas ( id TEXT,nome TEXT)";
     var queryInsumos = "CREATE TABLE IF NOT EXISTS dietaInsumos (id INTEGER PRIMARY KEY, idInsumo INTEGER, idDieta TEXT, nomeInsumo TEXT, qtdInsumos REAL, duracao INTEGER)"
@@ -33,10 +35,11 @@ function save() {
     var id = generateUUID();
     var nome = document.getElementById('nomedieta').value;
     var quantidade = document.getElementById('Quantidadeinsumos').value;
+    var dados = [id,nome];
 
     db.transaction(function(tx) {
 
-        tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', [id, nome],
+        tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
             //callback sucesso
             function() {
                 for (var i = 1; i <= quantidade; i++) {
@@ -65,11 +68,12 @@ function save() {
 //selecionar das dietas
 function getDietas(callback){
     db.transaction(function(tx){
-        tx.executeSql('SELECT id,nome, FROM dietas ORDER BY nome',[],
+        tx.executeSql('SELECT id,nome FROM dietas ORDER BY nome',[],
         function(tx,resultado){
             callback(resultado);
         },
-        function(erro){
+        function(tx,erro){
+            console.log("erro ao executar");
             console.log(erro);
         })
     });
@@ -84,7 +88,8 @@ function redy() {
     criarTabelaDietaseInsumos();
     console.log("Chamou controller");
 
-    //preencher select dietas na página cadastro animal
+    
+    
     getDietas(function(resultado){
         console.log("Chamou getdietas");
         $(resultado.rows).each(function(index,dados){
@@ -99,3 +104,14 @@ function redy() {
     });
 
 }
+
+
+
+
+
+
+
+
+
+
+
