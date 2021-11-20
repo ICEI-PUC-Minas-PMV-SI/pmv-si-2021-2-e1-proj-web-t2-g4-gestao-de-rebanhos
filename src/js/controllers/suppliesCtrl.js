@@ -19,11 +19,21 @@ function save() {
 
     db.transaction(function(tx) {
         if (id) {
-            tx.executeSql('UPDATE supplies SET name=?, quantityMin=? WHERE id=?', [name, quantityMin, id], null);
-            swal.fire({
-                icon: "success",
-                title: "Insumo alterado com sucesso!",
-            });
+            tx.executeSql('UPDATE supplies SET name=?, quantityMin=? WHERE id=?', [name, quantityMin, id],
+                function() {
+                    swal.fire({
+                        icon: "success",
+                        title: "Insumo alterado com sucesso!",
+                    });
+                },
+                function() {
+                    swal.fire({
+                        icon: "error",
+                        title: "Falhou",
+                    });
+                }
+            );
+
         } else {
             tx.executeSql('INSERT INTO supplies ( name, quantity, quantityMin) VALUES (?, ?, ?)', [name, quantity, quantityMin]);
             swal.fire({
@@ -45,7 +55,7 @@ function search() {
 
     var tbody = document.getElementById('tbody-supplies');
     var total = document.getElementById('total');
-    var table = document.getElementById('table-response');
+    //var table = document.getElementById('table-response');
     table.style.display = 'block';
 
     var sqlWhere = 'WHERE TRUE AND (';
@@ -105,10 +115,6 @@ function createSelectUser() {
             var options = ' <label>Usuários</label>\
                             <select class="form-control" id="user" name="user">\
                             <option></option>';
-
-
-
-
 
             // Insere cada usuario do banco de dados como uma opção no select
             for (var i = 0; i < rows.length; i++) {

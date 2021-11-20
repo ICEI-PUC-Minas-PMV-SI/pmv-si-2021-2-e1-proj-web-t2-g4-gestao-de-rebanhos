@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <!--/Bootstrap-->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!--/CSS-->
+    <!--Script-->
+    <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/animalCtrl.js" type="module"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--/Script-->
+
+    <title>Cadastro de Animal</title>
+
+    <style>
+        #btn-logout {
+            background-color: goldenrod;
+            color: whitesmoke;
+        }
+
+        #btn-logout:hover {
+            background-color: #e3ab1f;
+            border-color: goldenrod;
+        }
+        #obrigatorios{
+            font-size: 12px;
+            font-weight: bolder;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- NavBar -->
+    <div id="div-nav"></div>
+    <!-- /NavBar -->
+
+    <!--Form-->
+    <div class="container-fluid">
+        <form>
+            <input type="hidden" id="id" value="" />
+            <legend>Cadastro de Animal <br><span id="obrigatorios">Os campos com * são obrigatórios</span></legend>
+        <div class="row">
+            <div class="form-group col-sm-2">
+                <label for="Tag">Tag *</label>
+                <input type="" class="form-control" name="Tag" id="tag" required>
+            </div>
+            <div class="form-group col-sm-2">
+                <label for="Idade">Idade(meses) *</label>
+                <input type="number" class="form-control" name="Idade" id="idade" required>
+            </div>
+            <div class="form-group col-sm-2">
+                <label for="Peso">Peso(Kg) *</label>
+                <input type="number" class="form-control" name="Peso" id="peso" required>
+            </div>
+            <div class="form-group col-sm-2">
+                <label for="Raça">Raça *</label>
+                <select class="form-control" id="raca">
+                    <option value=""></option>
+                    <option value="Nelore">Nelore</option>
+                    <option value="Guzerá">Guzerá</option>
+                    <option value="Brahman">Brahman</option>
+                    <option value="Canchim">Canchim</option>
+                    <option value="Caracu">Caracu</option>
+                    <option value="Girolando">Girolando</option>
+                    <option value="Sindi">Sindi</option>
+                    <option value="Indubrasil">Indubrasil</option>
+                    <option value="Limousin">Limousin</option>
+                    <option value="Pantaneiro">Pantaneiro</option>
+                    <option value="Crioulo Lageano">Crioulo Lageano</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-2">
+                <label for="Sexo">Sexo *</label>
+                <select id="sexo" name="Sexo" class="form-control">
+                    <option value=""></option>
+                    <option value="Macho">Macho</option>
+                    <option value="Fêmea">Fêmea</option>
+                </select>
+            </div>
+            <div class="form-group col-sm-2">
+                <label for="Dieta">Dieta</label>
+                <select name="Dieta" id="nomeDieta" class="form-control">
+                    <option value=""></option>
+                    <option value="Dieta 1">Dieta 1</option>
+                    <option value="Dieta 2">Dieta 2</option>
+                    <option value="Dieta 3">Dieta 3</option>
+                    <option value="Dieta 4">Dieta 4</option>
+                    <option value="Dieta 5">Dieta 5</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input class="btn btn-success float-right" type="button" value="Salvar" id="btn-save">
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+</html>
