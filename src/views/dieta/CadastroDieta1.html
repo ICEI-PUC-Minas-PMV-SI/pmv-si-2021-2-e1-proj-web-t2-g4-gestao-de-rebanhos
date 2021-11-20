@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,20 +13,19 @@
     <title>Cadastro de Dieta</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!--/CSS-->
-    <!-- <script src="../../js/controllers/dbDieta.js" type="module"></script> -->
-    <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
     <style>
-        #botao{
-           margin:33px 0;
+        #botao {
+            margin: 33px 0;
         }
+        
         #btn-logout {
             background-color: goldenrod;
             color: whitesmoke;
         }
-
+        
         #btn-logout:hover {
             background-color: #e3ab1f;
             border-color: goldenrod;
@@ -33,31 +33,12 @@
     </style>
 
 </head>
+
 <body>
     <div id="div-nav"></div>
     <br>
     <!-- form-->
-   <div class="container-fluid">
-       <form>
-           <legend>Cadastro de dieta</legend>
-       <div class="row" id="qtd">
-            <div class="form-group col-md-4">
-                <label for="NomeDieta" class="control-label">Nome da Dieta</label>
-                 <input type="text" class="form-control" name="NomeDieta"id="dietname" required></input>   
-            </div> 
-           <div class="form-group col-md-4"> 
-               <label for="QuantidadeInsumos" class="control-label">Quantidade de insumos</label>
-               <input type="number" class="form-control" id="Quantidadeinsumos" name="QuantidadeInsumos"required>
-           </div>
-           <div class="form-group col-md-4">
-                <input class="btn btn-success" type="button" id="botao" value="Gerar">
-            </div>   
-        </div>
-        <div id="InserirDados">
 
-        </div>
-    </form>
-   </div>
-   <script src="../../js/controllers/dbDieta.js" type="module"></script>
 </body>
+
 </html>

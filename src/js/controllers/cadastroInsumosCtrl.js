@@ -2,10 +2,9 @@ import { db } from "../system_utilities/db.js";
 
 window.addEventListener("load", redy);
 
-// Cria a tabela de usuários => users
 function createTableSupplies() {
   var query =
-    "CREATE TABLE IF NOT EXISTS supplies ( id INTEGER PRIMARY KEY,name TEXT, fabricante TEXT, qty TEXT, validade INTEGER, lote  TEXT, entrada INTEGER, observacao TEXT)";
+    "CREATE TABLE IF NOT EXISTS Cadastro_Insumos ( id INTEGER PRIMARY KEY,name TEXT, fabricante TEXT, qty TEXT, validade INTEGER, lote  TEXT, entrada INTEGER, observacao TEXT)";
   db.transaction(function (tx) {
     tx.executeSql(query);
   });
@@ -24,8 +23,8 @@ function save() {
   db.transaction(function (tx) {
     if (id) {
       tx.executeSql(
-        "UPDATE supplies SET name=?, fabricante=?, qty=?, validade=?lote=?, entrada=?, observacao=? WHERE id=?",
-        [name, fabricante, qty, validade, lote, entrada, observacao, id],
+        "UPDATE Cadastro_Insumos  SET name=?, fabricante=?, qty=?, validade=?,lote=?, entrada=?, observacao=? WHERE id=?",
+        [name, fabricante, qty, validade, lote, entrada, observacao],
         null
       );
       swal.fire({
@@ -34,7 +33,7 @@ function save() {
       });
     } else {
       tx.executeSql(
-        "INSERT INTO supplies ( name, fabricante, qty, validade, lote, entrada, observacao) VALUES (?, ?, ?)",
+        "INSERT INTO Cadastro_Insumos  ( name, fabricante, qty, validade, lote, entrada, observacao) VALUES (?, ?, ?, ? , ? , ?, ? )",
         [name, fabricante, qty, validade, lote, entrada, observacao]
       );
       swal.fire({
@@ -43,7 +42,6 @@ function save() {
       });
     }
   });
-
   document.getElementById("name").value = "";
   document.getElementById("fabricante").value = "";
   document.getElementById("qty").value = "";
@@ -56,9 +54,9 @@ function save() {
 function redy() {
   if (document.getElementById("btn-save")) {
     document.getElementById("btn-save").addEventListener("click", save);
-    createSelectUser();
   }
-  if (document.getElementById("btn-search"))
+  if (document.getElementById("btn-search")) {
     document.getElementById("btn-search").addEventListener("click", search);
+  }
   createTableSupplies();
 }
