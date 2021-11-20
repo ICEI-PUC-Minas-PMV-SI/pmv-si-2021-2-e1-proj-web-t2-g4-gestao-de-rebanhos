@@ -86,10 +86,8 @@ function checkTypeUser() {
         tx.executeSql('SELECT * FROM usuarios WHERE logado = 1', [], function(tx, result) {
             if (result.rows.length > 0) {
                 //var tpUser = result.rows[0].typeUser;
-
                 buildNav();
                 document.getElementById('btn-logout').addEventListener('click', logout);
-
             }
         }, null);
     });

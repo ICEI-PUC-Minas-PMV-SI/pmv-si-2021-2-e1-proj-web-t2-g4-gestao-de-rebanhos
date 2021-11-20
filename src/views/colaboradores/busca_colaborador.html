@@ -11,7 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
-    <script src="../../js/controllers/colaboradoresCtrl.js" type="module"></script>
+    <script src="../../js/controllers/colaboradoresCtrl.js"></script>
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
 
     <title>Busca Colaborador</title>
 
@@ -97,13 +98,31 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Nome</label>
                                 <input class="form-control text-uppercase" type="text" name="Nome" id="nome" maxlength="100" />
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input class="form-control" type="text" id="email" maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Cargo</label>
+                                <select class="form-control" id="cargo">
+                                    <option value=""></option>
+                                    <option value="2">Veterinario</option>
+                                    <option value="3">Operador 1</option>
+                                    <option value="4">Operador 2</option>
+                                    <option value="5">Operador 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
                             <div class="form-group">
                                 <label></label>
                                 <button id="btn-search" type="button" class="btn btn-warning semlabel-formgroup">Pesquisar</button>

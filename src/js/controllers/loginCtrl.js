@@ -7,7 +7,7 @@ window.addEventListener('load', redy); // quando a página estiver completamente
 
 // Cria a tabela de usuários => users
 function createTableUser() {
-    var query = "CREATE TABLE IF NOT EXISTS usuarios ( id INTEGER PRIMARY KEY,nome TEXT, senha TEXT, email TEXT, tipoUsuario INTEGER, logado INTEGER)";
+    var query = "CREATE TABLE IF NOT EXISTS usuarios ( id INTEGER PRIMARY KEY,nome TEXT, senha TEXT, email TEXT, tipoUsuario INTEGER, logado INTEGER, idColaborador TEXT)";
     db.transaction(function(tx) {
         tx.executeSql(query);
     });
