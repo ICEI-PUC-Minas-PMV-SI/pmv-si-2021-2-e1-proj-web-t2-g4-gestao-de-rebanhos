@@ -16,7 +16,6 @@
     <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!--/CSS-->
-    <script src="../../js/controllers/dietaCtrl.js" type="module"></script>
     <style>
         #botao {
             margin: 33px 0;
@@ -36,125 +35,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md  navbar-dark" style="background-color: rgb(71, 155, 71);">
-        <a class="navbar-brand" href="#">Gado de <span style="color:
-                goldenrod;">Ouro</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <!-- Dropdown Colaborador-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                        Colaborador
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="#">Busca</a>
-                    </div>
-                </li>
-                <!-- Dropdown Insumos-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                        Insumos
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="#">Busca</a>
-                        <a class="dropdown-item" href="#">Baixa</a>
-                    </div>
-                </li>
-                <!-- Dropdown Animal-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                        Animal
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="#">Busca</a>
-                        <a class="dropdown-item" href="#">Baixa</a>
-                    </div>
-                </li>
-                <!-- Dropdown Dieta-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                        Dieta
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Cadastro</a>
-                        <a class="dropdown-item" href="#">Busca</a>
-                        <a class="dropdown-item" href="#">Baixa</a>
-                    </div>
-                </li>
-            </ul>
-            <button class="btn my-2 b ml-auto text-white" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true"></i> Logout</button>
-        </div>
-    </nav>
-
+    <div id="div-nav"></div>
+    <br>
     <!-- form-->
-    <div class="container-fluid">
-        <form>
-            <legend>Cadastro de dieta</legend>
-            <div class="row" id="qtd">
-                <div class="form-group col-md-4">
-                    <label for="NomeDieta" class="control-label">Nome da Dieta</label>
-                    <input type="text" class="form-control" name="NomeDieta" id="nomedieta" required></input>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="QuantidadeInsumos" class="control-label">Quantidade de insumos</label>
-                    <input type="number" class="form-control" id="Quantidadeinsumos" name="QuantidadeInsumos" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <input class="btn btn-success" type="button" id="botao" value="Gerar" onclick="noClique();">
-                </div>
-            </div>
-            <div id="InserirDados">
 
-            </div>
-            <div class="row">
-                <div class="form-group col-sm-12">
-                    <input type="button"id="btn-save" class="btn btn-success float-right" value="Salvar" >
-                </div>
-            </div>
-        </form>
-    </div>
-    <script>
-        var check = false;
-
-        function getInputValue() {
-            var quantidade = document.getElementById("Quantidadeinsumos").value;
-
-            if (quantidade > 0) {
-                for (var i = 1; i <= quantidade; i++) {
-                    document.getElementById("InserirDados").innerHTML +=
-                        `<div class="row">
-                <div class="form-group col-md-4">
-                    <label for="NomeInsumo" class="control-label">Nome do Insumo ${i} </label>
-                    <input type="text" class="form-control" name="NomeInsumo" id="supplyname${i}" required></input>        
-                 </div>
-                <div class="form-group col-md-4">
-                    <label for="Quantidade" class="control-label">Quantidade (gramas)/dia</label>
-                     <input type="number" class="form-control" name="Quantidade" min="1" id="quantity${i}" required></input> 
-               </div>
-                <div class="form-group col-md-4">
-                    <label for="tempo" class="control-label">Número de dias</label>
-                    <input type="number" class="form-control" name="tempo" min="1" id="duration${i}" required></input> 
-                </div>
-            </div>`;
-            }
-                
-        };
-        };
-
-        function noClique() {
-            //executa a função apenas uma vez
-            if (check == false) {
-                getInputValue();
-            }
-            check = true;
-        }
-    </script>
 </body>
 
 </html>
