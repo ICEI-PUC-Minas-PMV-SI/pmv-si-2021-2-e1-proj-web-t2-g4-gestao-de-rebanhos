@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <!--/Bootstrap-->
+    <!--/Bootsrap-->
+    <title>Cadastro de Dieta</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!--/CSS-->
-    <title>Cadastro de Animal</title>
-    <script src="../../js/controllers/dietaCtrl.js" type="module"></script>
-
+    <script src="../../js/controllers/dbDieta.js"></script>
     <style>
+        #botao {
+            margin: 33px 0;
+        }
+        
         #btn-logout {
             background-color: goldenrod;
             color: whitesmoke;
         }
-
+        
         #btn-logout:hover {
             background-color: #e3ab1f;
             border-color: goldenrod;
@@ -30,9 +33,10 @@
     </style>
 
 </head>
+
 <body>
     <nav class="navbar navbar-expand-md  navbar-dark" style="background-color: rgb(71, 155, 71);">
-        <a class="navbar-brand" href="../shared/workspage.html">Gado de <span style="color:
+        <a class="navbar-brand" href="#">Gado de <span style="color:
                 goldenrod;">Ouro</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -63,7 +67,7 @@
                 <!-- Dropdown Animal-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
-                         Animal
+                        Animal
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Cadastro</a>
@@ -86,55 +90,69 @@
             <button class="btn my-2 b ml-auto text-white" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true"></i> Logout</button>
         </div>
     </nav>
-    <!-- /NavBar -->
 
-    <!--Form-->
+    <!-- form-->
     <div class="container-fluid">
-        <form onsubmit="Insert();">
-            <legend>Cadastro de Animal</legend>
-        <div class="row">
-            <div class="form-group col-sm-2">
-                <label for="Idade">Idade(meses)</label>
-                <input type="number" class="form-control" name="Idade" id="age" min="1" required>
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="Peso">Peso(Kg)</label>
-                <input type="number" class="form-control" name="Peso" id="weight" min="1" required>
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="Raça">Raça</label>
-                <input type="text" class="form-control" name="Raça"id="breed" required>
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="Sexo">Sexo</label>
-                <select id="Sexo" name="Sexo" class="form-control">
-                    <option value="Macho">Macho</option>
-                    <option value="Fêmea">Fêmea</option>
-                </select>
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="Dieta">Dieta</label>
-                <select name="Dieta" id="Diet" class="form-control">
-                    <option value="Dieta 1">Dieta 1</option>
-                    <option value="Dieta 2">Dieta 2</option>
-                    <option value="Dieta 3">Dieta 3</option>
-                    <option value="Dieta 4">Dieta 4</option>
-                    <option value="Dieta 5">Dieta 5</option>
-                </select>
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="data">Data Entrada</label>
-                <input type="date" id="DataEntrada" class="form-control" name="data"  required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <input class="btn btn-success float-right" type="submit" value="Salvar"id="enviar">
+        <form onsubmit="Insert()">
+            <legend>Cadastro de dieta</legend>
+            <div class="row" id="qtd">
+                <div class="form-group col-md-4">
+                    <label for="NomeDieta" class="control-label">Nome da Dieta</label>
+                    <input type="text" class="form-control" name="NomeDieta" id="dietname" required></input>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="QuantidadeInsumos" class="control-label">Quantidade de insumos</label>
+                    <input type="number" class="form-control" id="Quantidadeinsumos" name="QuantidadeInsumos" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input class="btn btn-success" type="button" id="botao" value="Gerar" onclick="noClique();">
                 </div>
             </div>
-        </div>
+            <div id="InserirDados">
+
+            </div>
         </form>
     </div>
+    <script>
+        var check = false;
+
+        function getInputValue() {
+            var quantidade = document.getElementById("Quantidadeinsumos").value;
+
+            if (quantidade > 0) {
+                for (var i = 1; i <= quantidade; i++) {
+                    document.getElementById("InserirDados").innerHTML +=
+                        `<div class="row">
+                <div class="form-group col-md-4">
+                    <label for="NomeInsumo" class="control-label">Nome do Insumo ${i} </label>
+                    <input type="text" class="form-control" name="NomeInsumo" id="supplyname${i}" required></input>        
+                 </div>
+                <div class="form-group col-md-4">
+                    <label for="Quantidade" class="control-label">Quantidade (gramas)/dia</label>
+                     <input type="number" class="form-control" name="Quantidade" min="1" id="quantity${i}" required></input> 
+               </div>
+                <div class="form-group col-md-4">
+                    <label for="tempo" class="control-label">Número de dias</label>
+                    <input type="number" class="form-control" name="tempo" min="1" id="duration${i}" required></input> 
+                </div>
+            </div>`;
+                };
+                document.getElementById("InserirDados").innerHTML += `<div class="row">
+            <div class="form-group col-sm-12">
+                <input type="submit" class="btn btn-success float-right" value="Salvar" >
+            </div>
+        </div>`;
+            };
+        };
+
+        function noClique() {
+            //executa a função apenas uma vez
+            if (check == false) {
+                getInputValue();
+            }
+            check = true;
+        }
+    </script>
 </body>
+
 </html>
