@@ -49,7 +49,7 @@ function buildNav() {
                         Dieta\
                     </a>\
                 <div class="dropdown-menu">\
-                    <a class="dropdown-item" href="#">Cadastro</a>\
+                    <a class="dropdown-item" href="../dieta/CadastroDieta1.html">Cadastro</a>\
                     <a class="dropdown-item" href="../dieta/buscaDieta.html">Busca</a>\
                     <a class="dropdown-item" href="#">Baixa</a>\
                 </div>\
