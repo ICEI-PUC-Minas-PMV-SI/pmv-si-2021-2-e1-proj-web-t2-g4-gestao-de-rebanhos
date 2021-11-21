@@ -68,10 +68,10 @@ function addRow(tabela, input1, input2, input3) {
 }
 
 function addButtons(id) {
-    let novoHtml = '<a href="#" class="btn btn-primary btn-sm" title="Editar" ><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir" ><i class="fas fa-trash"></i></a>';
+    let i = Math.random() * 100;
+    let novoHtml = `<button class='btn btn-primary btn-sm' title='Editar' ><i class='fas fas fa-edit'></i></button><button class='btn btn-danger btn-sm btn-delete' id='deletar ${i}' onclick='exclui(${i})' title='Excluir' ><i class='fas fa-trash'></i></button>`;
     id.innerHTML = novoHtml;
-    id.removeAttribute('id');
-    
+    id.removeAttribute('id'); 
 }
 
 function validateInputs(input1, input2, input3) {
