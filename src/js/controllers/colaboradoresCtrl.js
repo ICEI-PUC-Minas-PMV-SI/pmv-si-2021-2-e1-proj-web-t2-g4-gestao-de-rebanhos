@@ -163,6 +163,9 @@ function confirmarDelete(id) {
                     //callback sucesso
                     function() {
                         var tdExcluir = document.getElementById(id);
+                        var total = document.getElementById('total').innerHTML;
+                        document.getElementById('total').innerHTML = --total;
+
                         tdExcluir.style.display = 'none';
                         console.log('Confirmou delete. Id =  ' + id);
                         Swal.fire(
@@ -249,7 +252,7 @@ function buscar() {
 }
 
 function popularDados() {
-    if (window.location.href.split('?')[1].length == 36) {
+    if (window.location.href.includes('?') && window.location.href.split('?')[1].length == 36) {
         var id = window.location.href.split('?')[1];
 
         db.transaction(function(tx) {
