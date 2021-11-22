@@ -15,8 +15,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/animalCtrl.js"></script>
     <!-- /js -->
-    <title>Pesquisa e Relatório de Animais</title>
+    <title>Relatório do Animal</title>
 
     <style>
         .navbar .navbar-nav>li>.dropdown-menu>a:hover,
@@ -70,7 +72,7 @@
         }
 
         .box {
-            height: 400px;
+            height: 350px;
             width: 100%;
             background-color: #ffffff;
             margin-left: 24px;
@@ -97,6 +99,7 @@
 </head>
 
 <body>
+    <div type="hidden" id="relatorio"></div>
     <!--NavBar-->
     <div id="div-nav"></div>
     <!--/NavBar-->
@@ -106,57 +109,19 @@
             <div class="row">
                 <div class="box rounded mt-2 border border-secondary">
                     <div class="col  mr-2 mt-2">
-                        <h1><span class="badge badge-warning col">#001</span> </h1>
+                        <h1><span id="tag" class="badge badge-warning col">#001</span> </h1>
                         <h3 class="blockquote text-center">Informações do Animal</h3>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Raça: Nelore</li>
-                            <li class="list-group-item">Sexo: Macho</li>
-                            <li class="list-group-item">Peso: 420Kg</li>
-                            <li class="list-group-item">Idade: 16 Meses</li>
-                            <li class="list-group-item">Localização: Fazenda 1 - Ala 2</li>
-                          </ul>
+                            <li id="raca" class="list-group-item">Raça: Nelore</li>
+                            <li id="sexo" class="list-group-item">Sexo: Macho</li>
+                            <li id="peso" class="list-group-item">Peso: 420Kg</li>
+                            <li id="idade" class="list-group-item">Idade: 16 Meses</li>
+                        </ul>
                     </div>
-                    <div class="col"><button type="button" class="btn btn-outline-primary btn-sm float-right"> <i class="fa fa-edit"></i></button></div>
-                </div>    
-
+                </div>
             </div>
     </div>
     <!--/Animal ID & BUttons-->
-    <br>
-    <!--Atividades Recentes-->
-    <h1 class="blockquote text-center">Atividades Recentes</h1>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Colaborador</th>
-                <th scope="col">Data</th>
-                <th scope="col"></th>
-                <th scope="col">Info</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">Operador 1</th>
-                <td>26/10/2021</td>
-                <td></td>
-                <td>Alimentação</td>
-            </tr>
-            <tr>
-                <th scope="row">Operador 2</th>
-                <td>26/10/2021</td>
-                <td></td>
-                <td>Transportação</td>
-            </tr>
-            <tr>
-                <th scope="row">Veterinário</th>
-                <td>26/10/2021</td>
-                <td></td>
-                <td>Vacinação</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <!--/Atividades Recentes-->
     <br>
     <!--Grafico-->
     <h1 class="blockquote text-center">Gráfico Peso x Idade</h1>
@@ -171,7 +136,7 @@
     <div class="contaier">
         <div class="row">
             <div class="col"><button type="button" class="btn btn-outline-info btn-lg float-right">Relatório Custos</button></div>
-            <div class="col"><button type="button" class="btn btn-outline-info btn-lg ml-2" >Baixa Animais</button></div>
+            <div class="col"><button type="button" class="btn btn-outline-info btn-lg ml-2" id="btn-baixa">Baixa Animais</button></div>
         </div>
     </div>
     <!--/Botões Finais-->
