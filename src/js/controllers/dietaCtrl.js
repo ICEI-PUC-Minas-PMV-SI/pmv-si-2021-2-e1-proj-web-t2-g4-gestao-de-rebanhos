@@ -40,7 +40,6 @@ function save() {
 
     var validacao = true;
     var msgHtml = '';
-    var todospreenchidos= false;
 
     if (nome.length <= 0) {
         validacao = false;
