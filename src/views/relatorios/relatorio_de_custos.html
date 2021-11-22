@@ -9,9 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../js/controllers/suppliesCtrl.js" type="module"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
-    <title>Busca Dieta</title>
+    <title>Relatório de Custos</title>
 
     <style>
         .navbar .navbar-nav>li>.dropdown-menu>a:hover,
@@ -225,5 +224,13 @@
   </div>
 </div>
 </body>
+<script>
+  function exclui(i) {
+    let element = document.getElementById(`deletar ${i}`);
+    let parent = element.parentNode;
+    let row = parent.parentNode;
+    row.remove();
+  }
+</script>
 <script src="/src/js/controllers/cadastroCustos.js"></script>
 </html>
