@@ -68,25 +68,7 @@ function salvar() {
     if(validacao==true){
         db.transaction(function(tx) {
             if(id){
-                tx.executeSql('INSERT INTO animais (tag, raca, idade, sexo, peso, nomeDieta) VALUES (?, ?, ?, ?, ?, ?)', [tag, raca, idade, sexo, peso, nomeDieta],
-                    // Callback sucesso
-                    function() {
-                        swal.fire({
-                            icon: "success",
-                            title: "Animal cadastrado com sucesso!",
-                        });
-                    },
-                    // Callback erro
-                    function() {
-                        swal.fire({
-                            icon: "error",
-                            title: "Falhou",
-                        }); 
-                    }
-                );
-                }
-                else{
-                    tx.executeSql('UPDATE animais SET idade=?, sexo=?, peso=?, nomeDieta=?, WHERE id=?', [idade, sexo, peso, nomeDieta, id],
+                tx.executeSql('UPDATE animais SET idade=?, sexo=?, peso=?, nomeDieta=?, WHERE id=?', [idade, sexo, peso, nomeDieta, id],
                     // Callback sucesso
                     function() {
                         swal.fire({
@@ -102,6 +84,24 @@ function salvar() {
                         });
                     }
                 );
+                
+                }
+                else{
+                    tx.executeSql('INSERT INTO animais (tag, raca, idade, sexo, peso, nomeDieta) VALUES (?, ?, ?, ?, ?, ?)', [tag, raca, idade, sexo, peso, nomeDieta],
+                    // Callback sucesso
+                    function() {
+                        swal.fire({
+                            icon: "success",
+                            title: "Animal cadastrado com sucesso!",
+                        });
+                    },
+                    // Callback erro
+                    function(tx,erro) {
+                         console.log("erro");
+                         console.log(erro);
+                    }
+                );
+                    
                 }
             
         });   
