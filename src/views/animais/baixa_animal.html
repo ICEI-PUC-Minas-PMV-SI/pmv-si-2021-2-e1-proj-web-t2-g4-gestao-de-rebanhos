@@ -1,33 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- /css -->
+    <!-- js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/animalCtrl.js"></script>
+    <!-- /js -->
+    <title>Pesquisa de Animais</title>
 
     <style>
         .navbar .navbar-nav>li>.dropdown-menu>a:hover,
         .navbar .navbar-nav>li>.dropdown-menu>a:focus {
             /*background-color: rgba(33, 136, 56, 0.46) !important;*/
             background-color: rgba(225, 212, 31, .4);
-        }
-        
-        .page-header {
-            border-color: #e7e7e7;
-            margin-top: 3em;
-            margin-bottom: 1.3em;
-        }
-        
-        .form-search {
-            margin-left: 2em;
-            margin-right: 2em;
         }
         
         #btn-logout {
@@ -40,65 +37,133 @@
             border-color: goldenrod;
         }
         
-        #btn-confirm {
-            margin-top: 2em;
+        .totalizador-search {
+            float: right;
+            font-size: 14px;
+        }
+        
+        .page-header {
+            border-color: #e7e7e7;
+            margin-top: 3em;
+            margin-bottom: 1.3em;
+        }
+        
+        .btn-delete {
+            margin-left: 1rem;
+        }
+        
+        .form-search {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        
+        .spinner {
+            margin-top: 5%;
+            display: none;
+        }
+        
+        .table-response {
+            display: none;
+            /* display: block; */
         }
         
         .td-btn-options {
-            display: none;
+            display: block;
         }
     </style>
-
-    <title>Baixa Animal</title>
 </head>
 
 <body>
+    <!--NavBar-->
     <div id="div-nav"></div>
+    <!--/NavBar-->
     <br>
+    <!-- Filters -->
     <form id="form" class="form-search">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row page-header">
-                        <div class="col-sm-12">
-                            <h3>Baixa Animal</h3>
+                        <div class="col-sm-6">
+                            <h3>Baixas Animais</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="totalizador-search float-right"><strong id="total">0</strong> Resultados
+                                encontrados</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Tag</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-                                    </div>
-                                </div>
+                                <input id="tag" class="form-control text-uppercase" type="text" name="ID Animal" maxlength="100" />
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label>Motivo da Baixa</label>
-                                <select class="form-control" id="sel1" name="sellist1">
-                                    <option></option>
-                                    <option>Morte ou acidente</option>
-                                    <option>Venda</option>
-                                    <option>Abate</option>
+                                <label for="Cargo">Raça</label>
+                                <select class="form-control" id="raca" name="Raça">
+                                    <option value=""></option>
+                                    <option value="Nelore">Nelore</option>
+                                    <option value="Guzerá">Guzerá</option>
+                                    <option value="Brahman">Brahman</option>
+                                    <option value="Canchim">Canchim</option>
+                                    <option value="Caracu">Caracu</option>
+                                    <option value="Girolando">Girolando</option>
+                                    <option value="Sindi">Sindi</option>
+                                    <option value="Indubrasil">Indubrasil</option>
+                                    <option value="Limousin">Limousin</option>
+                                    <option value="Pantaneiro">Pantaneiro</option>
+                                    <option value="Crioulo Lageano">Crioulo Lageano</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label></label>
-                                <button id="btn-confirm" type="button" class="btn btn-success semlabel-formgroup">Confirmar</button>
+                                <label for="Cargo">Motivo</label>
+                                <select class="form-control" id="motivo" name="motivo">
+                                    <option value=""></option>
+                                    <option value="acidente">Acidente</option>
+                                    <option value="venda">Venda</option>
+                                    <option value="abate">Abate</option>
+                                    <option value="outros">Outros</option>
+                                </select>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label></label>
+                                <button id="btn-search" type="button" class="btn btn-warning float-right semlabel-formgroup" onclick="buscarBaixas()">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr />
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+        <br>
+        <!-- /Filters -->
+        <div class="container">
+            <div id="table-response" class="row table-response">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tag</th>
+                            <th scope="col">Raça</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Peso</th>
+                            <th scope="col">Motivo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-animais">
 
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
 </body>
-
-</html>

@@ -9,69 +9,80 @@ function createTableAnimals() {
     db.transaction(function(tx) {
         tx.executeSql(query);
     });
-    console.log("criar tabela"); 
+
 }
+
+// Cria a tabela de baixa animal
+function criarTabelaBaixaAnimal() {
+    var query = "CREATE TABLE IF NOT EXISTS baixaanimal (id INTEGER PRIMARY KEY, tag TEXT NOT NULL, raca TEXT NOT NULL,idade INTEGER NOT NULL, peso REAL NOT NULL, motivo TEXT)";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+    });
+
+}
+
 // Executar função
 function save() {
-    var id = document.getElementById('id').innerHTML;
-    var tag= document.getElementById('tag').innerHTML;
-    var idade = document.getElementById('idade').innerHTML;
-    var peso= document.getElementById('peso').innerHTML;
-    var raca= document.getElementById('raca').innerHTML;
-    var sexo= document.getElementById('sexo').innerHTML;
-    var nomeDieta= document.getElementById('nomeDieta').innerHTML;
-    
-    var validacao= true;
-    var msgHtml= "";
+    var id = document.getElementById('id').value;
+    var tag = document.getElementById('tag').value;
+    var idade = document.getElementById('idade').value;
+    var peso = document.getElementById('peso').value;
+    var raca = document.getElementById('raca').value;
+    var sexo = document.getElementById('sexo').value;
+    var nomeDieta = document.getElementById('nomeDieta').value;
+
+
+    var validacao = true;
+    var msgHtml = "";
 
 
     //Não deixar cadastrar em vazio
-    if (tag.length<=0){
-        validacao=false
+    if (tag.length <= 0) {
+        validacao = false
         msgHtml += '<p> - O campo <b>tag</b> é obrigatório.</p>';
     }
-    if (idade.length<=0){
-        validacao=false
+    if (idade.length <= 0) {
+        validacao = false
         msgHtml += '<p> - O campo <b>idade</b> é obrigatório.</p>';
     }
-    if (peso.length<=0){
-        validacao=false
+    if (peso.length <= 0) {
+        validacao = false
         msgHtml += '<p> - O campo <b>peso</b> é obrigatório.</p>';
     }
-    if (raca.length<=0){
-        validacao=false
+    if (raca.length <= 0) {
+        validacao = false
         msgHtml += '<p> - O campo <b>raca</b> é obrigatório.</p>';
     }
-    if (sexo.length<=0){
-        validacao=false
+    if (sexo.length <= 0) {
+        validacao = false
         msgHtml += '<p> - O campo <b>sexo</b> é obrigatório.</p>';
     }
-    if (nomeDieta.length<=0){
-        validacao=false
+    if (nomeDieta.length <= 0) {
+        validacao = false
         msgHtml += '<p> - O campo <b>Nome dieta</b> é obrigatório.</p>';
     }
 
 
-    if(validacao==true){
+    if (validacao == true) {
         db.transaction(function(tx) {
             if (id) {
                 tx.executeSql('UPDATE animais SET idade=?, peso=? WHERE id=?', [idade, peso, id],
-                //*callback sucesso
-                function() {
-                    swal.fire({
-                        icon: "success",
-                        title: "Animal alterado com sucesso!",
-                    });
-                },
-                //*callback falha
-                function() {
-                    swal.fire({
-                        icon: "error",
-                        title: "Falha em alterar o animal.",
-                    });
-                }
-            )
-    
+                    //*callback sucesso
+                    function() {
+                        swal.fire({
+                            icon: "success",
+                            title: "Animal alterado com sucesso!",
+                        });
+                    },
+                    //*callback falha
+                    function() {
+                        swal.fire({
+                            icon: "error",
+                            title: "Falha em alterar o animal.",
+                        });
+                    }
+                )
+
             } else {
                 tx.executeSql('INSERT INTO animais (tag, raca, idade, sexo, peso, nomeDieta) VALUES (?, ?, ?, ?, ?, ?)', [tag, raca, idade, sexo, peso, nomeDieta],
                     // Callback sucesso
@@ -80,25 +91,24 @@ function save() {
                             icon: "success",
                             title: "Animal cadastrado com sucesso!",
                         });
-                        document.getElementById('tag').innerHTML='';
-                        document.getElementById('idade').innerHTML='';
-                        document.getElementById('peso').innerHTML='';
-                        document.getElementById('raca').innerHTML='';
-                        document.getElementById('sexo').innerHTML='';
-                        document.getElementById('nomeDieta').innerHTML='';
+                        document.getElementById('tag').value = '';
+                        document.getElementById('idade').value = '';
+                        document.getElementById('peso').value = '';
+                        document.getElementById('raca').value = '';
+                        document.getElementById('sexo').value = '';
+                        document.getElementById('nomeDieta').value = '';
                     },
                     // Callback erro
                     function() {
                         swal.fire({
                             icon: "error",
                             title: "Falhou",
-                        }); 
+                        });
                     }
                 );
             }
-        });   
-    }
-    else{
+        });
+    } else {
         swal.fire({
             icon: "error",
             title: "Preencha os campos corretamente",
@@ -108,15 +118,15 @@ function save() {
 }
 
 function search() {
-    //debugger
-    var filterTag=document.getElementById("tag").innerHTML;
-    var filterRaca=document.getElementById("raca").innerHTML;
-    var filterSexo=document.getElementById("sexo").innerHTML;
 
-    var tbody= document.getElementById("tbody-animais");
-    var total= document.getElementById("total");
-    var table= document.getElementById("table-response");
-    table.style.display="block";
+    var filterTag = document.getElementById("tag").value;
+    var filterRaca = document.getElementById("raca").value;
+    var filterSexo = document.getElementById("sexo").value;
+
+    var tbody = document.getElementById("tbody-animais");
+    var total = document.getElementById("total");
+    var table = document.getElementById("table-response");
+    table.style.display = "block";
 
 
     var sqlWhere = 'WHERE TRUE AND (';
@@ -135,7 +145,6 @@ function search() {
 
             for (var i = 0; i < rows.length; i++) {
 
-
                 var btns =
                     `<td class=" td-btn-options">
                         <div class="btn-group">
@@ -145,7 +154,7 @@ function search() {
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" onclick="info('${rows[i].id}')" href="#"><i class="fa-info-circle fa"></i> <span style="padding-left: .3em;">Info</span></a>
                                 <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
-                                <a class="dropdown-item" onclick="baixa('${rows[i].id}')" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
+                                <a class="dropdown-item" onclick="baixa('${rows[i].id}', '${rows[i].tag}', '${rows[i].peso}', '${rows[i].idade}', '${rows[i].raca}', 'busca')" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
                             </div>
                         </div>
                     </td>`;
@@ -166,7 +175,7 @@ function search() {
     });
 }
 
-function info(id){
+function info(id) {
     window.location.href = "../animais/relatorio_animal.html?" + id;
 }
 
@@ -174,12 +183,125 @@ function editar(id) {
     window.location.href = "../animais/cadastro_animal.html?" + id;
 }
 
-function baixa(id){
-    console.log("chamou a funcao baixa e o id e: " + id);
+function baixa(id, tag, peso, idade, raca, page) {
+    debugger
+        (async() => {
+
+            const { value: motivo } = await Swal.fire({
+                title: 'Selecione o motivo da baixa!',
+                input: 'select',
+                inputOptions: {
+                    'Baixa': {
+                        acidente: 'Acidente',
+                        venda: 'Venda',
+                        abate: 'Abate',
+                        outros: 'Outros'
+                    }
+                },
+                inputPlaceholder: 'Selecione o motivo',
+                confirmButtonText: 'Confirmar',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                inputValidator: (value) => {
+                    return new Promise((resolve) => {
+                        if (value.length > 0) {
+                            resolve()
+                        } else {
+                            resolve('Você precisa selecionar uma opção')
+                        }
+                    })
+                }
+            })
+
+            if (motivo) {
+                db.transaction(function(tx) {
+                    tx.executeSql('INSERT INTO baixaanimal (tag, raca, idade, peso, motivo ) VALUES (?, ?, ?, ?, ?)', [tag, raca, idade, peso, motivo],
+                        //Callback sucesso
+                        function() {
+                            tx.executeSql('DELETE FROM animais WHERE id = ?', [id],
+                                //Callback sucesso
+                                function() {
+
+                                    if (page == 'relatorio') {
+                                        //TODO JOGAR PARA A PAGINA DE BUSCA BAIXAS
+                                        window.location.href = "../animais/cadastro_animal.html";
+                                    } else {
+                                        document.getElementById(id).style.display = 'none';
+                                    }
+
+                                    swal.fire({
+                                        icon: "success",
+                                        title: "Baixa efetuada com sucesso!",
+                                    });
+                                },
+                            );
+                        },
+                        //Callback falha
+                        function(msg, e) {
+                            console.log(msg);
+                            console.log(e);
+
+                            swal.fire({
+                                icon: "error",
+                                title: "Erro em dar baixa"
+                            });
+                        }
+                    );
+                });
+
+
+            }
+
+        })()
+}
+
+function buscarBaixas() {
+
+    var filterTag = document.getElementById("tag").value;
+    var filterRaca = document.getElementById("raca").value;
+    var filterMotivo = document.getElementById("motivo").value;
+
+    var tbody = document.getElementById("tbody-animais");
+    var total = document.getElementById("total");
+    var table = document.getElementById("table-response");
+    table.style.display = "block";
+
+
+    var sqlWhere = 'WHERE TRUE AND (';
+    sqlWhere += (filterTag !== null && filterTag !== "") ? 'tag LIKE ' + "'%" + filterTag + "%'" : 'TRUE';
+    sqlWhere += ' AND ';
+    sqlWhere += (filterRaca !== null && filterRaca !== "") ? 'raca LIKE ' + "'%" + filterRaca + "%'" : 'TRUE';
+    sqlWhere += ' AND ';
+    sqlWhere += (filterMotivo !== null && filterMotivo !== "") ? 'motivo LIKE ' + "'%" + filterMotivo + "%'" : 'TRUE';
+    sqlWhere += ' AND ';
+    sqlWhere += ' TRUE )';
+
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT * FROM baixaanimal ' + sqlWhere, [], function(a, result) {
+            var rows = result.rows;
+            var tr = '';
+
+            for (var i = 0; i < rows.length; i++) {
+
+                tr += `<tr id="${rows[i].id}">`;
+                tr += '<td>' + rows[i].tag + '</td>';
+                tr += '<td>' + rows[i].raca + '</td>';
+                tr += '<td>' + rows[i].idade + '</td>';
+                tr += '<td>' + rows[i].peso + '</td>';
+                tr += '<td>' + rows[i].motivo + '</td>';
+                tr += '</tr>';
+            }
+            tbody.innerHTML = tr;
+            total.innerHTML = rows.length;
+
+
+        });
+    });
 }
 
 function popularDados() {
-    if (window.location.href.includes('?') && window.location.href.split('?')[1].length >= 1) {
+    var url = window.location.href.replace(/#/g, '');
+    if (url.includes('?') && url.split('?')[1].length >= 1) {
         var id = window.location.href.split('?')[1];
 
         db.transaction(function(tx) {
@@ -188,12 +310,12 @@ function popularDados() {
                     var animal = result.rows[0];
 
                     //adiciona o valor nos inputs advindos do bdd
-                    document.getElementById('id').innerHTML = animal.id;
-                    document.getElementById('tag').innerHTML = animal.tag;
-                    document.getElementById('idade').innerHTML = animal.idade;
-                    document.getElementById('peso').innerHTML = animal.peso;
-                    document.getElementById('raca').innerHTML = animal.raca;
-                    document.getElementById('sexo').innerHTML = animal.sexo;
+                    document.getElementById('id').value = animal.id;
+                    document.getElementById('tag').value = animal.tag;
+                    document.getElementById('idade').value = animal.idade;
+                    document.getElementById('peso').value = animal.peso;
+                    document.getElementById('raca').value = animal.raca;
+                    document.getElementById('sexo').value = animal.sexo;
 
                     //bloqueia os campos que não podem ser alterados
                     document.getElementById('tag').readOnly = true;
@@ -206,9 +328,10 @@ function popularDados() {
 
     }
 }
+
 function popularDadosRelatorio() {
-    document.getElementById('btn-baixa').addEventListener('click', baixa);
-    if (window.location.href.includes('?') && window.location.href.split('?')[1].length >= 1) {
+    var url = window.location.href.replace(/#/g, '');
+    if (url.includes('?') && url.split('?')[1].length >= 1) {
         var id = window.location.href.split('?')[1];
 
         db.transaction(function(tx) {
@@ -216,25 +339,30 @@ function popularDadosRelatorio() {
                 function(_, result) {
                     var animal = result.rows[0];
 
-                    //adiciona o valor nos inputs advindos do bdd
-                    document.getElementById('tag').innerHTML ="#0" + animal.tag;
-                    document.getElementById('idade').innerHTML ="Idade: " + animal.idade;
-                    document.getElementById('peso').innerHTML ="Peso: " + animal.peso;
-                    document.getElementById('raca').innerHTML ="Raça: " + animal.raca;
-                    document.getElementById('sexo').innerHTML ="Sexo: " + animal.sexo;
+                    //adiciona o valor advindos do bdd
+                    document.getElementById('tag').innerHTML = "#" + animal.tag;
+                    document.getElementById('idade').innerHTML = "Idade: " + animal.idade;
+                    document.getElementById('peso').innerHTML = "Peso: " + animal.peso;
+                    document.getElementById('raca').innerHTML = "Raça: " + animal.raca;
+                    document.getElementById('sexo').innerHTML = "Sexo: " + animal.sexo;
+
+
+                    document.getElementById('btn-baixa').innerHTML = `<button onclick="baixa('${animal.id}', '${animal.tag}', '${animal.peso}', '${animal.idade}', '${animal.raca}', 'relatorio')" type="button" 
+                                                                      class="btn btn-outline-info btn-lg ml-2" id="btn-baixa">Baixa Animais</button>`;
                 }
             );
         });
 
     }
 }
+
 function ready() {
     createTableAnimals();
+    criarTabelaBaixaAnimal();
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', save);
-        popularDados();   
-    }
-    else if (document.getElementById("relatorio")){
+        popularDados();
+    } else if (document.getElementById("relatorio")) {
         popularDadosRelatorio();
     }
 }

@@ -1,7 +1,7 @@
 //import { db } from '../system_utilities/db.js'; // permite acessar o banco de dados sqlite no próprio navegador
 var db = openDatabase("dbGado", "1.0", "DB Gado De Ouro", 2 * 1024 * 1024);
 
-window.addEventListener('load', redy);
+window.addEventListener('load', ready);
 
 
 
@@ -244,17 +244,18 @@ function buscar() {
             }
             tbody.innerHTML = tr;
             total.innerHTML = rows.length;
-
-
         });
     });
 
 }
 
 function popularDados() {
-    if (window.location.href.includes('?') && window.location.href.split('?')[1].length == 36) {
-        var id = window.location.href.split('?')[1];
+    //limpa a url
+    var url = window.location.href.replace(/#/g, '');
 
+    //verifica se a url possui um Id
+    if (url.includes('?') && url.split('?')[1].length == 36) {
+        var id = window.location.href.split('?')[1];
         db.transaction(function(tx) {
             tx.executeSql("SELECT * FROM colaboradores WHERE id = ?", [id],
                 function(_, result) {
@@ -277,7 +278,7 @@ function popularDados() {
 }
 
 
-function redy() {
+function ready() {
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', salvar);
         popularDados();
