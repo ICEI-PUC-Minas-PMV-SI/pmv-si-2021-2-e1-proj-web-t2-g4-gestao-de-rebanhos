@@ -98,7 +98,7 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input class="form-control text-uppercase" type="text" id="nomeDieta" name="Nome" maxlength="100">
+                            <input type="text" id="busca" name="Nome" maxlength="100">
                         </div>
                     </div>
 
@@ -118,7 +118,31 @@
         </div>
         <br>
          <!-- /Filters -->
-            
+            <!-- List results -->
+            <div>
+                <!-- spinner -->
+                <div class="row d-flex justify-content-center">
+                    <div id="spinner" class="spinner-border text-success spinner"></div>
+                </div>
+                <!--resultado busca-->
+                <div class="container">
+                    <div id="table-response" class="row table-response">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%;" scope="col">Dieta</th>
+                                    <th style="width: 25%;" scope="col">Quantidade de Insumos</th>
+                                    <th style="width: 15%;" scope="col">Informações Adicionais</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody-dietas">
+        
+                            </tbody>
+                        </table>
+        
+                    </div>
+                </div>
+            </div>
     </div>
     <div class="container"> 
         <div id="table-response" class="row table-response">
