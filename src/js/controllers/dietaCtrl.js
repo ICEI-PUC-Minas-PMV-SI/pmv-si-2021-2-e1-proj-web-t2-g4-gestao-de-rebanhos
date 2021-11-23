@@ -2,16 +2,17 @@ import { db } from '../system_utilities/db.js';
 
 window.addEventListener('load', redy);
 
+const btnBusca = document.getElementById("btn-search");
+
 
 function criarTabelaDietaseInsumos() {
-    var query = "CREATE TABLE IF NOT EXISTS dietas ( id varchar,nome varchar)";
+    var query = "CREATE TABLE IF NOT EXISTS dietas ( id varchar,nome varchar, quantidadeInsumos varchar)";
     var queryInsumos = "CREATE TABLE IF NOT EXISTS dietaInsumos (id INTEGER PRIMARY KEY, idDieta varchar , nomeInsumo varchar, qtdInsumos real, duracao integer)"
     db.transaction(function(tx) {
         tx.executeSql(query);
         tx.executeSql(queryInsumos);
     });
 }
-
 
 function generateUUID() { // Public Domain/MIT
     var d = new Date().getTime(); //Timestamp
@@ -35,7 +36,7 @@ function save() {
     var id = generateUUID();
     var nome = document.getElementById('nomedieta').value;
     var quantidade = document.getElementById('Quantidadeinsumos').value;
-    var dados = [id,nome];
+    var dados = [id,nome, quantidade];
    // var ID = document.getElementById('ID').value;
 
     var validacao = true;
@@ -55,7 +56,7 @@ function save() {
     if(validacao == true){
     db.transaction(function(tx) {
 
-        tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
+        tx.executeSql('INSERT INTO dietas (id, nome, quantidadeInsumos) VALUES (?, ?, ?)', dados,
             //callback sucesso
             function() {
                 console.log("entrou na função");
@@ -154,7 +155,79 @@ function redy() {
 
 }
 
+function search() {
 
+    let inpBusca = document.getElementById("busca").value;
+
+    let tbody = document.getElementById("tbody-dietas");
+    let total = document.getElementById("total");
+    let table = document.getElementById("table-response");
+    table.style.display = "block";
+
+
+    let sqlWhere = 'WHERE TRUE AND (';
+    sqlWhere += (inpBusca !== null && inpBusca !== "") ? 'nome LIKE ' + "'%" + inpBusca + "%'" : 'TRUE';
+    sqlWhere += ' AND ';
+    sqlWhere += ' TRUE )';
+    console.log("entrou no search!");
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT * FROM dietas ' + sqlWhere, [], function(a, result) {
+            debugger
+            let rows = result.rows;
+            let tr = '';
+
+            for (let i = 0; i < rows.length; i++) {
+
+                let btns =
+                    `<td class=" td-btn-options">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#"><i class="fa-info-circle fa"></i> <span style="padding-left: .3em;">Info</span></a>
+                                <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-balance-scale"></i> <span style="padding-left: .2em;">Pesar</span> </a>
+                                <a class="dropdown-item" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
+                            </div>
+                        </div>
+                    </td>`;
+
+                tr += `<tr id="${rows[i].id}">`;
+                tr += '<td>' + rows[i].nome + '</td>';
+                tr += '<td>' + rows[i].quantidadeInsumos + '</td>';
+                tr += btns;
+            }
+            tbody.innerHTML = tr;
+            total.innerHTML = rows.length;
+        });
+    });
+}
+
+btnBusca.addEventListener("click", function () {
+    search();
+})
+
+function editar(id) {
+    db.transaction(function (tx) {
+        tx.executeSql('UPDATE dietas SET nome=? WHERE id=?', [nome, id],
+            //*callback sucesso
+            function () {
+                swal.fire({
+                    icon: "success",
+                    title: "Dieta alterada com sucesso!",
+                });
+            },
+            //*callback falha
+            function () {
+                swal.fire({
+                    icon: "error",
+                    title: "Falha em alterar a dieta...",
+                });
+            }
+        )
+    })
+}
 
 
 
