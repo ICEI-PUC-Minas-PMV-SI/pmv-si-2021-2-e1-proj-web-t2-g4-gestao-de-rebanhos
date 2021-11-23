@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../../js/controllers/suppliesCtrl.js" type="module"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/dietaCtrl.js" type="module"></script>
     <title>Busca Dieta</title>
 
     <style>
@@ -97,7 +97,7 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input class="form-control text-uppercase" type="text" id="name" name="Nome" maxlength="100">
+                            <input class="form-control text-uppercase" type="text" id="nomeDieta" name="Nome" maxlength="100">
                         </div>
                     </div>
 
@@ -117,34 +117,24 @@
         </div>
         <br>
          <!-- /Filters -->
-            <!-- List results -->
-            <div>
-                <!-- spinner -->
-                <div class="row d-flex justify-content-center">
-                    <div id="spinner" class="spinner-border text-success spinner"></div>
-                </div>
-                <!-- /spinner -->
-                <!-- table -->
-                <div id="table-response" class="row table-response">
-                    <div class="row">
-                        <div class="table-responsive-sm col-sm-7">
-                            <table class="table table-striped ">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nome</th>
-                                        <th>Insumo</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody-supplies">
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
     </div>
+    <div class="container"> 
+        <div id="table-response" class="row table-response">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Dieta</th>
+                         
+                            <th></th>
+                        </tr>
+                    </thead>
+                        <tbody id="tbody-dietas">
+                            
+                        </tbody>
+                </table>
+
+        </div>
+    </div>   
 </body>
 </html>
