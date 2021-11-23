@@ -214,8 +214,6 @@ function confirmarDelete(id) {
 function search() {
     debugger
     var filterDieta=document.getElementById("nome").innerHTML;
-    
-
     var tbody= document.getElementById("tbody-dietas");
     var total= document.getElementById("total");
     var table= document.getElementById("table-response");
