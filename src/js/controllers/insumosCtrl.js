@@ -17,12 +17,8 @@ function criarTabelaInsumos() {
 function salvarCadastroInsumos() {
     var id = document.getElementById("id").value;
     var name = document.getElementById("name").value;
-    var fabricante = document.getElementById("fabricante").value;
-    var qty = document.getElementById("qtd").value;
-    var validade = document.getElementById("validade").value;
-    var lote = document.getElementById("lote").value;
-    var entrada = document.getElementById("entrada").value;
-    var observacao = document.getElementById("textArea").value;
+    var qtd = document.getElementById("qtd").value;
+    var qtdMin = document.getElementById("qtdMin").value;
 
     var validacao = true;
     var msgHtml = "";
@@ -31,32 +27,22 @@ function salvarCadastroInsumos() {
         validacao = false;
         msgHtml += "<p> - O campo <b>nome</b> é obrigatório.</p>";
     }
-    if (fabricante.length <= 0) {
-        validacao = false;
-        msgHtml += "<p> - O campo <b>fabricante</b> é obrigatório.</p>";
-    }
-    if (qty.length <= 0) {
+
+        if (qtd.length <= 0) {
         validacao = false;
         msgHtml += "<p> - O campo <b>quantidade</b> é obrigatório.</p>";
     }
-    if (validade.length <= 0) {
+    if (qtdMin.length <= 0) {
         validacao = false;
-        msgHtml += "<p> - O campo <b>validaçãoo</b> é obrigatório.</p>";
+        msgHtml += "<p> - O campo <b>Quantidade Min</b> é obrigatório.</p>";
     }
-    if (lote.length <= 0) {
-        validacao = false;
-        msgHtml += "<p> - O campo <b>lote</b> é obrigatório.</p>";
-    }
-    if (entrada.length <= 0) {
-        validacao = false;
-        msgHtml += "<p> - O campo <b>data de entrada</b> é obrigatório.</p>";
-    }
+   
 
     if (validacao == true) {
         db.transaction(function(tx) {
             if (id) {
                 tx.executeSql(
-                    "UPDATE insumos SET name=?, fabricante=?, validade=?,lote=?, entrada=?, observacao=? WHERE id=?", [name, fabricante, validade, lote, entrada, observacao, id],
+                    "UPDATE insumos SET name=?, qtd=?, qtdMin=?, WHERE id=?", [name, qtd, qtdMin, id],
                     //*callback sucesso
                     function() {
                         swal.fire({
@@ -75,15 +61,11 @@ function salvarCadastroInsumos() {
             } else {
                 var arr = [
                     name,
-                    fabricante,
-                    qty,
-                    validade,
-                    lote,
-                    entrada,
-                    observacao,
-                ];
+                    qtd,
+                    qtdMin,
+                 ];
                 tx.executeSql(
-                    "INSERT INTO insumos (name, fabricante, qty, validade, lote, entrada, observacao) VALUES (?, ?, ?, ? , ? , ?, ? )",
+                    "INSERT INTO insumos (name, qtd, qtdMin) VALUES (?, ?, ?, ? , ? , ?, ? )",
                     arr,
                     //* callback sucesso
                     function() {
@@ -96,12 +78,9 @@ function salvarCadastroInsumos() {
                         // );
                         // Limpa formulário
                         document.getElementById("name").value = "";
-                        document.getElementById("fabricante").value = "";
-                        document.getElementById("qty").value = "";
+                        document.getElementById("qtd").value = "";
+                        document.getElementById("qtdMin").value = "";
                         document.getElementById("validade").value = "";
-                        document.getElementById("lote").value = "";
-                        document.getElementById("entrada").value = "";
-                        document.getElementById("textArea").value = "";
 
                         //modal para informar o usuario
                         swal.fire({
@@ -191,16 +170,11 @@ function popularDados() {
                     //adiciona o valor nos inputs advindos do bdd
                     document.getElementById("id").value = insumo.id;
                     document.getElementById("name").value = insumo.name;
-                    document.getElementById("fabricante").value = insumo.fabricante;
-                    document.getElementById("qty").value = insumo.qty;
-                    document.getElementById("validade").value = insumo.validade;
-                    document.getElmentById("lote").value = insumo.lote;
-                    document.getElementById("entrada").value = insumo.entrada;
-                    document.getElementById("textArea").value = insumo.textArea;
+                    document.getElementById("qtd").value = insumo.fabricante;
+                    document.getElementById("qtdMin").value = insumo.qty;
 
                     //bloqueia os campos pois não podem ser alterados
-                    document.getElementById("validade").readOnly = true;
-                    document.getElementById("lote").readOnly = true;
+                    document.getElementById("qtd").readOnly = true;
                 }
             );
         });
@@ -235,17 +209,18 @@ function search() {
                 for (var i = 0; i < rows.length; i++) {
 
                     var btns =
-                        `<td class=" td-default"><a href="#" onclick="editar('${rows[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>\
-                         <td class=" td-btn-options">\
-                      <div class="btn-group">\
-                        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">\
-                      <i class="fa fa-bars"></i>\
-                      </button>\
-                      <div class="dropdown-menu">\
-                      <a onclick="editar('${rows[i].id}')" class="dropdown-item" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Ver</span> </a>\
-                      <a class="dropdown-item" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>\
-                      </div>\
-                      </div>\
+                        `<td class=" td-default"><a href="#" onclick="editar('${rows[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
+                        <a href="#" onclick="deletar('${rows[i].id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>\
+                        <td class=" td-btn-options">\
+                            <div class="btn-group">\
+                                <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">\
+                                    <i class="fa fa-bars"></i>\
+                                </button>\
+                            <div class="dropdown-menu">\
+                                <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+                                <a class="dropdown-item" onclick="deletar('${rows[i].id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
+                            </div>\
+                        </div>\
                       </td>`;
 
 
@@ -254,10 +229,8 @@ function search() {
                         '<tr class="table-danger" >' :
                         "<tr>";
                     tr += "<td>" + rows[i].name + "</td>";
-                    tr += "<td>" + rows[i].frabricante + "</td>";
-                    tr += "<td>" + rows[i].qty + "</td>";
-                    tr += "<td>" + rows[i].validade + "</td>";
-                    tr += "<td>" + rows[i].lote + "</td>";
+                    tr += "<td>" + rows[i].qtd + "</td>";
+                    tr += "<td>" + rows[i].qtdMin + "</td>";
                     tr += btns;
                     tr += "</tr>";
                 }
