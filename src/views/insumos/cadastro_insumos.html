@@ -1,237 +1,234 @@
 <!DOCTYPE html>
 <html lang="pt">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
-        <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
-        <script src="../../js/controllers/insumosCtrl.js" type="module"></script>
-       
-       
-     <title>Cadastro Insumos</title>
-        <!-- /js -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
+    <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/insumosCtrl.js"></script>
+
+
+    <title>Cadastro Insumos</title>
+    <!-- /js -->
+
+    <style>
+        .navbar .navbar-nav>li>.dropdown-menu>a:hover,
+        .navbar .navbar-nav>li>.dropdown-menu>a:focus {
+            /*background-color: rgba(33, 136, 56, 0.46) !important;*/
+            background-color: rgba(225, 212, 31, .4);
+        }
         
-         <style>
-            .navbar .navbar-nav>li>.dropdown-menu>a:hover,
-            .navbar .navbar-nav>li>.dropdown-menu>a:focus {
-                /*background-color: rgba(33, 136, 56, 0.46) !important;*/
-                background-color: rgba(225, 212, 31, .4);
-            }
-    
-            #btn-logout {
-                background-color: goldenrod;
-                color: whitesmoke;
-            }
-    
-            #btn-logout:hover {
-                background-color: #e3ab1f;
-                border-color: goldenrod;
-            }
-    
-            .totalizador-search {
-                float: right;
-                font-size: 14px;
-            }
-    
-            .page-header {
-                border-color: #e7e7e7;
-                margin-top: 3em;
-                margin-bottom: 1.3em;
-            }
-    
-            .btn-delete {
-                margin-left: 1rem;
-            }
-    
-            .form-search {
-                margin-left: 2em;
-                margin-right: 2em;
-            }
-    
-            .spinner {
-                margin-top: 5%;
-                display: none;
-            }
-    
-            .table-response {
-                display: none;
-    
-            }
-    
+        #btn-logout {
+            background-color: goldenrod;
+            color: whitesmoke;
+        }
+        
+        #btn-logout:hover {
+            background-color: #e3ab1f;
+            border-color: goldenrod;
+        }
+        
+        .totalizador-search {
+            float: right;
+            font-size: 14px;
+        }
+        
+        .page-header {
+            border-color: #e7e7e7;
+            margin-top: 3em;
+            margin-bottom: 1.3em;
+        }
+        
+        .btn-delete {
+            margin-left: 1rem;
+        }
+        
+        .form-search {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        
+        .spinner {
+            margin-top: 5%;
+            display: none;
+        }
+        
+        .table-response {
+            display: none;
+        }
+        
+        .td-btn-options {
+            display: none;
+        }
+        
+        .box {
+            height: 400px;
+            width: 100%;
+            background-color: #ffffff;
+            margin-left: 24px;
+            margin-right: 24px;
+        }
+        
+        .jumbotron {
+            height: 300px;
+            background-color: rgba(218, 165, 32, 0.426)
+        }
+        /* @midia */
+        
+        @media (max-width: 568px) {
             .td-btn-options {
+                display: block;
+            }
+            .td-default {
                 display: none;
             }
-    
-            .box {
-                height: 400px;
-                width: 100%;
-                background-color: #ffffff;
-                margin-left: 24px;
-                margin-right: 24px;
-    
-            }
-    
-            .jumbotron {
-                height: 300px;
-                background-color:rgba(218, 165, 32, 0.426)
-            }
-    
-            /* @midia */
-            @media (max-width: 568px) {
-                .td-btn-options {
-                    display: block;
-                }
-    
-                .td-default {
-                    display: none;
-                }
-            }
-        </style>
+        }
+    </style>
 
 </head>
 
 <body>
     <!--NavBar-->
-       <nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(38 151 64)">
-           <a class="navbar-brand" href="#">Gado de <span style="color:
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(38 151 64)">
+        <a class="navbar-brand" href="#">Gado de <span style="color:
                        goldenrod;">Ouro</span></a>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                    <span class="navbar-toggler-icon"></span>
                </button>
-           <div class="collapse navbar-collapse" id="collapsibleNavbar">
-               <ul class="navbar-nav">
-                   <!-- Dropdown Colaborador-->
-                   <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <!-- Dropdown Colaborador-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
                                Colaborador
                            </a>
-                       <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Cadastro</a>
-                           <a class="dropdown-item" href="#">Busca</a>
-                       </div>
-                   </li>
-                   <!-- Dropdown Insumos-->
-                   <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                    </div>
+                </li>
+                <!-- Dropdown Insumos-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
                                Insumos
                            </a>
-                       <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Cadastro</a>
-                           <a class="dropdown-item" href="#">Busca</a>
-                           <a class="dropdown-item" href="#">Baixa</a>
-                       </div>
-                   </li>
-                   <!-- Dropdown Animal-->
-                   <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                        <a class="dropdown-item" href="#">Baixa</a>
+                    </div>
+                </li>
+                <!-- Dropdown Animal-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
                                Animal
                            </a>
-                       <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Cadastro</a>
-                           <a class="dropdown-item" href="#">Busca</a>
-                           <a class="dropdown-item" href="#">Baixa</a>
-                       </div>
-                   </li>
-                   <!-- Dropdown Dieta-->
-                   <li class="nav-item dropdown">
-                       <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                        <a class="dropdown-item" href="#">Baixa</a>
+                    </div>
+                </li>
+                <!-- Dropdown Dieta-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">
                                Dieta
                            </a>
-                       <div class="dropdown-menu">
-                           <a class="dropdown-item" href="#">Cadastro</a>
-                           <a class="dropdown-item" href="#">Busca</a>
-                           <a class="dropdown-item" href="#">Baixa</a>
-                       </div>
-                   </li>
-               </ul>
-                <button class="btn my-2 b ml-auto text-white" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true"></i> Logout</button>
-                </div>
-           </nav>
-       <!--/NavBar-->
-   
-       <br>
-        
-        <div id="div-nav"></div>
-        <br>
-      
-        <form>
-            <input type="hidden" id="id" value="" />
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row page-header">
-                            <div class="col-sm-12">
-                                <h3>Cadastro de Insumos</h3>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                        <a class="dropdown-item" href="#">Busca</a>
+                        <a class="dropdown-item" href="#">Baixa</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn my-2 b ml-auto text-white" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true"></i> Logout</button>
+        </div>
+    </nav>
+    <!--/NavBar-->
+
+    <br>
+
+    <div id="div-nav"></div>
+    <br>
+
+    <form>
+        <input type="hidden" id="id" value="" />
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row page-header">
+                        <div class="col-sm-12">
+                            <h3>Cadastro de Insumos</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input class="form-control text-uppercase" type="text" id="name" maxlength="100" />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label>Nome</label>
-                                    <input class="form-control text-uppercase" type="text" id="name" maxlength="100" />
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label>Fabricante</label>
-                                    <input class="form-control text-uppercase" type="text" id="fabricante" maxlength="100" />
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Quantidade</span></label>
-                                    <input class="form-control text-uppercase " type="text" id="qty" maxlength="20" />
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label>Validade</label>
-                                    <input class="form-control text-uppercase" type="date" id="validade" maxlength="20" />
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Lote</span></label>
-                                    <input class="form-control text-uppercase " type="text" id="lote" maxlength="20" />
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Data de entrada</span></label>
-                                    <input class="form-control text-uppercase " type="date" id="entrada" maxlength="20" />
-                                </div>
-                            </div>
-                            <div class="col-sm-10">
-                                <div class="form-group">
-                                    <label for="textArea">Observação</span></label>
-                                    <textarea class="form-control" id="textArea" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div id="select-user" class="form-group">
-    
-                                </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Fabricante</label>
+                                <input class="form-control text-uppercase" type="text" id="fabricante" maxlength="100" />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label></label>
-                                    <button id="btn-save" type="button" class="btn btn-success float-right semlabel-formgroup">Salvar</button>
-                                </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Quantidade</span></label>
+                                <input class="form-control text-uppercase " type="text" id="qty" maxlength="20" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Validade</label>
+                                <input class="form-control text-uppercase" type="date" id="validade" maxlength="20" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Lote</span></label>
+                                <input class="form-control text-uppercase " type="text" id="lote" maxlength="20" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Data de entrada</span></label>
+                                <input class="form-control text-uppercase " type="date" id="entrada" maxlength="20" />
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <label for="textArea">Observação</span></label>
+                                <textarea class="form-control" id="textArea" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div id="select-user" class="form-group">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label></label>
+                                <button id="btn-save" type="button" class="btn btn-success float-right semlabel-formgroup">Salvar</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
-    </body>
-    
+        </div>
+    </form>
+</body>
+
 </html>

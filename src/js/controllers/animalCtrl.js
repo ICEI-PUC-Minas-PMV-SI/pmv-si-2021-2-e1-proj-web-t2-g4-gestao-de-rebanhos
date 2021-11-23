@@ -140,6 +140,7 @@ function search() {
 
     db.transaction(function(tx) {
         tx.executeSql('SELECT * FROM animais ' + sqlWhere, [], function(a, result) {
+            debugger
             var rows = result.rows;
             var tr = '';
 
