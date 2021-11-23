@@ -7,11 +7,7 @@ const btnBusca = document.getElementById("btn-search");
 
 
 function criarTabelaDietaseInsumos() {
-<<<<<<< HEAD
     var query = "CREATE TABLE IF NOT EXISTS dietas (id varchar,nome varchar)";
-=======
-    var query = "CREATE TABLE IF NOT EXISTS dietas ( id varchar,nome varchar, quantidadeInsumos varchar)";
->>>>>>> d7407cc55e9e41cf165e9f56565f1510533af4ac
     var queryInsumos = "CREATE TABLE IF NOT EXISTS dietaInsumos (id INTEGER PRIMARY KEY, idDieta varchar , nomeInsumo varchar, qtdInsumos real, duracao integer)"
     db.transaction(function(tx) {
         tx.executeSql(query);
@@ -41,13 +37,8 @@ function save() {
     var newId = generateUUID();
     var nome = document.getElementById('nomedieta').value;
     var quantidade = document.getElementById('Quantidadeinsumos').value;
-<<<<<<< HEAD
     var dados = [newId,nome];
     var id = document.getElementById('id').value;
-=======
-    var dados = [id,nome, quantidade];
-   // var ID = document.getElementById('ID').value;
->>>>>>> d7407cc55e9e41cf165e9f56565f1510533af4ac
 
     var validacao = true;
     var msgHtml = '';
@@ -99,12 +90,8 @@ function save() {
         }
     );
 
-<<<<<<< HEAD
 }else{
         tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
-=======
-        tx.executeSql('INSERT INTO dietas (id, nome, quantidadeInsumos) VALUES (?, ?, ?)', dados,
->>>>>>> d7407cc55e9e41cf165e9f56565f1510533af4ac
             //callback sucesso
             function() {
                 console.log("entrou na função");
