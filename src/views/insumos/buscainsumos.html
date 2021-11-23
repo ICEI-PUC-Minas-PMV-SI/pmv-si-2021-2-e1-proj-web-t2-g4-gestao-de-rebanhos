@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
-    <title>Busca Colaborador</title>
+    <title>Busca Insumos</title>
 
     <style>
         .navbar .navbar-nav>li>.dropdown-menu>a:hover,
@@ -87,7 +87,7 @@
                 <div class="col-sm-12">
                     <div class="row page-header">
                         <div class="col-sm-6">
-                            <h3>Busca Colaborador</h3>
+                            <h3>Busca Insumos</h3>
                         </div>
                         <div class="col-sm-6">
                             <span class="totalizador-search float-right"><strong id="total">0</strong> Resultados encontrados</span>
@@ -103,14 +103,14 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label>CPF</label>
-                                <input class="form-control text-uppercase cpfcnpj" type="text" name="CPFCNPJ" maxlength="20" />
+                                <label>Quantidade</label>
+                                <input class="form-control text-uppercase Quantidade" type="text" name="Quantidade" maxlength="20" />
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="Cargo">Cargo</label>
-                                <select class="form-control" id="Cargo" name="Cargo">
+                                <label for="Quantidade Min">Quantidade Min</label>
+                                <select class="form-control" id="Quantidade Min" name="Quantidade Min">
                                       <option></option>
                                       <option>Veterinário</option>
                                       <option>Vaqueiro</option>
@@ -121,13 +121,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-3">
                             <div class="form-group">
                                 <label></label>
                                 <button id="btn-search" type="button" class="btn btn-warning float-right semlabel-formgroup" onclick="search()">Pesquisar</button>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <hr />
                     </div>
@@ -137,11 +138,6 @@
             <!-- /Filters -->
             <!-- /List results -->
             <div>
-
-                <div class="row d-flex justify-content-center">
-                    <div id="spinner" class="spinner-border text-success spinner"></div>
-                </div>
-
                 <div id="table-response" class="row table-response">
                     <div class="col-sm-12">
                         <table class="table table-striped">
@@ -149,62 +145,12 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Quantidade</th>
-                                    <th>Quantidade Min</th>
+                                    <th>Quantide Min</th>
                                     <th class="col-sm-3 col-md-2"></th>
                                 </tr>
                             </thead>
                             <tbody id="tbody-insumos">
-                                <tr>
-                                    <td>John</td>
-                                    <td>36</td>
-                                    <td>john@example.com</td>
-                                    <td class="float-right td-default"><a href="#" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
-                                    <td class="float-right td-btn-options">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
-                                                <i class="fa fa-bars"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Ver</span> </a>
-                                                <a class="dropdown-item" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Mary</td>
-                                    <td>25</td>
-                                    <td>mary@example.com</td>
-                                    <td class="float-right td-default"><a href="#" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
-                                    <td class="float-right td-btn-options">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
-                                                <i class="fa fa-bars"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Ver</span> </a>
-                                                <a class="dropdown-item" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>July</td>
-                                    <td>19</td>
-                                    <td>july@example.com</td>
-                                    <td class="float-right td-default"><a href="#" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a><a href="#" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
-                                    <td class="float-right td-btn-options">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
-                                                <i class="fa fa-bars"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Ver</span> </a>
-                                                <a class="dropdown-item" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -212,6 +158,7 @@
             </div>
     </form>
 </body>
+
 <script type="text/javascript">
     function search() {
         var spinner = document.querySelector("#spinner");
