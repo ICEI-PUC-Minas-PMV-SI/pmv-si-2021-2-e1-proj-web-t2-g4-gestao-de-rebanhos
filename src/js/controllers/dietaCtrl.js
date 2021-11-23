@@ -1,10 +1,11 @@
-import { db } from '../system_utilities/db.js';
+//import { db } from '../system_utilities/db.js';
+var db = openDatabase("dbGado", "1.0", "DB Gado De Ouro", 2 * 1024 * 1024);
 
 window.addEventListener('load', redy);
 
 
 function criarTabelaDietaseInsumos() {
-    var query = "CREATE TABLE IF NOT EXISTS dietas ( id integer primary key,idDieta varchar,nome varchar)";
+    var query = "CREATE TABLE IF NOT EXISTS dietas (id varchar,nome varchar)";
     var queryInsumos = "CREATE TABLE IF NOT EXISTS dietaInsumos (id INTEGER PRIMARY KEY, idDieta varchar , nomeInsumo varchar, qtdInsumos real, duracao integer)"
     db.transaction(function(tx) {
         tx.executeSql(query);
@@ -32,11 +33,11 @@ function generateUUID() { // Public Domain/MIT
 function save() {
     //gera um id unico
     console.log("chamou save");
-    var id = generateUUID();
+    var newId = generateUUID();
     var nome = document.getElementById('nomedieta').value;
     var quantidade = document.getElementById('Quantidadeinsumos').value;
-    var dados = [id,nome];
-    var ID = document.getElementById('ID').value;
+    var dados = [newId,nome];
+    var id = document.getElementById('id').value;
 
     var validacao = true;
     var msgHtml = '';
@@ -55,7 +56,7 @@ function save() {
     
     if(validacao == true){
     db.transaction(function(tx) {
-        if(ID){ tx.executeSql('UPDATE dietas SET nome=? WHERE id=?', [nome,ID],
+        if(id){ tx.executeSql('UPDATE dietas SET nome=? WHERE id=?', [nome,id],
         //*callback sucesso
         function() {
             swal.fire({
@@ -71,7 +72,7 @@ function save() {
             });
         }
     );
-    tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=? WHERE id=?', [nomeInsumo,qtdInsumos,ID],
+    tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=? WHERE idDieta=?', [nomeInsumo,qtdInsumos,id],
         //*callback sucesso
         function() {
             swal.fire({
@@ -89,7 +90,7 @@ function save() {
     );
 
 }else{
-        tx.executeSql('INSERT INTO dietas (idDieta, nome) VALUES (?, ?)', dados,
+        tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
             //callback sucesso
             function() {
                 console.log("entrou na função");
@@ -97,7 +98,7 @@ function save() {
                     var nomeInsumo = document.getElementById('supplyname' + i).value;
                     var qtdInsumos = document.getElementById('quantity' + i).value;
                     var duracao = document.getElementById('duration' + i).value;
-                    dados = [id,nomeInsumo,qtdInsumos,duracao];
+                    dados = [newId,nomeInsumo,qtdInsumos,duracao];
 
                     if (nomeInsumo.length <= 0) {
                         validacao = false;
@@ -149,6 +150,67 @@ else {
     });
 }
 }
+
+
+
+function Editar(id) {
+    window.location.href = "../dieta/CadastroDieta1.html?" + id;
+}
+
+function Deletar(id) {
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá reverter essa ação!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, vou deletar!',
+        cancelButtonText: 'Cancelar',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            confirmarDelete(id);
+        }
+    })
+}
+
+function confirmarDelete(id) {
+
+
+    db.transaction(function(tx) {
+        tx.executeSql("DELETE FROM dietaInsumos WHERE idDieta = ?", [id],
+            //callback sucesso
+            function() {
+                tx.executeSql("DELETE FROM dietas WHERE id = ?", [id],
+                    //callback sucesso
+                    function() {
+                        var tdExcluir = document.getElementById(id);
+                        var total = document.getElementById('total').innerHTML;
+                        document.getElementById('total').innerHTML = --total;
+
+                        tdExcluir.style.display = 'none';
+                        console.log('Confirmou delete. Id =  ' + id);
+                        Swal.fire(
+                            'Deletado!',
+                            'Dieta deletada com sucesso!',
+                            'success'
+                        )
+                    }
+                );
+            },
+            //calback falha
+            function() {
+                swal.fire({
+                    icon: "error",
+                    title: "Falha em deletar o colaborador.",
+                });
+            }
+        );
+    });
+
+
+
+}
 function search() {
     debugger
     var filterDieta=document.getElementById("nomeDieta").innerHTML;
@@ -170,25 +232,29 @@ function search() {
             var rows = result.rows;
             var tr = '';
 
+            console.log(rows);
+
             for (var i = 0; i < rows.length; i++) {
 
 
                 var btns =
-                    `<td class=" td-btn-options">
+                    `<td class=" td-default"><a href="#" onclick="Editar('${rows[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
+                    <a href="#" onclick="Deletar('${rows[i].id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
+                    <td class=" td-btn-options">
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
                                     <i class="fa fa-bars"></i>
                                 </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="info('${rows[i].id}')" href="#"><i class="fa-info-circle fa"></i> <span style="padding-left: .3em;">Info</span></a>
-                                <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
-                                <a class="dropdown-item" onclick="baixa('${rows[i].id}')" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
+                                <a class="dropdown-item" onclick="Editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+                                <a class="dropdown-item" onclick="Deletar('${rows[i].id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
                             </div>
                         </div>
                     </td>`;
 
                 tr += `<tr id="${rows[i].id}">`;
                 tr += '<td>' + rows[i].nome + '</td>';
+                tr += btns;
                 tr += '</tr>';
             }
             tbody.innerHTML = tr;
@@ -202,6 +268,7 @@ function search() {
         });
     });
 }
+
 
 //selecionar das dietas
 function getDietas(callback){

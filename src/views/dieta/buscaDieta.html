@@ -9,8 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
-    <script src="../../js/controllers/dietaCtrl.js" type="module"></script>
+    <script src="../../js/controllers/dietaCtrl.js"></script>
     <title>Busca Dieta</title>
 
     <style>
@@ -130,6 +131,24 @@
                         </tr>
                     </thead>
                         <tbody id="tbody-dietas">
+                            
+                        </tbody>
+                </table>
+
+        </div>
+    </div>   
+    <div class="container"> 
+        <div id="table-insumos" class="row table-response">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Insumo</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Duração</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                        <tbody id="tbody-insumos">
                             
                         </tbody>
                 </table>
