@@ -155,6 +155,7 @@ function search() {
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" onclick="info('${rows[i].id}')" href="#"><i class="fa-info-circle fa"></i> <span style="padding-left: .3em;">Info</span></a>
                                 <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+                                <a class="dropdown-item" onclick="pesagem()" href="#"><i class="fa fa-balance-scale"></i> <span style="padding-left: .2em;">Pesar</span> </a>
                                 <a class="dropdown-item" onclick="baixa('${rows[i].id}', '${rows[i].tag}', '${rows[i].peso}', '${rows[i].idade}', '${rows[i].raca}', 'busca')" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
                             </div>
                         </div>
@@ -355,6 +356,48 @@ function popularDadosRelatorio() {
         });
 
     }
+}
+
+function pesagem() {
+    (async() => {
+
+        const { value: formValues } = await Swal.fire({
+            title: 'Pesagem',
+            html: `<div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="float-left">Novo Peso</label>
+                        <input id="novoPeso" class="form-control text-uppercase" type="number" maxlength="10" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="float-left">Data Pesagem</label>
+                        <input id="dataPesage" class="form-control text-uppercase" type="date" />
+                    </div>
+                </div>
+            </div>
+        </div>`,
+            focusConfirm: false,
+            confirmButtonText: 'Confirmar',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            preConfirm: () => {
+                return [
+                    document.getElementById('novoPeso').value,
+                    document.getElementById('dataPesage').value
+                ]
+            }
+        })
+        if (formValues) {
+
+            swal.fire({
+                icon: "success",
+                title: "Peso do animal alterado com sucesso!",
+            });
+        }
+    })()
 }
 
 function ready() {
