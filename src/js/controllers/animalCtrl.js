@@ -21,6 +21,18 @@ function criarTabelaBaixaAnimal() {
 
 }
 
+function criarTabelaPesagemAnimal() {
+    var query = "CREATE TABLE IF NOT EXISTS pesagemanimal (id INTEGER PRIMARY KEY, idAnimal INTEGER, tag TEXT NOT NULL, peso REAL NOT NULL, dtPesagem TEXT )";
+    db.transaction(function(tx) {
+        tx.executeSql(query, [], function() {},
+            function(msg, e) {
+                console.log(e);
+            }
+        );
+    });
+
+}
+
 // Executar função
 function save() {
     var id = document.getElementById('id').value;
@@ -66,7 +78,7 @@ function save() {
     if (validacao == true) {
         db.transaction(function(tx) {
             if (id) {
-                tx.executeSql('UPDATE animais SET idade=?, peso=? WHERE id=?', [idade, peso, id],
+                tx.executeSql('UPDATE animais SET idade=? WHERE id=?', [idade, id],
                     //*callback sucesso
                     function() {
                         swal.fire({
@@ -140,7 +152,7 @@ function search() {
 
     db.transaction(function(tx) {
         tx.executeSql('SELECT * FROM animais ' + sqlWhere, [], function(a, result) {
-            debugger
+
             var rows = result.rows;
             var tr = '';
 
@@ -155,7 +167,7 @@ function search() {
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" onclick="info('${rows[i].id}')" href="#"><i class="fa-info-circle fa"></i> <span style="padding-left: .3em;">Info</span></a>
                                 <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
-                                <a class="dropdown-item" onclick="pesagem()" href="#"><i class="fa fa-balance-scale"></i> <span style="padding-left: .2em;">Pesar</span> </a>
+                                <a class="dropdown-item" onclick="pesagem('${rows[i].id}', '${rows[i].tag}')" href="#"><i class="fa fa-balance-scale"></i> <span style="padding-left: .2em;">Pesar</span> </a>
                                 <a class="dropdown-item" onclick="baixa('${rows[i].id}', '${rows[i].tag}', '${rows[i].peso}', '${rows[i].idade}', '${rows[i].raca}', 'busca')" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
                             </div>
                         </div>
@@ -358,22 +370,23 @@ function popularDadosRelatorio() {
     }
 }
 
-function pesagem() {
+function pesagem(idAnimal, tag) {
     (async() => {
 
         const { value: formValues } = await Swal.fire({
             title: 'Pesagem',
             html: `<div class="container-fluid">
+            <p style="font-weight: bold;">Os dados com (*) são obrigatórios</p>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="float-left">Novo Peso</label>
+                        <label class="float-left">Novo Peso*</label>
                         <input id="novoPeso" class="form-control text-uppercase" type="number" maxlength="10" />
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="float-left">Data Pesagem</label>
+                        <label class="float-left">Data Pesagem*</label>
                         <input id="dataPesage" class="form-control text-uppercase" type="date" />
                     </div>
                 </div>
@@ -390,19 +403,48 @@ function pesagem() {
                 ]
             }
         })
-        if (formValues) {
+        if (formValues[0].length >= 1 && formValues[1].length >= 1) {
 
+            var peso = formValues[0];
+            var dtPesagem = formValues[1];
+            //pesagemanimal (id INTEGER PRIMARY KEY, idAnimal INTEGER, tag TEXT NOT NULL, peso REAL NOT NULL, dtPesagem TEXT
+            db.transaction(function(tx) {
+                tx.executeSql('INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (?, ?, ?, ?)', [idAnimal, tag, peso, dtPesagem],
+                    //Callback sucesso
+                    function() {
+                        tx.executeSql('UPDATE animais SET peso=? WHERE id=?', [peso, idAnimal],
+                            //*callback sucesso
+                            function() {
+                                swal.fire({
+                                    icon: "success",
+                                    title: "Animal alterado com sucesso!",
+                                });
+                            }
+                        )
+                    },
+                    //Callback falha
+                    function() {
+                        swal.fire({
+                            icon: "error",
+                            title: "Falha em alterar o peso!",
+                        });
+                    }
+                );
+            });
+        } else {
             swal.fire({
-                icon: "success",
-                title: "Peso do animal alterado com sucesso!",
+                icon: "error",
+                title: "Preencha os dados obrigatórios!",
             });
         }
+
     })()
 }
 
 function ready() {
     createTableAnimals();
     criarTabelaBaixaAnimal();
+    criarTabelaPesagemAnimal();
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', save);
         popularDados();
