@@ -42,6 +42,7 @@ function save() {
     var validacao = true;
     var msgHtml = '';
 
+
     if (nome.length <= 0) {
         validacao = false;
         msgHtml += '<p> - O campo <b>nome</b> é obrigatório.</p>';
@@ -55,6 +56,38 @@ function save() {
     
     if(validacao == true){
     db.transaction(function(tx) {
+        if(ID){ tx.executeSql('UPDATE dietas SET nome=? WHERE id=?', [nome,ID],
+        //*callback sucesso
+        function() {
+            swal.fire({
+                icon: "success",
+                title: "dieta alterada com sucesso!",
+            });
+        },
+        //*callback falha
+        function() {
+            swal.fire({
+                icon: "error",
+                title: "Falha em alterar a dieta.",
+            });
+        }
+    );
+    tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=? WHERE id=?', [nomeInsumo,qtdInsumos,ID],
+        //*callback sucesso
+        function() {
+            swal.fire({
+                icon: "success",
+                title: "Insumo alterado com sucesso!",
+            });
+        },
+        //*callback falha
+        function() {
+            swal.fire({
+                icon: "error",
+                title: "Falha em alterar o insumo.",
+            });
+        }
+    );
 
         tx.executeSql('INSERT INTO dietas (id, nome, quantidadeInsumos) VALUES (?, ?, ?)', dados,
             //callback sucesso
@@ -102,9 +135,11 @@ function save() {
                 }
             }
         );
+    }
 
 
     });
+    
 }
 else {
     swal.fire({
@@ -113,6 +148,59 @@ else {
         html: msgHtml
     });
 }
+}
+function search() {
+    debugger
+    var filterDieta=document.getElementById("nomeDieta").innerHTML;
+    
+
+    var tbody= document.getElementById("tbody-dietas");
+    var total= document.getElementById("total");
+    var table= document.getElementById("table-response");
+    table.style.display="block";
+
+
+    var sqlWhere = 'WHERE TRUE AND (';
+    sqlWhere += (filterDieta !== null && filterDieta !== "") ? 'nomeDieta LIKE ' + "'%" + filterDieta + "%'" : 'TRUE';
+    sqlWhere += ')';
+    
+
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT * FROM dietas ' + sqlWhere, [], function(a, result) {
+            var rows = result.rows;
+            var tr = '';
+
+            for (var i = 0; i < rows.length; i++) {
+
+
+                var btns =
+                    `<td class=" td-btn-options">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" onclick="info('${rows[i].id}')" href="#"><i class="fa-info-circle fa"></i> <span style="padding-left: .3em;">Info</span></a>
+                                <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+                                <a class="dropdown-item" onclick="baixa('${rows[i].id}')" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
+                            </div>
+                        </div>
+                    </td>`;
+
+                tr += `<tr id="${rows[i].id}">`;
+                tr += '<td>' + rows[i].nome + '</td>';
+                tr += '</tr>';
+            }
+            tbody.innerHTML = tr;
+            total.innerHTML = rows.length;
+
+
+        },
+        function (tx,erro){
+            console.log("Erro ao fazer select");
+            console.log(erro);
+        });
+    });
 }
 
 //selecionar das dietas
@@ -134,7 +222,7 @@ function redy() {
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', save);
     }
-    //if (document.getElementById('btn-search')) document.getElementById('btn-search').addEventListener('click', search);
+    if (document.getElementById('btn-search')) document.getElementById('btn-search').addEventListener('click', search);
     criarTabelaDietaseInsumos();
     console.log("Chamou controller");
 
