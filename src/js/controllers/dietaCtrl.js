@@ -72,7 +72,7 @@ function save() {
             });
         }
     );
-    tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=? WHERE idDieta=?', [nomeInsumo,qtdInsumos,id],
+    tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=?, duracao=? WHERE idDieta=?', [nomeInsumo,qtdInsumos,duracao,id],
         //*callback sucesso
         function() {
             swal.fire({
@@ -231,32 +231,33 @@ function search() {
             var tr = '';
 
             console.log(rows);
+            tx.executeSql('SELECT * FROM dietaInsumos WHERE idDieta;');
+            
+            // for (var i = 0; i < rows.length; i++) {
 
-            for (var i = 0; i < rows.length; i++) {
 
+            //     var btns =
+            //         `<td class=" td-default"><a href="#" onclick="Editar('${rows[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
+            //         <a href="#" onclick="Deletar('${rows[i].id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
+            //         <td class=" td-btn-options">
+            //             <div class="btn-group">
+            //                 <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+            //                         <i class="fa fa-bars"></i>
+            //                     </button>
+            //                 <div class="dropdown-menu">
+            //                     <a class="dropdown-item" onclick="Editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+            //                     <a class="dropdown-item" onclick="Deletar('${rows[i].id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
+            //                 </div>
+            //             </div>
+            //         </td>`;
 
-                var btns =
-                    `<td class=" td-default"><a href="#" onclick="Editar('${rows[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
-                    <a href="#" onclick="Deletar('${rows[i].id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
-                    <td class=" td-btn-options">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
-                                    <i class="fa fa-bars"></i>
-                                </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="Editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
-                                <a class="dropdown-item" onclick="Deletar('${rows[i].id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
-                            </div>
-                        </div>
-                    </td>`;
-
-                tr += `<tr id="${rows[i].id}">`;
-                tr += '<td>' + rows[i].nome + '</td>';
-                tr += btns;
-                tr += '</tr>';
-            }
-            tbody.innerHTML = tr;
-            total.innerHTML = rows.length;
+            //     tr += `<tr id="${rows[i].id}">`;
+            //     tr += '<td>' + rows[i].nome + '</td>';
+            //     tr += btns;
+            //     tr += '</tr>';
+            // }
+            //tbody.innerHTML = tr;
+           // total.innerHTML = rows.length;
 
 
         },
@@ -268,10 +269,23 @@ function search() {
 }
 
 
-//selecionar das dietas
-function getDietas(callback){
+//selecionar das dietas select dietas na página cadastro animal
+// function getDietas(callback){
+//     db.transaction(function(tx){
+//         tx.executeSql('SELECT id,nome FROM dietas ORDER BY nome',[],
+//         function(tx,resultado){
+//             callback(resultado);
+//         },
+//         function(tx,erro){
+//             console.log("erro ao executar");
+//             console.log(erro);
+//         })
+//     });
+// }
+
+function getInsumos(callback){
     db.transaction(function(tx){
-        tx.executeSql('SELECT id,nome FROM dietas ORDER BY nome',[],
+        tx.executeSql('SELECT id,name FROM insumos ORDER BY name',[],
         function(tx,resultado){
             callback(resultado);
         },
@@ -281,6 +295,25 @@ function getDietas(callback){
         })
     });
 }
+
+// getInsumos(function(resultado){
+//         debugger
+//         console.log("Chamou getinsumos");
+//         $(resultado.rows).each(function(index,dados){
+//             //console.log(resultado.rows);
+//            // console.log(dados.nome);
+//             let option = document.createElement('option');
+//             option.value = dados.id;
+//             option.innerHTML = dados.name;
+    
+
+//             //$('#').append(option); //adicionar objeto ao select
+//         });
+//     });
+
+
+
+
 
 
 function redy() {
@@ -293,17 +326,18 @@ function redy() {
 
     
     
-    getDietas(function(resultado){
-        console.log("Chamou getdietas");
-        $(resultado.rows).each(function(index,dados){
-            //console.log(resultado.rows);
-           // console.log(dados.nome);
-            let option = document.createElement('option');
-            option.value = dados.id;
-            option.innerHTML = dados.nome;
+    // getDietas(function(resultado){
+    //     debugger
+    //     console.log("Chamou getdietas");
+    //     $(resultado.rows).each(function(index,dados){
+    //         //console.log(resultado.rows);
+    //        // console.log(dados.nome);
+    //         let option = document.createElement('option');
+    //         option.value = dados.id;
+    //         option.innerHTML = dados.nome;
     
-            $('#listaDietas').append(option); //adicionar objeto ao select
-        });
-    });
+    //         $('#listaDietas').append(option); //adicionar objeto ao select
+    //     });
+    // });
 
 }
