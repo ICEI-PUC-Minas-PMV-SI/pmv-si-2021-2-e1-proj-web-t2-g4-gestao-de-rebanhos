@@ -152,36 +152,10 @@ function confirmarDelete(id) {
   });
 }
 
-function popularDados() {
-  if (
-    window.location.href.includes("?") &&
-    window.location.href.split("?")[1].length >= 1
-  ) {
-    var id = window.location.href.split("?")[1];
-
-    db.transaction(function (tx) {
-      tx.executeSql(
-        "SELECT * FROM insumos WHERE id = ?",
-        [id],
-        function (_, result) {
-          var insumo = result.rows[0];
-
-          //adiciona o valor nos inputs advindos do bdd
-          document.getElementById("id").value = insumo.id;
-          document.getElementById("name").value = insumo.name;
-          document.getElementById("qtd").value = insumo.fabricante;
-          document.getElementById("qtdMin").value = insumo.qty;
-
-          //bloqueia os campos pois não podem ser alterados
-          document.getElementById("qtd").readOnly = true;
-        }
-      );
-    });
-  }
-}
-
 function search() {
-  var filterNome = document.getElementById("name").value;
+  var filterName = document.getElementById("name").value;
+  var filterQuantidade = document.getElementById("qtd").value;
+  var filterQuantidadeMin = document.getElementById("qtdMin").value;
 
   var tbody = document.getElementById("tbody-insumos");
   var total = document.getElementById("total");
@@ -193,7 +167,18 @@ function search() {
     filterName !== null && filterName !== ""
       ? "name LIKE " + "'%" + filterName + "%'"
       : "TRUE";
-  sqlWhere += ")";
+  sqlWhere += " AND ";
+  sqlWhere +=
+    filterQuantidade !== null && filterQuantidade !== ""
+      ? "qtd LIKE " + "'%" + filterQuantidade + "%'"
+      : "TRUE";
+  sqlWhere += " AND ";
+  sqlWhere +=
+    filterQuantidadeMin !== null && filterQuantidadeMin !== ""
+      ? "qtdMin = " + filterQuantidadeMin
+      : "TRUE";
+  sqlWhere += " AND ";
+  sqlWhere += " TRUE )";
 
   db.transaction(function (tx) {
     tx.executeSql(
@@ -218,21 +203,58 @@ function search() {
                         </div>\
                       </td>`;
 
-          tr +=
-            rows[i].quantity < rows[i].quantityMin
-              ? '<tr class="table-danger" >'
-              : "<tr>";
+          tr += `<tr id="${rows[i].id}">`;
           tr += "<td>" + rows[i].name + "</td>";
           tr += "<td>" + rows[i].qtd + "</td>";
           tr += "<td>" + rows[i].qtdMin + "</td>";
           tr += btns;
           tr += "</tr>";
+
+          // tr +=
+          //   rows[i].qtd < rows[i].qtdMin
+          //     ? '<tr class="table-danger" >'
+          //     : "<tr>";
+          // tr += "<td>" + rows[i].name + "</td>";
+          // tr += "<td>" + rows[i].qtd + "</td>";
+          // tr += "<td>" + rows[i].qtdMin + "</td>";
+          // tr += btns;
+          // tr += "</tr>";
         }
         tbody.innerHTML = tr;
         total.innerHTML = rows.length;
       }
     );
   });
+}
+
+function popularDados() {
+  var url = window.location.href.replace(/#/g, "");
+
+  if (
+    window.location.href.includes("?") &&
+    window.location.href.split("?")[1].length >= 1
+  ) {
+    var id = window.location.href.split("?")[1];
+
+    db.transaction(function (tx) {
+      tx.executeSql(
+        "SELECT * FROM insumos WHERE id = ?",
+        [id],
+        function (_, result) {
+          var insumo = result.rows[0];
+
+          //adiciona o valor nos inputs advindos do bdd
+          document.getElementById("id").value = insumo.id;
+          document.getElementById("name").value = insumo.name;
+          document.getElementById("qtd").value = insumo.qtd;
+          document.getElementById("qtdMin").value = insumo.qtdMin;
+
+          //bloqueia os campos pois não podem ser alterados
+          document.getElementById("qtd").readOnly = true;
+        }
+      );
+    });
+  }
 }
 
 function redy() {

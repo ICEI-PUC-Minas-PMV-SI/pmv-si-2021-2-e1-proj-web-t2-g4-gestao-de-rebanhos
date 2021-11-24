@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/insumosCtrl.js"></script>
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
     <title>Busca Insumos</title>
 
     <style>
@@ -98,19 +100,19 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Nome</label>
-                                <input class="form-control text-uppercase" type="text" name="Nome" maxlength="100" />
+                                <input class="form-control text-uppercase" type="text" name="Nome" id="name" maxlength="100" />
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Quantidade</label>
-                                <input class="form-control text-uppercase Quantidade" type="text" name="Quantidade" maxlength="20" />
+                                <input class="form-control text-uppercase" type="text" name="Quantidade" id="qtd" maxlength="20" />
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Quantidade Min</label>
-                                <input class="form-control text-uppercase Quantidade Min" type="text" name="Quantidade Min" maxlength="20" />
+                                <input class="form-control text-uppercase" type="text" name="QuantidadeMin" id="qtdMin" maxlength="20" />
                             </div>
                         </div>                        
                     </div>
@@ -118,7 +120,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label></label>
-                                <button id="btn-search" type="button" class="btn btn-warning float-right semlabel-formgroup" onclick="search()">Pesquisar</button>
+                                <button id="btn-search" type="button" class="btn btn-warning float-right semlabel-formgroup">Pesquisar</button>
                             </div>
                         </div>
                     </div>
@@ -152,30 +154,5 @@
             </div>
     </form>
 </body>
-
-<script type="text/javascript">
-    function search() {
-        var spinner = document.querySelector("#spinner");
-        var table = document.querySelector("#table-response");
-        var total = document.querySelector("#total");
-        spinner.style.display = 'block';
-        $("#btn-search").prop("disabled", true);
-        $("#btn-search").text("Pesquisando");
-        setTimeout(function() {
-            setDisplay()
-        }, 500);
-    }
-
-    function setDisplay() {
-        var spinner = document.querySelector("#spinner");
-        var table = document.querySelector("#table-response");
-        spinner.style.display = 'none';
-        table.style.display = 'block';
-        $("#total").text("3");
-        $("#btn-search").text("Pesquisar");
-        $("#btn-search").prop("disabled", false);
-
-    }
-</script>
 
 </html>
