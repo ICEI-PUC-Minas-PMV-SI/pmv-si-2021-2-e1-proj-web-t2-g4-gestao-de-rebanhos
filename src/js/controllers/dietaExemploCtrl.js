@@ -10,6 +10,7 @@ function criarTabelaInsumosTeste() {
     });
 }
 
+
 function criarTabelaDieta() {
     var query = "CREATE TABLE IF NOT EXISTS dietaTeste ( id TEXT,nome TEXT)";
     db.transaction(function(tx) {

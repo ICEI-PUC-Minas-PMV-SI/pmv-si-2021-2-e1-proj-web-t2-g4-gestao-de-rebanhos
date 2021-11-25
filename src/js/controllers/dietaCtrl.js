@@ -36,7 +36,7 @@ function save() {
     var newId = generateUUID();
     var nome = document.getElementById('nomedieta').value;
     var quantidade = document.getElementById('Quantidadeinsumos').value;
-    var dados = [newId,nome];
+    var dados = [newId, nome];
     var id = document.getElementById('id').value;
 
     var validacao = true;
@@ -51,104 +51,108 @@ function save() {
         validacao = false;
         msgHtml += '<p> - O campo <b>quantidade</b> é obrigatório.</p>';
     }
-    
 
-    
-    if(validacao == true){
-    db.transaction(function(tx) {
-        if(id){ tx.executeSql('UPDATE dietas SET nome=? WHERE id=?', [nome,id],
-        //*callback sucesso
-        function() {
-            swal.fire({
-                icon: "success",
-                title: "dieta alterada com sucesso!",
-            });
-        },
-        //*callback falha
-        function() {
-            swal.fire({
-                icon: "error",
-                title: "Falha em alterar a dieta.",
-            });
-        }
-    );
-    tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=?, duracao=? WHERE idDieta=?', [nomeInsumo,qtdInsumos,duracao,id],
-        //*callback sucesso
-        function() {
-            swal.fire({
-                icon: "success",
-                title: "Insumo alterado com sucesso!",
-            });
-        },
-        //*callback falha
-        function() {
-            swal.fire({
-                icon: "error",
-                title: "Falha em alterar o insumo.",
-            });
-        }
-    );
 
-}else{
-        tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
-            //callback sucesso
-            function() {
-                console.log("entrou na função");
-                for (var i = 0; i < quantidade; i++) {
-                    var nomeInsumo = document.getElementById('supplyname' + i).value;
-                    var qtdInsumos = document.getElementById('quantity' + i).value;
-                    var duracao = document.getElementById('duration' + i).value;
-                    dados = [newId,nomeInsumo,qtdInsumos,duracao];
 
-                    if (nomeInsumo.length <= 0) {
-                        validacao = false;
-                        msgHtml += '<p> - O campo <b>nome Insumo</b> é obrigatório.</p>';
-                    }
-                    if (qtdInsumos.length <= 0) {
-                        validacao = false;
-                        msgHtml += '<p> - O campo <b>quantidade</b> é obrigatório.</p>';
-                    }
-                    if (duracao.length <= 0) {
-                        validacao = false;
-                        msgHtml += '<p> - O campo <b>duração</b> é obrigatório.</p>';
-                    }
-                    if (validacao == true){
-                    tx.executeSql('INSERT INTO dietaInsumos (idDieta, nomeInsumo, qtdInsumos, duracao) VALUES (?,?,?,?)',dados,
-                        //callback sucesso
-                        function(tx,msg) {
-                            //modal para informar o usuario
-                            swal.fire({
-                                 icon: "success",
-                                title: "Dieta cadastrada com sucesso!",
-                             });
-                        },
-                        function(tx,erro){console.log("valores não inseridos");console.log(erro);}
-                    );
-                    }
-                    else {
+    if (validacao == true) {
+        db.transaction(function(tx) {
+            if (id) {
+                tx.executeSql('UPDATE dietas SET nome=? WHERE id=?', [nome, id],
+                    //*callback sucesso
+                    function() {
+                        swal.fire({
+                            icon: "success",
+                            title: "dieta alterada com sucesso!",
+                        });
+                    },
+                    //*callback falha
+                    function() {
                         swal.fire({
                             icon: "error",
-                            title: "Preencha os campos corretamente.",
-                            html: msgHtml
+                            title: "Falha em alterar a dieta.",
                         });
                     }
-                    
-                }
+                );
+                tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=?, duracao=? WHERE idDieta=?', [nomeInsumo, qtdInsumos, duracao, id],
+                    //*callback sucesso
+                    function() {
+                        swal.fire({
+                            icon: "success",
+                            title: "Insumo alterado com sucesso!",
+                        });
+                    },
+                    //*callback falha
+                    function() {
+                        swal.fire({
+                            icon: "error",
+                            title: "Falha em alterar o insumo.",
+                        });
+                    }
+                );
+
+            } else {
+                tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
+                    //callback sucesso
+                    function() {
+                        console.log("entrou na função");
+                        for (var i = 0; i < quantidade; i++) {
+                            var nomeInsumo = document.getElementById('supplyname' + i).value;
+                            var qtdInsumos = document.getElementById('quantity' + i).value;
+                            var duracao = document.getElementById('duration' + i).value;
+                            dados = [newId, nomeInsumo, qtdInsumos, duracao];
+
+                            if (nomeInsumo.length <= 0) {
+                                validacao = false;
+                                msgHtml += '<p> - O campo <b>nome Insumo</b> é obrigatório.</p>';
+                            }
+                            if (qtdInsumos.length <= 0) {
+                                validacao = false;
+                                msgHtml += '<p> - O campo <b>quantidade</b> é obrigatório.</p>';
+                            }
+                            if (duracao.length <= 0) {
+                                validacao = false;
+                                msgHtml += '<p> - O campo <b>duração</b> é obrigatório.</p>';
+                            }
+                            if (validacao == true) {
+                                tx.executeSql('INSERT INTO dietaInsumos (idDieta, nomeInsumo, qtdInsumos, duracao) VALUES (?,?,?,?)', dados,
+                                    //callback sucesso
+                                    function(tx, msg) {
+                                        //modal para informar o usuario
+                                        swal.fire({
+                                            icon: "success",
+                                            title: "Dieta cadastrada com sucesso!",
+                                        });
+                                        //TODO RECARREGAR A PAGE
+
+                                    },
+                                    function(tx, erro) {
+                                        console.log("valores não inseridos");
+                                        console.log(erro);
+                                    }
+                                );
+                            } else {
+                                swal.fire({
+                                    icon: "error",
+                                    title: "Preencha os campos corretamente.",
+                                    html: msgHtml
+                                });
+                            }
+
+                        }
+                    }
+                );
             }
-        );
+
+
+        });
+
+    } else {
+        swal.fire({
+            icon: "error",
+            title: "Preencha os campos corretamente.",
+            html: msgHtml
+        });
     }
-
-
-    });
-    
-}
-else {
-    swal.fire({
-        icon: "error",
-        title: "Preencha os campos corretamente.",
-        html: msgHtml
-    });
-}
 }
 
 
@@ -211,60 +215,110 @@ function confirmarDelete(id) {
 
 
 }
+
 function search() {
-    debugger
-    var filterDieta=document.getElementById("nome").innerHTML;
-    var tbody= document.getElementById("tbody-dietas");
-    var total= document.getElementById("total");
-    var table= document.getElementById("table-response");
-    table.style.display="block";
+    //debugger
+    var filterDieta = document.getElementById("nome").value;
+    var tbody = document.getElementById("tbody-dietas");
+    var total = document.getElementById("total");
+    var table = document.getElementById("table-response");
+    table.style.display = "block";
 
 
     var sqlWhere = 'WHERE TRUE AND (';
-    sqlWhere += (filterDieta !== null && filterDieta !== "") ? 'nomeDieta LIKE ' + "'%" + filterDieta + "%'" : 'TRUE';
+    sqlWhere += (filterDieta !== null && filterDieta !== "") ? 'D.nome LIKE ' + "'%" + filterDieta + "%'" : 'TRUE';
     sqlWhere += ')';
-    
 
+    //debugger
     db.transaction(function(tx) {
-        tx.executeSql('SELECT * FROM dietas ' + sqlWhere, [], function(a, result) {
-            var rows = result.rows;
-            var tr = '';
+        tx.executeSql('SELECT * FROM dietas D INNER JOIN dietaInsumos DI ON DI.idDieta = D.id ' + sqlWhere, [], function(a, result) {
+                var rows = result.rows;
+                var tr = '';
 
-            console.log(rows);
-            tx.executeSql('SELECT * FROM dietaInsumos WHERE idDieta;');
-            
-            // for (var i = 0; i < rows.length; i++) {
+                //* Filtra as dietas para conter somente uma por idDieta
+                const dietas = [];
+                const map = new Map();
+                for (const item of rows) {
+                    if (!map.has(item.idDieta)) {
+                        map.set(item.idDieta, true); // set any value to Map
+                        dietas.push({
+                            id: item.idDieta,
+                            nome: item.nome,
+                            insumosDieta: []
+                        });
+                    }
+                }
+
+                //* Adiciona o nome dos insumos na dieta
+                for (const dieta of dietas) {
+                    for (const item of rows) {
+                        if (item.idDieta == dieta.id) {
+                            dieta.insumosDieta.push(item.nomeInsumo);
+                        }
+                    }
+                }
+                for (const dieta of dietas) {
+                    var btns =
+                        `<td class=" td-default"><a href="#" onclick="Editar('${dieta.id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
+                        <a href="#" onclick="Deletar('${dieta.id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
+                        <td class=" td-btn-options">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onclick="Editar('${dieta.id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+                                    <a class="dropdown-item" onclick="Deletar('${dieta.id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
+                                </div>
+                            </div>
+                        </td>`;
+
+                    tr += `<tr id="${dieta.id}">`;
+                    tr += '<td>' + dieta.nome + '</td>';
+                    var nomeInsumo = '';
+                    for (const insumo of dieta.insumosDieta) {
+                        nomeInsumo += insumo + " - ";
+                    }
+                    nomeInsumo = nomeInsumo.substring(0, nomeInsumo.length - 2);
+                    tr += '<td>' + nomeInsumo + '</td>';
+                    tr += btns;
+                    tr += '</tr>';
+                }
+                tbody.innerHTML = tr;
+                total.innerHTML = dietas.length;
 
 
-            //     var btns =
-            //         `<td class=" td-default"><a href="#" onclick="Editar('${rows[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
-            //         <a href="#" onclick="Deletar('${rows[i].id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
-            //         <td class=" td-btn-options">
-            //             <div class="btn-group">
-            //                 <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
-            //                         <i class="fa fa-bars"></i>
-            //                     </button>
-            //                 <div class="dropdown-menu">
-            //                     <a class="dropdown-item" onclick="Editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
-            //                     <a class="dropdown-item" onclick="Deletar('${rows[i].id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
-            //                 </div>
-            //             </div>
-            //         </td>`;
-
-            //     tr += `<tr id="${rows[i].id}">`;
-            //     tr += '<td>' + rows[i].nome + '</td>';
-            //     tr += btns;
-            //     tr += '</tr>';
-            // }
-            //tbody.innerHTML = tr;
-           // total.innerHTML = rows.length;
 
 
-        },
-        function (tx,erro){
-            console.log("Erro ao fazer select");
-            console.log(erro);
-        });
+                // for (var i = 0; i < dietas.length; i++) {
+                //     var btns =
+                //         `<td class=" td-default"><a href="#" onclick="Editar('${dietas[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
+                //         <a href="#" onclick="Deletar('${dietas[i].id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>
+                //         <td class=" td-btn-options">
+                //             <div class="btn-group">
+                //                 <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+                //                         <i class="fa fa-bars"></i>
+                //                     </button>
+                //                 <div class="dropdown-menu">
+                //                     <a class="dropdown-item" onclick="Editar('${dietas[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
+                //                     <a class="dropdown-item" onclick="Deletar('${dietas[i].id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
+                //                 </div>
+                //             </div>
+                //         </td>`;
+
+                //     tr += `<tr id="${dietas[i].id}">`;
+                //     tr += '<td>' + dietas[i].nome + '</td>';
+                //     tr += btns;
+                //     tr += '</tr>';
+                // }
+
+
+
+            },
+            function(tx, erro) {
+                console.log("Erro ao fazer select");
+                console.log(erro);
+            });
     });
 }
 
@@ -283,16 +337,16 @@ function search() {
 //     });
 // }
 
-function getInsumos(callback){
-    db.transaction(function(tx){
-        tx.executeSql('SELECT id,name FROM insumos ORDER BY name',[],
-        function(tx,resultado){
-            callback(resultado);
-        },
-        function(tx,erro){
-            console.log("erro ao executar");
-            console.log(erro);
-        })
+function getInsumos(callback) {
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT id,name FROM insumos ORDER BY name', [],
+            function(tx, resultado) {
+                callback(resultado);
+            },
+            function(tx, erro) {
+                console.log("erro ao executar");
+                console.log(erro);
+            })
     });
 }
 
@@ -305,7 +359,7 @@ function getInsumos(callback){
 //             let option = document.createElement('option');
 //             option.value = dados.id;
 //             option.innerHTML = dados.name;
-    
+
 
 //             //$('#').append(option); //adicionar objeto ao select
 //         });
@@ -324,8 +378,8 @@ function redy() {
     criarTabelaDietaseInsumos();
     console.log("Chamou controller");
 
-    
-    
+
+
     // getDietas(function(resultado){
     //     debugger
     //     console.log("Chamou getdietas");
@@ -335,7 +389,7 @@ function redy() {
     //         let option = document.createElement('option');
     //         option.value = dados.id;
     //         option.innerHTML = dados.nome;
-    
+
     //         $('#listaDietas').append(option); //adicionar objeto ao select
     //     });
     // });
