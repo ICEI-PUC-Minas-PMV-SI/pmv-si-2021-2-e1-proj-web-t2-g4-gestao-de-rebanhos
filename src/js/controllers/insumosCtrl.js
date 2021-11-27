@@ -2,12 +2,12 @@
 
 var db = openDatabase("dbGado", "1.0", "DB Gado De Ouro", 2 * 1024 * 1024);
 
-window.addEventListener("load", redy);
+window.addEventListener("load", ready);
 
 //Cria a tabela de insumos
 function criarTabelaInsumos() {
   var query =
-    "CREATE TABLE IF NOT EXISTS insumos ( id INTEGER PRIMARY KEY,name TEXT NOT NULL, qtd REAL NOT NULL, qtdMin REAL NOT NULL)";
+    "CREATE TABLE IF NOT EXISTS insumos ( id INTEGER PRIMARY KEY,name TEXT NOT NULL UNIQUE, qtd REAL NOT NULL, qtdMin REAL NOT NULL)";
   db.transaction(function (tx) {
     tx.executeSql(query);
     console.log("criou");
@@ -154,9 +154,7 @@ function confirmarDelete(id) {
 
 function search() {
   var filterName = document.getElementById("name").value;
-  var filterQuantidade = document.getElementById("qtd").value;
-  var filterQuantidadeMin = document.getElementById("qtdMin").value;
-
+ 
   var tbody = document.getElementById("tbody-insumos");
   var total = document.getElementById("total");
   var table = document.getElementById("table-response");
@@ -166,19 +164,9 @@ function search() {
   sqlWhere +=
     filterName !== null && filterName !== ""
       ? "name LIKE " + "'%" + filterName + "%'"
-      : "TRUE";
-  sqlWhere += " AND ";
-  sqlWhere +=
-    filterQuantidade !== null && filterQuantidade !== ""
-      ? "qtd LIKE " + "'%" + filterQuantidade + "%'"
-      : "TRUE";
-  sqlWhere += " AND ";
-  sqlWhere +=
-    filterQuantidadeMin !== null && filterQuantidadeMin !== ""
-      ? "qtdMin = " + filterQuantidadeMin
-      : "TRUE";
-  sqlWhere += " AND ";
-  sqlWhere += " TRUE )";
+      : "TRUE";  
+  sqlWhere += " )";
+  console.log (sqlWhere);
 
   db.transaction(function (tx) {
     tx.executeSql(
@@ -222,6 +210,9 @@ function search() {
         }
         tbody.innerHTML = tr;
         total.innerHTML = rows.length;
+      }, 
+      function (_,erro) {
+        console.log (erro);
       }
     );
   });
@@ -257,7 +248,7 @@ function popularDados() {
   }
 }
 
-function redy() {
+function ready() {
   criarTabelaInsumos();
   criarTabelaBaixaInsumos();
   if (document.getElementById("btn-save")) {
