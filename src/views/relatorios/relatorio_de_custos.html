@@ -223,14 +223,38 @@
     </div>
   </div>
 </div>
+<!--Modal editar-->
+<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Perda" id="input1" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Valor" id="input2" maxlength="16">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Data" id="input3">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="modal-editar">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
-<script>
-  function exclui(i) {
-    let element = document.getElementById(`deletar ${i}`);
-    let parent = element.parentNode;
-    let row = parent.parentNode;
-    row.remove();
-  }
-</script>
 <script src="/src/js/controllers/cadastroCustos.js"></script>
 </html>

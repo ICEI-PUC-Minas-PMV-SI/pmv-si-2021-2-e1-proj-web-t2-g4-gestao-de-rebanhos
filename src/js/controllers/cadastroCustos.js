@@ -2,6 +2,7 @@
 const buttonModalCompra = document.getElementById('modal-compra');
 const buttonModalBaixa = document.getElementById('modal-baixa');
 const buttonModalPerda = document.getElementById('modal-perda');
+const buttonModalEditar = document.getElementById('modal-editar');
 
 const tabelaCompra = document.getElementById('tabelaCompra');
 const tabelaBaixa = document.getElementById('tabelaBaixa');
@@ -18,6 +19,10 @@ let data_baixa_Field = document.getElementById("data_baixa_Field");
 let perdaField = document.getElementById("perdaField");
 let valor_perda_Field = document.getElementById("valor_perda_Field");
 let data_perda_Field = document.getElementById("data_perda_Field");
+
+let input1 = document.getElementById("input1");
+let input2 = document.getElementById("input2");
+let input3 = document.getElementById("input3");
 
 // const botaoCompra = document.getElementById('botaoCompra');
 // const botaoBaixa = document.getElementById('botaoBaixa');
@@ -69,7 +74,7 @@ function addRow(tabela, input1, input2, input3) {
 
 function addButtons(id) {
     let i = Math.random() * 100;
-    let novoHtml = `<button class='btn btn-primary btn-sm' id='${i}' ' title='Editar' ><i class='fas fas fa-edit'></i></button><button class='btn btn-danger btn-sm btn-delete' id='deletar ${i}' onclick='exclui(${i})' title='Excluir' ><i class='fas fa-trash'></i></button>`;
+    let novoHtml = `<button class='btn btn-primary btn-sm' id='editar ${i}' data-toggle="modal" data-target="#modal4" onclick='returnDOM (${i})' title='Editar' ><i class='fas fas fa-edit'></i></button><button class='btn btn-danger btn-sm btn-delete' id='deletar ${i}' onclick='exclui(${i})' title='Excluir' ><i class='fas fa-trash'></i></button>`;
     id.innerHTML = novoHtml;
     id.removeAttribute('id'); 
 }
@@ -88,8 +93,35 @@ function validateInputs(input1, input2, input3) {
     } else return true;
 }
 
+function exclui(i) {
+    let element = document.getElementById(`deletar ${i}`);
+    let parent = element.parentNode;
+    let row = parent.parentNode;
+    row.remove();
+}
 
+let dom;
+function returnDOM(i) {
+    let element = document.getElementById(`editar ${i}`);
+    dom = element;
+}
 
+function editar() {
+    let parent = dom.parentNode;
+    let row = parent.parentNode;
+    let cells = row.childNodes;
+    editarModal(cells);
+}
+
+function editarModal(cells) {
+    let validacao = validateInputs(input1.value, input2.value, input3.value);
+    if (validacao) {
+        cells[1].textContent = input1.value;
+        cells[2].textContent = input2.value;
+        cells[3].textContent = input3.value;
+        buttonModalEditar.setAttribute('data-dimiss', 'modal');
+    }
+}
 
 function compra() {
     let validacao = validateInputs(compraField.value, valor_compra_Field.value, data_compra_Field.value);
@@ -122,3 +154,5 @@ buttonModalBaixa.addEventListener('click', function () {
     baixa()});
 buttonModalPerda.addEventListener('click', function () {
     perda()});
+buttonModalEditar.addEventListener('click', function () {
+    editar()});
