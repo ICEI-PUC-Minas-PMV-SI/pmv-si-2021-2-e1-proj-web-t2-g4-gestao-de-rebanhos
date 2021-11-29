@@ -441,6 +441,20 @@ function pesagem(idAnimal, tag) {
     })()
 }
 
+//selecionar das dietas select dietas na página cadastro animal
+function getDietas(callback){
+    db.transaction(function(tx){
+        tx.executeSql('SELECT id,nome FROM dietas ORDER BY nome',[],
+        function(tx,resultado){
+            callback(resultado);
+        },
+        function(tx,erro){
+            console.log("erro ao executar");
+            console.log(erro);
+        })
+    });
+}
+
 function ready() {
     createTableAnimals();
     criarTabelaBaixaAnimal();
@@ -451,4 +465,17 @@ function ready() {
     } else if (document.getElementById("relatorio")) {
         popularDadosRelatorio();
     }
+    getDietas(function(resultado){
+        debugger
+        console.log("Chamou getdietas");
+        $(resultado.rows).each(function(index,dados){
+            //console.log(resultado.rows);
+           // console.log(dados.nome);
+            let option = document.createElement('option');
+            option.value = dados.id;
+            option.innerHTML = dados.nome;
+
+            $('#nomeDieta').append(option); //adicionar objeto ao select
+        });
+    });
 }
