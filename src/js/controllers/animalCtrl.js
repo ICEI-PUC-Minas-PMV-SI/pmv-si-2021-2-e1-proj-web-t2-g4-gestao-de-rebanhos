@@ -78,7 +78,7 @@ function save() {
     if (validacao == true) {
         db.transaction(function(tx) {
             if (id) {
-                tx.executeSql('UPDATE animais SET idade=? WHERE id=?', [idade, id],
+                tx.executeSql('UPDATE animais SET idade=?, idDieta=? WHERE id=?', [idade, nomeDieta, id],
                     //*callback sucesso
                     function() {
                         swal.fire({
@@ -96,7 +96,7 @@ function save() {
                 )
 
             } else {
-                tx.executeSql('INSERT INTO animais (tag, raca, idade, sexo, peso, nomeDieta) VALUES (?, ?, ?, ?, ?, ?)', [tag, raca, idade, sexo, peso, nomeDieta],
+                tx.executeSql('INSERT INTO animais (tag, raca, idade, sexo, peso, idDieta) VALUES (?, ?, ?, ?, ?, ?)', [tag, raca, idade, sexo, peso, nomeDieta],
                     // Callback sucesso
                     function() {
                         swal.fire({
@@ -330,6 +330,7 @@ function popularDados() {
                     document.getElementById('peso').value = animal.peso;
                     document.getElementById('raca').value = animal.raca;
                     document.getElementById('sexo').value = animal.sexo;
+                    document.getElementById('nomeDieta').value = animal.idDieta;
 
                     //bloqueia os campos que não podem ser alterados
                     document.getElementById('tag').readOnly = true;
@@ -442,16 +443,16 @@ function pesagem(idAnimal, tag) {
 }
 
 //selecionar das dietas select dietas na página cadastro animal
-function getDietas(callback){
-    db.transaction(function(tx){
-        tx.executeSql('SELECT id,nome FROM dietas ORDER BY nome',[],
-        function(tx,resultado){
-            callback(resultado);
-        },
-        function(tx,erro){
-            console.log("erro ao executar");
-            console.log(erro);
-        })
+function getDietas(callback) {
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT id,nome FROM dietas ORDER BY nome', [],
+            function(tx, resultado) {
+                callback(resultado);
+            },
+            function(tx, erro) {
+                console.log("erro ao executar");
+                console.log(erro);
+            })
     });
 }
 
@@ -461,21 +462,18 @@ function ready() {
     criarTabelaPesagemAnimal();
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', save);
+        getDietas(function(resultado) {
+            console.log("Chamou getdietas");
+            $(resultado.rows).each(function(index, dados) {
+                let option = document.createElement('option');
+                option.value = dados.id;
+                option.innerHTML = dados.nome;
+                $('#nomeDieta').append(option); //adicionar objeto ao select
+            });
+        });
         popularDados();
     } else if (document.getElementById("relatorio")) {
         popularDadosRelatorio();
     }
-    getDietas(function(resultado){
-        debugger
-        console.log("Chamou getdietas");
-        $(resultado.rows).each(function(index,dados){
-            //console.log(resultado.rows);
-           // console.log(dados.nome);
-            let option = document.createElement('option');
-            option.value = dados.id;
-            option.innerHTML = dados.nome;
 
-            $('#nomeDieta').append(option); //adicionar objeto ao select
-        });
-    });
 }
