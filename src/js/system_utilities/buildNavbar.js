@@ -29,9 +29,9 @@ function buildNav() {
                         Insumos\
                     </a>\
                 <div class="dropdown-menu">\
-                    <a class="dropdown-item" href="#">Cadastro</a>\
-                    <a class="dropdown-item" href="#">Busca</a>\
-                    <a class="dropdown-item" href="#">Baixa</a>\
+                    <a class="dropdown-item" href="../insumos/cadastro_insumos.html">Cadastro</a>\
+                    <a class="dropdown-item" href="../insumos/buscainsumos.html">Busca</a>\
+                    <a class="dropdown-item" href="../insumos/baixa_insumos.html">Baixa</a>\
                 </div>\
             </li>\
             <li class="nav-item dropdown">\
@@ -39,9 +39,9 @@ function buildNav() {
                         Animal\
                     </a>\
                 <div class="dropdown-menu">\
-                    <a class="dropdown-item" href="#">Cadastro</a>\
-                    <a class="dropdown-item" href="#">Busca</a>\
-                    <a class="dropdown-item" href="#">Baixa</a>\
+                    <a class="dropdown-item" href="../animais/cadastro_animal.html">Cadastro</a>\
+                    <a class="dropdown-item" href="../animais/busca_animal.html">Busca</a>\
+                    <a class="dropdown-item" href="../animais/baixa_animal.html">Baixa</a>\
                 </div>\
             </li>\
             <li class="nav-item dropdown">\
@@ -51,7 +51,6 @@ function buildNav() {
                 <div class="dropdown-menu">\
                     <a class="dropdown-item" href="../dieta/CadastroDieta1.html">Cadastro</a>\
                     <a class="dropdown-item" href="../dieta/buscaDieta.html">Busca</a>\
-                    <a class="dropdown-item" href="#">Baixa</a>\
                 </div>\
             </li>\
             <li class="nav-item dropdown">\
@@ -69,7 +68,7 @@ function buildNav() {
                         Relatórios\
                     </a>\
                 <div class="dropdown-menu">\
-                    <a class="dropdown-item" href="#">Relatório Animal</a>\
+                    <a class="dropdown-item" href="../animais/relatorio_animal.html">Relatório Animal</a>\
                     <a class="dropdown-item" href="../relatorios/relatorio_de_custos.html">Relatório de Custos</a>\
                 </div>\
             </li>\
