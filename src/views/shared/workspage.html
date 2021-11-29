@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- <link rel="stylesheet" href="../../css/style.css"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/controllers/workCtrl.js"></script>
+
 
     <style>
         .navbar .navbar-nav>li>.dropdown-menu>a:hover,
@@ -34,6 +36,42 @@
             margin-top: 3em;
             margin-bottom: 1.3em;
         }
+        /* Card */
+        
+        .card {
+            box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
+        }
+        
+        .card:hover {
+            box-shadow: 5px 1px 10px rgb(0 0 0 / 35%);
+        }
+        /* btns work */
+        
+        .card>.card-body {
+            color: #269740;
+        }
+        
+        .card-work>a {
+            color: #171717;
+        }
+        
+        .card-work>a:hover {
+            font-weight: bolder;
+        }
+        
+        .svg-work {
+            fill: none;
+            stroke: #269740;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+        }
+        
+        .content-svg {
+            width: 5em;
+            margin: 0 auto;
+        }
     </style>
 
     <title>Workpage</title>
@@ -43,38 +81,126 @@
     <div id="div-nav">
 
     </div>
-    <br>
+
     <!-- /NavBar -->
 
-    <!--Select-->
-    <div class="containter-fluid">
+    <div class="container-fluid page-header">
         <div class="row">
-            <div><button class="buttom1" id="close-image"><img src="../../images/cadastroColaborador.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/buscaColaborador.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/cadastroInsumo.png"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/buscaInsumo.jpg"></button></div>
+            <div class="col-md-12">
+                <!-- Cadastros -->
+                <fieldset>
+                    <legend><i class="fa fa-edit"></i> Cadastros</legend>
+                    <div class="row">
+                        <!--Caixa Cad Animal-->
+                        <div id="cadastro-animal" class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                            <div class="card-work">
+                                <a href="">
+                                    <div class="card">
+                                        <div class="card-header text-center">Cadastro Animal</div>
+                                        <div class="card-body text-center">
+                                            <div id="svg-gado" class="content-svg">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--/ Caixa Cad Animal-->
+                        <!--Caixa Cad Insumos-->
+                        <div id="cadastro-insumos" class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                            <div class="card-work">
+                                <a href="">
+                                    <div class="card">
+                                        <div class="card-header text-center">Cadastro Insumos</div>
+                                        <div class="card-body text-center">
+                                            <div id="svg-insumos" class="content-svg">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--/ Caixa Cad Insumos-->
+                        <!--Caixa Cad Dietas-->
+                        <div id="cadastro-dietas" class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                            <div class="card-work">
+                                <a href="">
+                                    <div class="card">
+                                        <div class="card-header text-center">Cadastro Dieta</div>
+                                        <div class="card-body text-center">
+                                            <div id="svg-dietas" class="content-svg">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--/ Caixa Cad Dietas-->
+                        <!--Caixa Cad Colaboradores-->
+                        <div id="cadastro-colaboradores" class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                            <div class="card-work">
+                                <a href="">
+                                    <div class="card">
+                                        <div class="card-header text-center">Cadastro Colaboradores</div>
+                                        <div class="card-body text-center">
+                                            <div id="svg-colaboradores" class="content-svg">
+                                                <i class="fa fa-user fa-5x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--/ Caixa Cad Colaboradores-->
+                    </div>
+                </fieldset>
+                <!-- /Cadastros -->
+
+                <!-- Atividades -->
+                <fieldset style="margin-top: 2em;">
+                    <legend><i class="fa fa-bell"></i> Funções</legend>
+                    <div class="row">
+                        <!--Caixa Pesagem Animal-->
+                        <div id="func-pesagem" class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                            <div class="card-work">
+                                <a href="">
+                                    <div class="card">
+                                        <div class="card-header text-center">Pesagem Animal</div>
+                                        <div class="card-body text-center">
+                                            <div>
+                                                <i class="fa fa-balance-scale fa-5x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--/ Caixa Pesagem Animal-->
+                        <!--Caixa Cad Insumos-->
+                        <div id="func-pesagem" class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                            <div class="card-work">
+                                <a href="">
+                                    <div class="card">
+                                        <div class="card-header text-center">Compras</div>
+                                        <div class="card-body text-center">
+                                            <div>
+                                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--/ Caixa Cad Insumos-->
+                    </div>
+                </fieldset>
+                <!-- /Atividades -->
+            </div>
         </div>
-    </div>
-    <div class="contaier">
-        <div class="row">
-            <div><button class="buttom1" id="close-image"><img src="../../images/baixaInsumo.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/cadastroAnimal.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/buscaAnimal.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/baixaAnimal.jpg"></button></div>
-        </div>
-    </div>
-    <div class="contaier">
-        <div class="row">
-            <div><button class="buttom1" id="close-image"><img src="../../images/cadastroDieta.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/buscaDieta.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/baixaDieta.jpg"></button></div>
-            <div><button class="buttom1" id="close-image"><img src="../../images/relatorioAnimal.jpg"></button></div>
-        </div>
-    </div>
-    <div class="contaier">
-        <div class="row">
-            <div><button class="buttom1" id="close-image"><img src="../../images/relatorioCustos.jpg"></button></div>
-        </div>
+
     </div>
 </body>
 
