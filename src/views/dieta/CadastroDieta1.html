@@ -38,6 +38,9 @@
             background-color: #e3ab1f;
             border-color: goldenrod;
         }
+        .table-response{
+            display:none;
+        }
     </style>
 
 </head>
@@ -47,7 +50,7 @@
     <br>
 
     <!-- form-->
-    <div class="container-fluid">
+    <div class="container">
         <form>
             <input type="hidden" id="id" value="" />
             <legend>Cadastro de dieta</legend>
@@ -67,8 +70,26 @@
             <div id="InserirDados">
 
             </div>
-            <div class="form-group col-sm-12">
-                <input type="button" id="btn-save" class="btn btn-success float-right" value="Salvar">
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <input type="button" id="btn-save" class="btn btn-success float-right" value="Salvar">
+                </div>
+            </div>
+            <div id="table-response" class="row table-response">
+                <div class="col-sm-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Insumos</th>
+                                <th>Quantidade(gramas)/dia</th>
+                                <th>Duração(dias)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-insumos">
+    
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </form>
     </div>
