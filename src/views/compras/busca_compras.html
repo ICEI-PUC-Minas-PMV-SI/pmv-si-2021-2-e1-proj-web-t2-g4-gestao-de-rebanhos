@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
+    <script src="../../js/controllers/dietaCtrl.js"></script>
+    <title>Busca Dieta</title>
+
+    <style>
+        .navbar .navbar-nav>li>.dropdown-menu>a:hover,
+        .navbar .navbar-nav>li>.dropdown-menu>a:focus {
+            /*background-color: rgba(33, 136, 56, 0.46) !important;*/
+            background-color: rgba(225, 212, 31, .4);
+        }
+        
+        .totalizador-search {
+            float: right;
+            font-size: 14px;
+        }
+        
+        .page-header {
+            border-color: #e7e7e7;
+            margin-top: 3em;
+            margin-bottom: 1.3em;
+        }
+        
+        .btn-delete {
+            margin-left: 1rem;
+        }
+        
+        .form-search {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        
+        .spinner {
+            margin-top: 5%;
+            display: none;
+        }
+        
+        .table-response {
+            display: none;
+        }
+        
+        #btn-logout {
+            background-color: goldenrod;
+            color: whitesmoke;
+        }
+        
+        #btn-logout:hover {
+            background-color: #e3ab1f;
+            border-color: goldenrod;
+        }
+        
+        #btn-search {
+            margin-top: 2em;
+        }
+        
+        .td-btn-options {
+            display: none;
+        }
+        /* @midia */
+        
+        @media (max-width: 568px) {
+            .td-btn-options {
+                display: block;
+            }
+            .td-default {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div-nav"></div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row page-header">
+                    <div class="col-sm-6">
+                        <h3>Busca Dieta</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <span class="totalizador-search float-right"><strong id="total">0</strong> Resultados encontrados</span>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input class="form-control" type="text" id="nome" name="Nome" maxlength="100">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label></label>
+                            <button id="btn-search" type="button" style="background-color:
+                            goldenrod; border-color: #e7e7e7;" class="btn btn-primary semlabel-formgroup">Pesquisar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+    <div class="container">
+        <div id="table-response" class="row table-response">
+            <div class="col-sm-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Dieta</th>
+                            <th>Insumos</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-dietas">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
