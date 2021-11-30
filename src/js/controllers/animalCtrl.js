@@ -364,6 +364,8 @@ function popularDadosRelatorio() {
 
                     document.getElementById('btn-baixa').innerHTML = `<button onclick="baixa('${animal.id}', '${animal.tag}', '${animal.peso}', '${animal.idade}', '${animal.raca}', 'relatorio')" type="button" 
                                                                       class="btn btn-outline-info btn-lg ml-2" id="btn-baixa">Baixa Animais</button>`;
+
+                    gerarGrafico(id);
                 }
             );
         });
@@ -456,6 +458,67 @@ function getDietas(callback) {
     });
 }
 
+function gerarGrafico(idAnimal) {
+    //pesagemanimal (id INTEGER PRIMARY KEY, idAnimal INTEGER, tag TEXT NOT NULL, peso REAL NOT NULL, dtPesagem TEXT )"
+    db.transaction(function(tx) {
+        tx.executeSql("SELECT * FROM pesagemanimal WHERE idAnimal = ?", [idAnimal],
+            function(_, result) {
+                if (result.rows.length > 1) {
+                    var xValues = []; //datas
+                    var yValues = []; //pesos
+                    var rows = [];
+
+                    //Converte string para data
+                    for (item of result.rows) {
+                        rows.push({
+                            'peso': item.peso,
+                            'data': new Date(item.dtPesagem)
+                        });
+                    }
+
+                    //ordenar arr por data
+                    rows.sort(function(a, b) {
+                        return a.data.getTime() - b.data.getTime()
+                    });
+
+
+                    //adiciona os valores no eixo x e y
+                    for (item of rows) {
+                        var dt = `${item.data.getDate()}/${item.data.getMonth()+1}`;
+                        xValues.push(dt);
+                        yValues.push(item.peso);
+                    }
+
+                    new Chart("myChart", {
+                        type: "line",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                                fill: false,
+                                lineTension: 0,
+                                backgroundColor: "#ffc107",
+                                borderColor: "#269740",
+                                data: yValues
+                            }]
+                        },
+                        options: {
+                            legend: { display: false },
+
+                        }
+                    });
+                } else {
+                    window.getElementById('myChart').innerHTML = '<h1 class="blockquote text-center">Dados Insuficientes para calcular</h1>'
+                }
+
+
+
+            }
+        );
+    });
+
+
+}
+
 function ready() {
     createTableAnimals();
     criarTabelaBaixaAnimal();
@@ -474,6 +537,7 @@ function ready() {
         popularDados();
     } else if (document.getElementById("relatorio")) {
         popularDadosRelatorio();
+        //gerarGrafico();
     }
 
 }
