@@ -128,6 +128,15 @@ function buildNavProprietario() {
                     <a class="dropdown-item" href="../dieta/buscaDieta.html">Busca</a>\
                 </div>\
             </li>\
+            <li class="nav-item dropdown">\
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop" data-toggle="dropdown">\
+                    Compras\
+                </a>\
+                <div class="dropdown-menu">\
+                    <a class="dropdown-item" href="../compras/cadastro_compras.html">Cadastro</a>\
+                    <a class="dropdown-item" href="../compras/busca_compras.html">Busca</a>\
+            </div>\
+        </li>\
          </ul>\
          <button class="btn my-2 my-sm-0 ml-auto" id="btn-logout" type="button"> <i class="fa fa-share" aria-hidden="true" ></i> Logout</button>\
         </div>\
