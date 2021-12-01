@@ -283,7 +283,10 @@ function ready() {
         document.getElementById('btn-save').addEventListener('click', salvar);
         popularDados();
     }
-    if (document.getElementById('btn-search')) document.getElementById('btn-search').addEventListener('click', buscar);
+    if (document.getElementById('btn-search')) {
+        document.getElementById('btn-search').addEventListener('click', buscar);
+        buscar();
+    }
     criarTabelaColaboradores();
 
 }

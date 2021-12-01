@@ -73,22 +73,8 @@ function save() {
                         });
                     }
                 );
-                tx.executeSql('UPDATE dietaInsumos SET nomeInsumo=?, qtdInsumos=?, duracao=? WHERE idDieta=?', [nomeInsumo, qtdInsumos, duracao, id],
-                    //*callback sucesso
-                    function() {
-                        swal.fire({
-                            icon: "success",
-                            title: "Insumo alterado com sucesso!",
-                        });
-                    },
-                    //*callback falha
-                    function() {
-                        swal.fire({
-                            icon: "error",
-                            title: "Falha em alterar o insumo.",
-                        });
-                    }
-                );
+               
+            
 
             } else {
                 tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
@@ -118,11 +104,17 @@ function save() {
                                     //callback sucesso
                                     function(tx, msg) {
                                         //modal para informar o usuario
-                                        swal.fire({
+                                        Swal.fire({
+                                            title: 'Dieta Cadastrada com sucesso!',
                                             icon: "success",
-                                            title: "Dieta cadastrada com sucesso!",
+
+                                        }).then((result) => {
+                                            /* Read more about isConfirmed, isDenied below */
+                                            if (result) {
+                                                window.location.reload()
+                                            }
                                         });
-                                        //TODO RECARREGAR A PAGE
+                                        
 
                                     },
                                     function(tx, erro) {
@@ -159,6 +151,61 @@ function save() {
 
 function Editar(id) {
     window.location.href = "../dieta/CadastroDieta1.html?" + id;
+}
+
+function popularDados() {
+    //limpa a url
+    var url = window.location.href.replace(/#/g, '');
+
+    //verifica se a url possui um Id
+    if (url.includes('?') && url.split('?')[1].length == 36) {
+        var id = window.location.href.split('?')[1];
+        db.transaction(function(tx) {
+            tx.executeSql("SELECT * FROM dietas WHERE id = ?", [id],
+                function(_, result) {
+                    var dieta = result.rows[0];
+
+                    //adiciona o valor nos inputs advindos do bdd
+                    document.getElementById('id').value = dieta.id;
+                    document.getElementById('nomedieta').value = dieta.nome;
+                    
+
+                    //bloqueia o campo email pois ele não pode ser alterado
+                    document.getElementById('Quantidadeinsumos').readOnly = true;
+                    document.getElementById('botao').style.display="none";
+
+                    tx.executeSql('SELECT * FROM dietaInsumos WHERE idDieta = ?',[id],
+                        function(_,resultInsumos){
+                            var tbody = document.getElementById('tbody-insumos');
+                            var tr = '';
+                            var table = document.getElementById('table-response');
+                            table.style.display="block";
+
+                            var insumos = resultInsumos.rows;
+
+                            for(insumo of insumos){
+                                tr += `<tr id="${insumo.id}"> `;
+                                tr += `<td > ${insumo.nomeInsumo} </td>`;
+                                tr += `<td > ${insumo.qtdInsumos} </td>`;
+                                tr += `<td > ${insumo.duracao} </td>`;
+                                tr += `</tr>`;
+
+                            }
+                            document.getElementById('Quantidadeinsumos').value=insumos.length;
+                            tbody.innerHTML = tr;
+
+
+                            //igual ao de cima 
+                            // for(var i = 0;i < insumos.length;i++){
+                            //     tr += `<tr id="${insumos[i].id}"> `; 
+                            // }
+                        }
+                    );
+                }
+            );
+        });
+
+    }
 }
 
 function Deletar(id) {
@@ -373,6 +420,7 @@ function getInsumos(callback) {
 function redy() {
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', save);
+        popularDados();
     }
     if (document.getElementById('btn-search')) document.getElementById('btn-search').addEventListener('click', search);
     criarTabelaDietaseInsumos();

@@ -82,6 +82,15 @@
             height: 300px;
             background-color: rgba(218, 165, 32, 0.426)
         }
+        
+        #myChart {
+            margin: 0 auto;
+        }
+        
+        .card-grafico {
+            margin-left: .85em;
+            margin-right: .85em;
+        }
         /* @midia */
         
         @media (max-width: 568px) {
@@ -121,33 +130,17 @@
     <!--/Animal ID & BUttons-->
     <br>
     <!--Grafico-->
-    <h1 class="blockquote text-center">Peso x Idade</h1>
-    <div class="containter-fluid">
-        <canvas id="myChart" style="width:100%;max-width:100%;"></canvas>
 
-        <script>
-        var xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
-        
-        new Chart("myChart", {
-        type: "line",
-        data: {
-            labels: xValues,
-            datasets: [{
-            }, { 
-            data: [112,187,252,312,400,470,520,598,637,722,793,842,912,999,1078,1112],
-            borderColor: "goldenrod",
-            fill: false
-            }, { 
-            data: [112,200,282,332,400,490,540,620,699,742,793,842,950,1060,1108,1152],
-            borderColor: "rgb(38 151 64)",
-            fill: false
-            }]
-        },
-        options: {
-            legend: {display: false}
-        }
-        });
-        </script>
+    <div class="containter">
+        <div class="card card-grafico">
+            <div class="card-header">
+                <h1 class="blockquote text-center">Histórico Pesagens</h1>
+                <canvas id="myChart" style="width:50%;max-width:50%;"></canvas>
+            </div>
+        </div>
+
+
+
     </div>
     <!--/Grafico-->
     <!--Botões Finais-->
@@ -155,7 +148,7 @@
     <div class="contaier">
         <div class="row">
             <div class="col"><button type="button" class="btn btn-outline-info btn-lg float-right">Relatório Custos</button></div>
-            <div id="btn-baixa" class="col"><button type="button" class="btn btn-outline-info btn-lg ml-2" id="btn-baixa">Baixa Animais</button></div>
+            <div id="btn-baixa" class="col"><button type="button" class="btn btn-outline-info btn-lg ml-2">Baixa Animais</button></div>
         </div>
     </div>
     <!--/Botões Finais-->
