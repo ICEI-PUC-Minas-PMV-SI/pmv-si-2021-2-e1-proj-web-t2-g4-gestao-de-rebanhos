@@ -52,26 +52,17 @@
             margin-right: 2em;
         }
         
+        .spinner {
+            margin-top: 5%;
+            display: none;
+        }
+        
         .table-response {
             display: none;
         }
         
         .td-btn-options {
-            display: none;
-        }
-        
-        #btn-search {
-            margin-top: 2em;
-        }
-        /* @midia */
-        
-        @media (max-width: 568px) {
-            .td-btn-options {
-                display: block;
-            }
-            .td-default {
-                display: none;
-            }
+            display: block;
         }
     </style>
 </head>
@@ -102,13 +93,13 @@
                                 <input class="form-control text-uppercase" type="text" name="Nome" id="name" maxlength="100" />
                             </div>
                         </div>
-                                             
+
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label></label>
-                                <button id="btn-search" type="button" class="btn btn-warning float-right semlabel-formgroup">Pesquisar</button>
+                                <button id="btn-search" type="button" class="btn btn-warning float-right semlabel-formgroup" onclick="search()">Pesquisar</button>
                             </div>
                         </div>
                     </div>
@@ -129,7 +120,7 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Quantidade</th>
-                                    <th>Quantide Min</th>
+                                    <th>Quantidade Min</th>
                                     <th class="col-sm-3 col-md-2"></th>
                                 </tr>
                             </thead>

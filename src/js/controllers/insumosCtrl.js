@@ -2,12 +2,12 @@
 
 var db = openDatabase("dbGado", "1.0", "DB Gado De Ouro", 2 * 1024 * 1024);
 
-window.addEventListener("load", ready);
+window.addEventListener("load", redy);
 
 //Cria a tabela de insumos
 function criarTabelaInsumos() {
   var query =
-    "CREATE TABLE IF NOT EXISTS insumos ( id INTEGER PRIMARY KEY,name TEXT NOT NULL UNIQUE, qtd REAL NOT NULL, qtdMin REAL NOT NULL)";
+    "CREATE TABLE IF NOT EXISTS insumos ( id INTEGER PRIMARY KEY,name TEXT NOT NULL, qtd REAL NOT NULL, qtdMin REAL NOT NULL)";
   db.transaction(function (tx) {
     tx.executeSql(query);
     console.log("criou");
@@ -17,7 +17,7 @@ function criarTabelaInsumos() {
 //Cria a tabela de baixa de insumos
 function criarTabelaBaixaInsumos() {
   var query =
-    "CREATE TABLE IF NOT EXISTS baixaInsumo (id INTEGER PRIMARY KEY, name TEXT NOT NULL, qtdSaida REAL NOT NULL, motivo TEXT)";
+    "CREATE TABLE IF NOT EXISTS baixaInsumo (id INTEGER PRIMARY KEY, name TEXT NOT NULL, idInsumo INTEGER, qtdSaida REAL NOT NULL, motivo TEXT)";
   db.transaction(function (tx) {
     tx.executeSql(query);
   });
@@ -47,11 +47,12 @@ function salvarCadastroInsumos() {
   }
 
   if (validacao == true) {
+    debugger;
     db.transaction(function (tx) {
       if (id) {
         tx.executeSql(
-          "UPDATE insumos SET name=?, qtd=?, qtdMin=?, WHERE id=?",
-          [name, qtd, qtdMin, id],
+          "UPDATE insumos SET qtdMin=? WHERE id=?",
+          [qtdMin, id],
           //*callback sucesso
           function () {
             swal.fire({
@@ -60,7 +61,8 @@ function salvarCadastroInsumos() {
             });
           },
           //*callback falha
-          function () {
+          function (_, msg) {
+            console.log(msg);
             swal.fire({
               icon: "error",
               title: "Falha ao relizar a alteração.",
@@ -138,6 +140,8 @@ function confirmarDelete(id) {
       function () {
         var tdExcluir = document.getElementById(id);
         tdExcluir.style.display = "none";
+        var total = document.getElementById("total").innerHTML;
+        document.getElementById("total").innerHTML = --total;
         console.log("Confirmou delete. Id =  " + id);
         Swal.fire("Deletado!", "Insumo deletado com sucesso!", "success");
       },
@@ -154,7 +158,7 @@ function confirmarDelete(id) {
 
 function search() {
   var filterName = document.getElementById("name").value;
- 
+
   var tbody = document.getElementById("tbody-insumos");
   var total = document.getElementById("total");
   var table = document.getElementById("table-response");
@@ -164,9 +168,8 @@ function search() {
   sqlWhere +=
     filterName !== null && filterName !== ""
       ? "name LIKE " + "'%" + filterName + "%'"
-      : "TRUE";  
+      : "TRUE";
   sqlWhere += " )";
-  console.log (sqlWhere);
 
   db.transaction(function (tx) {
     tx.executeSql(
@@ -177,8 +180,7 @@ function search() {
         var tr = "";
 
         for (var i = 0; i < rows.length; i++) {
-          var btns = `<td class=" td-default"><a href="#" onclick="editar('${rows[i].id}')" class="btn btn-primary btn-sm" title="Editar"><i class="fas fas fa-edit"></i></a>
-                        <a href="#" onclick="deletar('${rows[i].id}')" class="btn btn-danger btn-sm btn-delete" title="Excluir"><i class="fas fa-trash"></i></a></td>\
+          var btns = `
                         <td class=" td-btn-options">\
                             <div class="btn-group">\
                                 <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">\
@@ -187,32 +189,23 @@ function search() {
                             <div class="dropdown-menu">\
                                 <a class="dropdown-item" onclick="editar('${rows[i].id}')" href="#"><i class="fas fas fa-edit"></i> <span style="padding-left: .2em;">Editar</span> </a>
                                 <a class="dropdown-item" onclick="deletar('${rows[i].id}')" href="#"><i class="fas fa-trash"></i> <span style="padding-left: .3em;">Excluir</span></a>
+                                <a class="dropdown-item" onclick="baixa('${rows[i].id}', '${rows[i].name}','${rows[i].qtd}')" href="#"><i class="fa-arrow-circle-down fa"></i> <span style="padding-left: .3em;">Baixa</span></a>
                             </div>\
                         </div>\
                       </td>`;
 
-          tr += `<tr id="${rows[i].id}">`;
+          tr +=
+            rows[i].qtd < rows[i].qtdMin
+              ? `<tr class="table-danger" id="${rows[i].id}">`
+              : `<tr id="${rows[i].id}">`;
           tr += "<td>" + rows[i].name + "</td>";
           tr += "<td>" + rows[i].qtd + "</td>";
           tr += "<td>" + rows[i].qtdMin + "</td>";
           tr += btns;
           tr += "</tr>";
-
-          // tr +=
-          //   rows[i].qtd < rows[i].qtdMin
-          //     ? '<tr class="table-danger" >'
-          //     : "<tr>";
-          // tr += "<td>" + rows[i].name + "</td>";
-          // tr += "<td>" + rows[i].qtd + "</td>";
-          // tr += "<td>" + rows[i].qtdMin + "</td>";
-          // tr += btns;
-          // tr += "</tr>";
         }
         tbody.innerHTML = tr;
         total.innerHTML = rows.length;
-      }, 
-      function (_,erro) {
-        console.log (erro);
       }
     );
   });
@@ -242,13 +235,149 @@ function popularDados() {
 
           //bloqueia os campos pois não podem ser alterados
           document.getElementById("qtd").readOnly = true;
+          document.getElementById("name").readOnly = true;
         }
       );
     });
   }
 }
 
-function ready() {
+function baixa(idInsumo, name, qtd) {
+  (async () => {
+    const { value: formValues } = await Swal.fire({
+      title: "Baixa Insumo",
+      html: `<div class="container-fluid">
+          <p style="font-weight: bold;">Os dados com (*) são obrigatórios</p>
+          <div class="row">
+              <div class="col-sm-6">
+                  <div class="form-group">
+                      <label class="float-left">Quantidade Usada*</label>
+                      <input id="qtd" class="form-control text-uppercase" type="number" maxlength="10" />
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Motivo</label>
+                  <select class="form-control" id="motivo" name="motivo">
+                      <option value=""></option>
+                      <option value="Descarte">Descarte</option>
+                      <option value="Uso Padrão">Uso Padrão</option>
+                      <option value="Outros">Outros</option>
+                  </select>
+                </div>
+              </div>
+          </div>
+      </div>`,
+      focusConfirm: false,
+      confirmButtonText: "Confirmar",
+      showCancelButton: true,
+      cancelButtonText: "Cancelar",
+      preConfirm: () => {
+        return [
+          document.getElementById("qtd").value,
+          document.getElementById("motivo").value,
+        ];
+      },
+    });
+    if (formValues[0].length >= 1 && formValues[1].length >= 1) {
+      var qtdUsada = formValues[0];
+      var motivo = formValues[1];
+
+      if (qtdUsada < qtd) {
+        qtd -= qtdUsada;
+
+        db.transaction(function (tx) {
+          tx.executeSql(
+            "INSERT INTO baixaInsumo (idInsumo, name, qtdSaida, motivo ) VALUES (?, ?, ?, ?)",
+            [idInsumo, name, qtdUsada, motivo],
+            //Callback sucesso
+            function () {
+              tx.executeSql(
+                "UPDATE insumos SET qtd=? WHERE id=?",
+                [qtd, idInsumo],
+                //*callback sucesso
+                function () {
+                  Swal.fire({
+                    title: "Insumo alterado com sucesso!",
+                    icon: "success",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      search();
+                    }
+                  });
+                }
+              );
+            },
+            //Callback falha
+            function () {
+              swal.fire({
+                icon: "error",
+                title: "Falha em alterar o estoque!",
+              });
+            }
+          );
+        });
+      } else {
+        swal.fire({
+          icon: "warning",
+          title: "Quantidade insuficiente no estoque!",
+        });
+      }
+    } else {
+      swal.fire({
+        icon: "error",
+        title: "Preencha os dados obrigatórios!",
+      });
+    }
+  })();
+}
+
+function buscarBaixas() {
+  var filterName = document.getElementById("name").value;
+  var filterMotivo = document.getElementById("motivo").value;
+
+  var tbody = document.getElementById("tbody-insumos");
+  var total = document.getElementById("total");
+  var table = document.getElementById("table-response");
+  table.style.display = "block";
+
+  var sqlWhere = "WHERE TRUE AND (";
+  sqlWhere +=
+    filterName !== null && filterName !== ""
+      ? "name LIKE " + "'%" + filterName + "%'"
+      : "TRUE";
+  sqlWhere += " AND ";
+  sqlWhere +=
+    filterMotivo !== null && filterMotivo !== ""
+      ? "motivo LIKE " + "'%" + filterMotivo + "%'"
+      : "TRUE";
+  sqlWhere += " AND ";
+  sqlWhere += " TRUE )";
+
+  db.transaction(function (tx) {
+    tx.executeSql(
+      "SELECT * FROM baixaInsumo " + sqlWhere,
+      [],
+      function (a, result) {
+        var rows = result.rows;
+        var tr = "";
+
+        for (var i = 0; i < rows.length; i++) {
+          tr += `<tr id="${rows[i].id}">`;
+          tr += "<td>" + rows[i].name + "</td>";
+          tr += "<td>" + rows[i].idInsumo + "</td>";
+          tr += "<td>" + rows[i].qtdSaida + "</td>";
+          tr += "<td>" + rows[i].motivo + "</td>";
+          tr += "</tr>";
+        }
+        tbody.innerHTML = tr;
+        total.innerHTML = rows.length;
+      }
+    );
+  });
+}
+
+function redy() {
   criarTabelaInsumos();
   criarTabelaBaixaInsumos();
   if (document.getElementById("btn-save")) {
@@ -256,8 +385,5 @@ function ready() {
       .getElementById("btn-save")
       .addEventListener("click", salvarCadastroInsumos);
     popularDados();
-  }
-  if (document.getElementById("btn-search")) {
-    document.getElementById("btn-search").addEventListener("click", search);
   }
 }
