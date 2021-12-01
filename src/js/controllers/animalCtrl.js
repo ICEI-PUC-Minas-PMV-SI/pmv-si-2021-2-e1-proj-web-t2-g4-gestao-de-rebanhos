@@ -5,7 +5,7 @@ window.addEventListener('load', ready);
 
 // Cria a tabela de animais => animais
 function createTableAnimals() {
-    var query = "CREATE TABLE IF NOT EXISTS animais (id INTEGER PRIMARY KEY, tag TEXT NOT NULL, raca TEXT NOT NULL,idade INTEGER NOT NULL,sexo TEXT NOT NULL,peso REAL NOT NULL,nomeDieta TEXT,idDieta TEXT)";
+    var query = "CREATE TABLE IF NOT EXISTS animais (id INTEGER PRIMARY KEY, tag TEXT NOT NULL, raca TEXT NOT NULL,idade INTEGER NOT NULL,sexo TEXT NOT NULL,peso REAL NOT NULL,idDieta TEXT)";
     db.transaction(function(tx) {
         tx.executeSql(query);
     });
