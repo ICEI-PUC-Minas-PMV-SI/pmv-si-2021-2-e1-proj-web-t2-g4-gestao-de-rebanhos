@@ -363,7 +363,7 @@ function popularDadosRelatorio() {
 
 
                     document.getElementById('btn-baixa').innerHTML = `<button onclick="baixa('${animal.id}', '${animal.tag}', '${animal.peso}', '${animal.idade}', '${animal.raca}', 'relatorio')" type="button" 
-                                                                      class="btn btn-outline-info btn-lg ml-2" id="btn-baixa">Baixa Animais</button>`;
+                                                                      class="btn btn-outline-primary btn-lg ml-2" id="btn-baixa"><a href="../animais/baixa_animal.html">Baixa Animais</a></button>`;
 
                     gerarGrafico(id);
                 }
