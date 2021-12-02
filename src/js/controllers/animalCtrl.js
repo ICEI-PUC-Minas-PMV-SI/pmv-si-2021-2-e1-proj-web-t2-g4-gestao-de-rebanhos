@@ -356,14 +356,20 @@ function popularDadosRelatorio() {
 
                     //adiciona o valor advindos do bdd
                     document.getElementById('tag').innerHTML = "#" + animal.tag;
-                    document.getElementById('idade').innerHTML = "Idade: " + animal.idade;
-                    document.getElementById('peso').innerHTML = "Peso: " + animal.peso;
+                    document.getElementById('idade').innerHTML = "Idade: " + animal.idade + " Meses";
+                    document.getElementById('peso').innerHTML = "Peso: " + animal.peso + " Kg";
                     document.getElementById('raca').innerHTML = "Raça: " + animal.raca;
                     document.getElementById('sexo').innerHTML = "Sexo: " + animal.sexo;
 
 
-                    document.getElementById('btn-baixa').innerHTML = `<button onclick="baixa('${animal.id}', '${animal.tag}', '${animal.peso}', '${animal.idade}', '${animal.raca}', 'relatorio')" type="button" 
-                                                                      class="btn btn-outline-primary btn-lg ml-2" id="btn-baixa"><a href="../animais/baixa_animal.html">Baixa Animais</a></button>`;
+                    //document.getElementById('btn-baixa').innerHTML = `<button onclick="baixa('${animal.id}', '${animal.tag}', '${animal.peso}', '${animal.idade}', '${animal.raca}', 'relatorio')" type="button" 
+                    //                                                  class="btn btn-outline-primary btn-lg ml-2" id="btn-baixa">Baixa Animais</button>`;
+                    //                                                <button type="button" class="btn btn-outline-primary float-right" id="edit-rel"><i class="fas fas fa-edit"></i></button>
+
+
+
+                    document.getElementById('edit-rel').innerHTML= `<button type="button" class="btn btn-outline-primary float-right" onclick="editar('${animal.id}')"><i class="fas fas fa-edit"></i></button>`;
+                    //document.getElementById('dar-baixa').innerHTML= `<button type="button" class="btn btn-outline-primary float-right" onclick="editar('${animal.id}')"><i class="fas fas fa-edit"></i></button>`;
 
                     gerarGrafico(id);
                 }
