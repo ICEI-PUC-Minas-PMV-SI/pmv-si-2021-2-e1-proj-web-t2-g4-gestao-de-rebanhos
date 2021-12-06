@@ -4,7 +4,7 @@
 # 1.Requisitos a Testar 
 *Detalhamento da abordagem de teste:*    
   
-A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não funcionais) que foram identificados como alvos de teste. Essa lista representa o que será testado.   
+A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não funcionais) que foram identificados como alvos de teste. Essa lista representa o que será testado. <img src="img/teste de software.png"></image> 
 
 
 
