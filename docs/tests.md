@@ -38,7 +38,7 @@ A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não f
 
 
 # 5.Casos de Teste
-<image src="img/casos de testes.png"></image>
+<image src="img/caso de teste tabela.png"></image>
 
 
 
