@@ -1,20 +1,52 @@
 # Plano de Testes de Software
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
 
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
- 
-## Ferramentas de Testes (Opcional)
+# 1.Requisitos a Testar 
+*Detalhamento da abordagem de teste:*    
+  
+A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não funcionais) que foram identificados como alvos de teste. Essa lista representa o que será testado.   
 
-Comente sobre as ferramentas de testes utilizadas.
+
+
+   
+  
+# 2.Ferramentas de Teste
+  
+  As seguintes ferramentas serão empregadas neste projeto de testes:
+  
+•	VSCode (Editor de Código).  
+•	HTML5, CSS e JavaScript (Tecnologias).  
+
+
+# 3.Ambiente de Teste 
+*Definições do Ambiente de Teste:* 
+
+• Teremos testes unitários desenvolvidos individualmente por desenvolvedores de cada pagina, com um volume pequeno de dados.  
+• Teremos testes em toda a aplicação com os desenvolvedores de cada pagina com um volume grande de dados pequenos, serão utilizados dados reais ou criados na hora, também teremos testes de aceitação com toda a aplicação ,de testadores e diferentes perfis usuários com um volume pequeno de dados reais ou fictícios.  
+• O sistema deverá ser desenvolvido em linguagem java, com html, css, javascript.
+
+
+
+# 4.Programação dos Testes 
+*Objetivos e Prioridades:*
+  
+• O sistema deve possibilitar ao usuário administrador a realização de cadastros e gerenciamentos de cadastros.   
+• O sistema deve possibilitar ao usuário comum a realização de cadastro.        
+• O sistema deve possuir níveis de acesso.    
+• O sistema deve possibilitar a visualização de resultados individuais e totais, de acordo com o nível de acesso do usuário.   
+• O sistema deve possuir um Design para mobile responsivo.    
+
+
+# 5.Casos de Teste
+
+
+
+
+
+
+
+
  
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
 
 # Registro de Testes de Software
 
