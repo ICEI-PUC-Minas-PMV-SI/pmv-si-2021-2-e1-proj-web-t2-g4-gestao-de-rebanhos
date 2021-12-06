@@ -6,20 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
     <!--/Bootsrap-->
     <title>Cadastro de Dieta</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!--/CSS-->
     <script src="../../js/controllers/dietaCtrl.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
@@ -28,18 +24,19 @@
         #botao {
             margin: 33px 0;
         }
-
+        
         #btn-logout {
             background-color: goldenrod;
             color: whitesmoke;
         }
-
+        
         #btn-logout:hover {
             background-color: #e3ab1f;
             border-color: goldenrod;
         }
-        .table-response{
-            display:none;
+        
+        .table-response {
+            display: none;
         }
     </style>
 
@@ -53,14 +50,14 @@
     <div class="container">
         <form>
             <input type="hidden" id="id" value="" />
-            <legend>Cadastro de dieta</legend>
+            <legend>Cadastro de dieta <span id="obrigatorios">Os campos com * são obrigatórios</span></legend>
             <div class="row" id="qtd">
                 <div class="form-group col-md-4">
-                    <label for="NomeDieta" class="control-label">Nome da Dieta</label>
+                    <label for="NomeDieta" class="control-label">Nome da Dieta*</label>
                     <input type="text" class="form-control" name="NomeDieta" id="nomedieta" required></input>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="QuantidadeInsumos" class="control-label">Quantidade de insumos</label>
+                    <label for="QuantidadeInsumos" class="control-label">Quantidade de insumos*</label>
                     <input type="number" class="form-control" id="Quantidadeinsumos" name="QuantidadeInsumos" required>
                 </div>
                 <div class="form-group col-md-4">
@@ -86,7 +83,7 @@
                             </tr>
                         </thead>
                         <tbody id="tbody-insumos">
-    
+
                         </tbody>
                     </table>
                 </div>
@@ -104,15 +101,15 @@
                     document.getElementById("InserirDados").innerHTML +=
                         `<div class="row">
                 <div class="form-group col-md-4">
-                    <label for="NomeInsumo" class="control-label">Nome do Insumo ${i+1} </label>
+                    <label for="NomeInsumo" class="control-label">Nome do Insumo* ${i+1} </label>
                     <select class="form-control" name="NomeInsumo" id="supplyname${i}"></select>        
                  </div>
                 <div class="form-group col-md-4">
-                    <label for="Quantidade" class="control-label">Quantidade (gramas)/dia</label>
+                    <label for="Quantidade" class="control-label">Quantidade (gramas)/dia*</label>
                      <input type="number" class="form-control" name="Quantidade" min="1" id="quantity${i}" required></input> 
                </div>
                 <div class="form-group col-md-4">
-                    <label for="tempo" class="control-label">Número de dias</label>
+                    <label for="tempo" class="control-label">Número de dias*</label>
                     <input type="number" class="form-control" name="tempo" min="1" id="duration${i}" required></input> 
                 </div>
             </div>`;
@@ -126,10 +123,10 @@
             //executa a função apenas uma vez
             if (check == false) {
                 getInputValue();
-                getInsumos(function (resultado) {
+                getInsumos(function(resultado) {
                     debugger
                     console.log("Chamou getinsumos");
-                    $(resultado.rows).each(function (index, dados) {
+                    $(resultado.rows).each(function(index, dados) {
                         //console.log(resultado.rows);
                         // console.log(dados.nome);
                         // var option = document.createElement('option');
@@ -137,16 +134,16 @@
                         // option.innerHTML = dados.name;
 
                         var quantidade = document.getElementById("Quantidadeinsumos").value;
-                        if(quantidade > 0){
-                            for (var z = 0; z < quantidade;z++){
+                        if (quantidade > 0) {
+                            for (var z = 0; z < quantidade; z++) {
                                 var option = document.createElement('option');
                                 option.value = dados.name;
                                 option.innerHTML = dados.name;
-                                $('#supplyname'+z).append(option); //adicionar objeto ao select
-                               
+                                $('#supplyname' + z).append(option); //adicionar objeto ao select
+
                             }
                         }
-                    
+
                     });
                 });
             }

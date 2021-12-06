@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
@@ -75,7 +75,7 @@
 </head>
 
 <body>
- <div id="div-nav"></div>
+    <div id="div-nav"></div>
     <br>
     <form id="form" class="form-search">
         <div class="container">
@@ -97,12 +97,7 @@
                                 <input class="form-control text-uppercase" type="text" id="name" name="ID Insumo" maxlength="100" />
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>Quantidade Saída</label>
-                                <input class="form-control text-uppercase" type="number" id="qtdSaida" name ="Quantidade Saída"maxlength="20" />
-                            </div>
-                        </div>
+
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Motivo</label>
@@ -114,21 +109,20 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <div class="form-group">
-                                    <label></label>
-                                    <button id="btn-search" type="button" class="btn btn-warning float-right semlabel-formgroup" onclick="buscarBaixas()">Pesquisar</button>
-                                </div>  
+                        <div class="col-md-4 ">
+                            <div class="form-group">
+                                <label></label>
+                                <button type="button" style="margin-top: 2em;" class="btn btn-warning semlabel-formgroup" onclick="buscarBaixas()">Pesquisar</button>
                             </div>
                         </div>
+                    </div>
+
                     <div class="row">
                         <hr />
-                        
-                     </div>
-                 </div>
-             </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <div class="container">
@@ -143,11 +137,11 @@
                         </tr>
                     </thead>
                     <tbody id="tbody-insumos">
-                        
+
                     </tbody>
                 </table>
             </div>
         </div>
-   </body>
+</body>
 
 </html>

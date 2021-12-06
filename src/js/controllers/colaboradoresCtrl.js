@@ -4,16 +4,6 @@ var db = openDatabase("dbGado", "1.0", "DB Gado De Ouro", 2 * 1024 * 1024);
 window.addEventListener('load', ready);
 
 
-
-// CRIA TABELA DE COLABORADOES NO BANCO DE DADOS
-function criarTabelaColaboradores() {
-    var query = "CREATE TABLE IF NOT EXISTS colaboradores ( id TEXT PRIMARY KEY, nome TEXT NOT NULL, idade INTEGER NOT NULL, email TEXT NOT NULL, cargo INTEGER NOT NULL)";
-    db.transaction(function(tx) {
-        tx.executeSql(query);
-    });
-}
-
-
 function generateUUID() { // Public Domain/MIT
     var d = new Date().getTime(); //Timestamp
     var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0; //Time in microseconds since page-load or 0 if unsupported
@@ -287,6 +277,4 @@ function ready() {
         document.getElementById('btn-search').addEventListener('click', buscar);
         buscar();
     }
-    criarTabelaColaboradores();
-
 }

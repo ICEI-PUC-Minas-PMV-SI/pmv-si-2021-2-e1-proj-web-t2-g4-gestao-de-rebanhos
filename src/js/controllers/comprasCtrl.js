@@ -211,4 +211,6 @@ function calcTotal() {
 
 function ready() {
     criarTabelaCompras();
+    //$('.money').mask('000.000.000.000,00');
+    // $(".money").inputmask("000.000.000.000,00");
 }

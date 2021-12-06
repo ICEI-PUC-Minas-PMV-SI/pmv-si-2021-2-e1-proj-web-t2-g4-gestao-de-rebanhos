@@ -3,36 +3,6 @@ var db = openDatabase("dbGado", "1.0", "DB Gado De Ouro", 2 * 1024 * 1024);
 
 window.addEventListener('load', ready);
 
-// Cria a tabela de animais => animais
-function createTableAnimals() {
-    var query = "CREATE TABLE IF NOT EXISTS animais (id INTEGER PRIMARY KEY, tag TEXT NOT NULL, raca TEXT NOT NULL,idade INTEGER NOT NULL,sexo TEXT NOT NULL,peso REAL NOT NULL,idDieta TEXT)";
-    db.transaction(function(tx) {
-        tx.executeSql(query);
-    });
-
-}
-
-// Cria a tabela de baixa animal
-function criarTabelaBaixaAnimal() {
-    var query = "CREATE TABLE IF NOT EXISTS baixaanimal (id INTEGER PRIMARY KEY, tag TEXT NOT NULL, raca TEXT NOT NULL,idade INTEGER NOT NULL, peso REAL NOT NULL, motivo TEXT)";
-    db.transaction(function(tx) {
-        tx.executeSql(query);
-    });
-
-}
-
-function criarTabelaPesagemAnimal() {
-    var query = "CREATE TABLE IF NOT EXISTS pesagemanimal (id INTEGER PRIMARY KEY, idAnimal INTEGER, tag TEXT NOT NULL, peso REAL NOT NULL, dtPesagem TEXT )";
-    db.transaction(function(tx) {
-        tx.executeSql(query, [], function() {},
-            function(msg, e) {
-                console.log(e);
-            }
-        );
-    });
-
-}
-
 // Executar função
 function save() {
     var id = document.getElementById('id').value;
@@ -198,75 +168,85 @@ function editar(id) {
 }
 
 function baixa(id, tag, peso, idade, raca, page) {
-    debugger
-        (async() => {
 
-            const { value: motivo } = await Swal.fire({
-                title: 'Selecione o motivo da baixa!',
-                input: 'select',
-                inputOptions: {
-                    'Baixa': {
-                        acidente: 'Acidente',
-                        venda: 'Venda',
-                        abate: 'Abate',
-                        outros: 'Outros'
-                    }
-                },
-                inputPlaceholder: 'Selecione o motivo',
-                confirmButtonText: 'Confirmar',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                inputValidator: (value) => {
-                    return new Promise((resolve) => {
-                        if (value.length > 0) {
-                            resolve()
-                        } else {
-                            resolve('Você precisa selecionar uma opção')
-                        }
-                    })
+    (async() => {
+
+        const { value: motivo } = await Swal.fire({
+            title: 'Selecione o motivo da baixa!',
+            input: 'select',
+            inputOptions: {
+                'Baixa': {
+                    acidente: 'Acidente',
+                    venda: 'Venda',
+                    abate: 'Abate',
+                    outros: 'Outros'
                 }
-            })
-
-            if (motivo) {
-                db.transaction(function(tx) {
-                    tx.executeSql('INSERT INTO baixaanimal (tag, raca, idade, peso, motivo ) VALUES (?, ?, ?, ?, ?)', [tag, raca, idade, peso, motivo],
-                        //Callback sucesso
-                        function() {
-                            tx.executeSql('DELETE FROM animais WHERE id = ?', [id],
-                                //Callback sucesso
-                                function() {
-
-                                    if (page == 'relatorio') {
-                                        //TODO JOGAR PARA A PAGINA DE BUSCA BAIXAS
-                                        window.location.href = "../animais/cadastro_animal.html";
-                                    } else {
-                                        document.getElementById(id).style.display = 'none';
-                                    }
-
-                                    swal.fire({
-                                        icon: "success",
-                                        title: "Baixa efetuada com sucesso!",
-                                    });
-                                },
-                            );
-                        },
-                        //Callback falha
-                        function(msg, e) {
-                            console.log(msg);
-                            console.log(e);
-
-                            swal.fire({
-                                icon: "error",
-                                title: "Erro em dar baixa"
-                            });
-                        }
-                    );
-                });
-
-
+            },
+            inputPlaceholder: 'Selecione o motivo',
+            confirmButtonText: 'Confirmar',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            inputValidator: (value) => {
+                return new Promise((resolve) => {
+                    if (value.length > 0) {
+                        resolve()
+                    } else {
+                        resolve('Você precisa selecionar uma opção')
+                    }
+                })
             }
+        })
 
-        })()
+        if (motivo) {
+            db.transaction(function(tx) {
+                tx.executeSql('INSERT INTO baixaanimal (tag, raca, idade, peso, motivo ) VALUES (?, ?, ?, ?, ?)', [tag, raca, idade, peso, motivo],
+                    //Callback sucesso
+                    function() {
+                        tx.executeSql('DELETE FROM animais WHERE id = ?', [id],
+                            //Callback sucesso
+                            function() {
+
+                                if (page == 'relatorio') {
+                                    Swal.fire({
+                                        title: "Baixa efetuada com sucesso!",
+                                        icon: "success",
+                                    }).then((result) => {
+                                        window.location.href = "../animais/baixa_animal.html";
+                                    });
+                                } else {
+                                    document.getElementById(id).style.display = 'none';
+                                    Swal.fire({
+                                        title: "Baixa efetuada com sucesso!",
+                                        icon: "success",
+                                    }).then((result) => {
+
+                                        search();
+
+                                    });
+                                }
+
+
+
+                            },
+                        );
+                    },
+                    //Callback falha
+                    function(msg, e) {
+                        console.log(msg);
+                        console.log(e);
+
+                        swal.fire({
+                            icon: "error",
+                            title: "Erro em dar baixa"
+                        });
+                    }
+                );
+            });
+
+
+        }
+
+    })()
 }
 
 function buscarBaixas() {
@@ -368,9 +348,8 @@ function popularDadosRelatorio() {
 
 
 
-                    document.getElementById('edit-rel').innerHTML= `<button type="button" class="btn btn-outline-primary float-right" onclick="editar('${animal.id}')"><i class="fas fas fa-edit"></i></button>`;
-                    //document.getElementById('dar-baixa').innerHTML= `<button type="button" class="btn btn-outline-primary float-right" onclick="editar('${animal.id}')"><i class="fas fas fa-edit"></i></button>`;
-
+                    document.getElementById('edit-rel').innerHTML = `<button type="button" class="btn btn-outline-primary float-right" onclick="editar('${animal.id}')"><i class="fas fas fa-edit"></i></button>`;
+                    document.getElementById('container-btn-link').innerHTML = `<button onclick="baixa('${animal.id}', '${animal.tag}', '${animal.peso}', '${animal.idade}', '${animal.raca}', 'relatorio')" type="button" class="btn btn-outline-primary"> <i class="fa-arrow-circle-down fa"></i> Dar Baixa</button>`;
                     gerarGrafico(id);
                 }
             );
@@ -476,9 +455,11 @@ function gerarGrafico(idAnimal) {
 
                     //Converte string para data
                     for (item of result.rows) {
+                        const date = new Date(item.dtPesagem);
+                        date.setDate(date.getDate() + 1);
                         rows.push({
                             'peso': item.peso,
-                            'data': new Date(item.dtPesagem)
+                            'data': date
                         });
                     }
 
@@ -491,6 +472,7 @@ function gerarGrafico(idAnimal) {
                     //adiciona os valores no eixo x e y
                     for (item of rows) {
                         var dt = `${item.data.getDate()}/${item.data.getMonth()+1}`;
+
                         xValues.push(dt);
                         yValues.push(item.peso);
                     }
@@ -513,7 +495,8 @@ function gerarGrafico(idAnimal) {
                         }
                     });
                 } else {
-                    window.getElementById('myChart').innerHTML = '<h1 class="blockquote text-center">Dados Insuficientes para calcular</h1>'
+                    document.getElementById('title').innerHTML = '<h1 class="blockquote text-center">Dados insuficientes para gerar gráfico de peso </h1>';
+                    document.getElementById('myChart').style.height = '0px'
                 }
 
 
@@ -526,9 +509,6 @@ function gerarGrafico(idAnimal) {
 }
 
 function ready() {
-    createTableAnimals();
-    criarTabelaBaixaAnimal();
-    criarTabelaPesagemAnimal();
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', save);
         getDietas(function(resultado) {
@@ -543,7 +523,11 @@ function ready() {
         popularDados();
     } else if (document.getElementById("relatorio")) {
         popularDadosRelatorio();
-        //gerarGrafico();
+
+    } else if (document.getElementById("btn-search")) {
+        search();
+    } else {
+        buscarBaixas();
     }
 
 }

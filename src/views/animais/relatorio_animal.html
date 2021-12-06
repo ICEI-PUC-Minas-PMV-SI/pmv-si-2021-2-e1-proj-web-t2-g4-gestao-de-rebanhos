@@ -17,6 +17,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
     <script src="../../js/controllers/animalCtrl.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- /js -->
     <title>Relatório do Animal</title>
 
@@ -88,19 +90,18 @@
         }
         
         .card-grafico {
-            margin-left: .85em;
-            margin-right: .85em;
+            margin-left: .75em;
+            margin-right: .75em;
+        }
+        
+        .container-btn-link {
+            margin: 0 auto;
+        }
+        
+        .btn-link {
+            margin-right: 1.5em;
         }
         /* @midia */
-        
-        @media (max-width: 568px) {
-            .td-btn-options {
-                display: block;
-            }
-            .td-default {
-                display: none;
-            }
-        }
     </style>
 </head>
 
@@ -135,7 +136,7 @@
     <div class="containter">
         <div class="card card-grafico">
             <div class="card-header" style="background-color: rgba(218, 165, 32, 0.131);width: 100%;">
-                <h1 class="blockquote text-center">Histórico Pesagens</h1>
+                <h1 id="title" class="blockquote text-center">Histórico Pesagens</h1>
                 <canvas id="myChart" style="width:80%;max-width:100%;"></canvas>
             </div>
         </div>
@@ -146,37 +147,13 @@
     <br>
     <div class="contaier">
         <div class="row">
-            <button type="button" class="btn btn-outline-primary">Primary</button>
-            <button type="button" class="btn btn-outline-primary">Primary</button>
+            <div id="container-btn-link" class="container-btn-link">
+
+            </div>
+
         </div>
     </div>
     <!--/Botões Finais-->
     <br>
 
 </body>
-
-<!--Scrip-->
-<script type="text/javascript">
-    function search() {
-        var spinner = document.querySelector("#spinner");
-        var table = document.querySelector("#table-response");
-        var total = document.querySelector("#total");
-        spinner.style.display = 'block';
-        $("#btn-search").prop("disabled", true);
-        $("#btn-search").text("Pesquisando");
-        setTimeout(function() {
-            setDisplay()
-        }, 500);
-    }
-
-    function setDisplay() {
-        var spinner = document.querySelector("#spinner");
-        var table = document.querySelector("#table-response");
-        spinner.style.display = 'none';
-        table.style.display = 'block';
-        $("#total").text("4");
-        $("#btn-search").text("Pesquisar");
-        $("#btn-search").prop("disabled", false);
-
-    }
-</script>

@@ -50,18 +50,18 @@
     <div class="container-fluid">
         <form>
             <input type="hidden" id="id" value="" />
-            <legend>Cadastro de Compras</legend>
+            <legend>Cadastro de Compras <span id="obrigatorios">Os campos com * são obrigatórios</span></legend>
             <div class="row" id="qtd">
                 <div class="form-group col-md-3">
-                    <label for="nf" class="control-label">Nota Fiscal</label>
+                    <label for="nf" class="control-label">Nota Fiscal*</label>
                     <input type="text" class="form-control" name="nf" id="nf" required></input>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="fornecedor" class="control-label">Nome Fornecedor</label>
+                    <label for="fornecedor" class="control-label">Nome Fornecedor*</label>
                     <input type="text" class="form-control" name="fornecedor" id="fornecedor" required></input>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="QuantidadeInsumos" class="control-label">Quantidade de Insumos</label>
+                    <label for="QuantidadeInsumos" class="control-label">Quantidade de Insumos*</label>
                     <input type="number" class="form-control" id="Quantidadeinsumos" name="QuantidadeInsumos" required>
                 </div>
                 <div class="form-group col-md-3">
@@ -89,7 +89,7 @@
             var quantidade = document.getElementById("Quantidadeinsumos").value;
             document.getElementById("content-total").innerHTML = `
                 <label for="total" class="control-label">Total R$</label>
-                <input type="number" value="0" class="form-control" id="total" name="total" readonly>
+                <input type="number" value="0" class="form-control money" id="total" name="total" readonly>
             `;
 
             if (quantidade > 0) {
@@ -97,20 +97,20 @@
                     document.getElementById("InserirDados").innerHTML +=
                         `<div class="row">
                 <div class="form-group col-md-3">
-                    <label for="NomeInsumo" class="control-label">Nome do Insumo ${i+1} </label>
+                    <label for="NomeInsumo" class="control-label">Nome do Insumo* ${i+1} </label>
                     <select class="form-control" name="NomeInsumo" id="supplyname${i}"></select>        
                  </div>
                 <div class="form-group col-md-3">
-                    <label for="Quantidade" class="control-label">Quantidade</label>
-                     <input type="number" class="form-control" name="Quantidade" min="1" id="quantity${i}" onblur="calcSubtotal('${i}')"></input> 
+                    <label for="Quantidade" class="control-label">Quantidade*</label>
+                     <input type="number" class="form-control " name="Quantidade" min="1" id="quantity${i}" onblur="calcSubtotal('${i}')"></input> 
                </div>
                 <div class="form-group col-md-3">
-                    <label for="tempo" class="control-label">Preço Unitario R$</label>
-                    <input type="number" class="form-control" name="preco" min="1" id="preco${i}" onblur="calcSubtotal('${i}')"></input> 
+                    <label for="tempo" class="control-label">Preço Unitario R$*</label>
+                    <input type="number" class="form-control money" name="preco" min="1" id="preco${i}" onblur="calcSubtotal('${i}')"></input> 
                 </div>
                 <div class="form-group col-md-3">
                     <label for="tempo" class="control-label">Subtotal R$</label>
-                    <input type="number" class="form-control" name="subtotal" min="1" id="subtotal${i}" readonly></input> 
+                    <input type="number" class="form-control money" name="subtotal" min="1" id="subtotal${i}" readonly></input> 
                 </div>
             </div>`;
                 };
@@ -123,6 +123,7 @@
             //executa a função apenas uma vez
             if (check == false) {
                 getInputValue();
+
                 getInsumos(function(resultado) {
 
                     console.log("Chamou getinsumos");

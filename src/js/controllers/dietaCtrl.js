@@ -73,8 +73,8 @@ function save() {
                         });
                     }
                 );
-               
-            
+
+
 
             } else {
                 tx.executeSql('INSERT INTO dietas (id, nome) VALUES (?, ?)', dados,
@@ -114,7 +114,7 @@ function save() {
                                                 window.location.reload()
                                             }
                                         });
-                                        
+
 
                                     },
                                     function(tx, erro) {
@@ -168,22 +168,22 @@ function popularDados() {
                     //adiciona o valor nos inputs advindos do bdd
                     document.getElementById('id').value = dieta.id;
                     document.getElementById('nomedieta').value = dieta.nome;
-                    
+
 
                     //bloqueia o campo email pois ele não pode ser alterado
                     document.getElementById('Quantidadeinsumos').readOnly = true;
-                    document.getElementById('botao').style.display="none";
+                    document.getElementById('botao').style.display = "none";
 
-                    tx.executeSql('SELECT * FROM dietaInsumos WHERE idDieta = ?',[id],
-                        function(_,resultInsumos){
+                    tx.executeSql('SELECT * FROM dietaInsumos WHERE idDieta = ?', [id],
+                        function(_, resultInsumos) {
                             var tbody = document.getElementById('tbody-insumos');
                             var tr = '';
                             var table = document.getElementById('table-response');
-                            table.style.display="block";
+                            table.style.display = "block";
 
                             var insumos = resultInsumos.rows;
 
-                            for(insumo of insumos){
+                            for (insumo of insumos) {
                                 tr += `<tr id="${insumo.id}"> `;
                                 tr += `<td > ${insumo.nomeInsumo} </td>`;
                                 tr += `<td > ${insumo.qtdInsumos} </td>`;
@@ -191,7 +191,7 @@ function popularDados() {
                                 tr += `</tr>`;
 
                             }
-                            document.getElementById('Quantidadeinsumos').value=insumos.length;
+                            document.getElementById('Quantidadeinsumos').value = insumos.length;
                             tbody.innerHTML = tr;
 
 
@@ -422,9 +422,13 @@ function redy() {
         document.getElementById('btn-save').addEventListener('click', save);
         popularDados();
     }
-    if (document.getElementById('btn-search')) document.getElementById('btn-search').addEventListener('click', search);
-    criarTabelaDietaseInsumos();
-    console.log("Chamou controller");
+    if (document.getElementById('btn-search')) {
+
+        document.getElementById('btn-search').addEventListener('click', search);
+        search();
+    }
+
+
 
 
 

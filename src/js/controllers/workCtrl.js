@@ -5,6 +5,295 @@ var db = openDatabase("dbGado", "1.0", "DB Gado De Ouro", 2 * 1024 * 1024);
 
 window.addEventListener('load', redy);
 
+function criarTabelas() {
+    criarTabelaInsumos();
+    criarTabelaBaixaInsumos();
+
+    criarTabelaDietaseInsumos();
+
+    criarTabelaColaboradores();
+
+    createTableAnimals()
+    criarTabelaBaixaAnimal()
+    criarTabelaPesagemAnimal()
+
+
+
+}
+
+//* ====================================== Insumos ========================================
+
+function criarTabelaInsumos() {
+    var query = "CREATE TABLE IF NOT EXISTS insumos ( id INTEGER PRIMARY KEY,name TEXT NOT NULL UNIQUE, qtd REAL NOT NULL, qtdMin REAL NOT NULL)";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+        tx.executeSql(' SELECT COUNT(*) FROM insumos', [],
+            function(_, result) {
+                var count = result.rows[0]['COUNT(*)'];
+                if (count == 0) {
+                    //* Função utilizada para criar dados fictícios com a intensão de povoar as tabelas do bdd, afim de realizar testes e demostrações.
+                    inserirDadosInsumos();
+                }
+            }
+        );
+    });
+}
+
+//Cria a tabela de baixa de insumos
+function criarTabelaBaixaInsumos() {
+    var query = "CREATE TABLE IF NOT EXISTS baixaInsumo (id INTEGER PRIMARY KEY, name TEXT NOT NULL, idInsumo INTEGER, qtdSaida REAL NOT NULL, motivo TEXT)";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+        tx.executeSql(' SELECT COUNT(*) FROM baixaInsumo', [],
+            function(_, result) {
+                var count = result.rows[0]['COUNT(*)'];
+                if (count == 0) {
+                    //* Função utilizada para criar dados fictícios com a intensão de povoar as tabelas do bdd, afim de realizar testes e demostrações.
+                    inserirDadosBaixaInsumos();
+                }
+            }
+        );
+    });
+}
+
+
+function inserirDadosInsumos() {
+    db.transaction(function(tx) {
+        var insumos = [
+            "INSERT INTO insumos (name, qtd, qtdMin) VALUES ('Farelo de Milho', 5000, 300 )",
+            "INSERT INTO insumos (name, qtd, qtdMin) VALUES ('Farelo de Soja', 2322, 715 )",
+            "INSERT INTO insumos (name, qtd, qtdMin) VALUES ('Ração Boi Forte', 73826, 7000 )",
+            "INSERT INTO insumos (name, qtd, qtdMin) VALUES ('Sal', 321, 1200 )"
+        ];
+
+        for (let insumo of insumos) {
+            tx.executeSql(insumo);
+        }
+
+    });
+}
+
+function inserirDadosBaixaInsumos() {
+    db.transaction(function(tx) {
+        var baixas = [
+            "INSERT INTO baixaInsumo (idInsumo, name, qtdSaida, motivo ) VALUES (1, 'Farelo de Milho', 200, 'Uso Padrão')",
+            "INSERT INTO baixaInsumo (idInsumo, name, qtdSaida, motivo ) VALUES (1, 'Farelo de Milho', 482, 'Uso Padrão')",
+            "INSERT INTO baixaInsumo (idInsumo, name, qtdSaida, motivo ) VALUES (1, 'Farelo de Milho', 115, 'Uso Padrão')"
+        ];
+
+        for (let baixa of baixas) {
+            tx.executeSql(baixa);
+        }
+
+    });
+}
+
+//* ====================================== /Insumos ========================================
+
+
+
+//* ====================================== Dietas ========================================
+
+function criarTabelaDietaseInsumos() {
+    var query = "CREATE TABLE IF NOT EXISTS dietas (id varchar,nome varchar UNIQUE)";
+    var queryInsumos = "CREATE TABLE IF NOT EXISTS dietaInsumos (id INTEGER PRIMARY KEY, idDieta varchar , nomeInsumo varchar, qtdInsumos real, duracao integer)"
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+        tx.executeSql(queryInsumos);
+        tx.executeSql(' SELECT COUNT(*) FROM dietas', [],
+            function(_, result) {
+                var count = result.rows[0]['COUNT(*)'];
+                if (count == 0) {
+                    //* Função utilizada para criar dados fictícios com a intensão de povoar as tabelas do bdd, afim de realizar testes e demostrações.
+                    inserirDadosDieta();
+                }
+            }
+        );
+    });
+}
+
+function inserirDadosDieta() {
+
+    db.transaction(function(tx) {
+        var dietas = [
+            "INSERT INTO dietas (id, nome) VALUES ('68bd5620-d00f-4643-aa66-3d10e5524994', 'Dieta 1')",
+            "INSERT INTO dietas (id, nome) VALUES ('bbe4367f-a1af-4ec5-8bfc-740f82c62020', 'Dieta 2')"
+        ];
+        var insumosDieta = [
+            "INSERT INTO dietaInsumos (idDieta, nomeInsumo, qtdInsumos, duracao) VALUES ('68bd5620-d00f-4643-aa66-3d10e5524994','Farelo de Milho',150,10)",
+            "INSERT INTO dietaInsumos (idDieta, nomeInsumo, qtdInsumos, duracao) VALUES ('68bd5620-d00f-4643-aa66-3d10e5524994','Farelo de Soja',220,10)",
+            "INSERT INTO dietaInsumos (idDieta, nomeInsumo, qtdInsumos, duracao) VALUES ('68bd5620-d00f-4643-aa66-3d10e5524994','Ração Boi Forte',1150,10)",
+            "INSERT INTO dietaInsumos (idDieta, nomeInsumo, qtdInsumos, duracao) VALUES ('bbe4367f-a1af-4ec5-8bfc-740f82c62020','Sal',600,15)",
+            "INSERT INTO dietaInsumos (idDieta, nomeInsumo, qtdInsumos, duracao) VALUES ('bbe4367f-a1af-4ec5-8bfc-740f82c62020','Ração Boi Forte',2450,15)"
+        ];
+
+        for (let dieta of dietas) {
+            tx.executeSql(dieta);
+        }
+
+        for (let insumo of insumosDieta) {
+            tx.executeSql(insumo);
+        }
+
+    });
+
+}
+
+//* ====================================== /Dietas ========================================
+
+
+
+
+//* ====================================== Colaboradores ========================================
+
+
+function criarTabelaColaboradores() {
+    var query = "CREATE TABLE IF NOT EXISTS colaboradores ( id TEXT PRIMARY KEY, nome TEXT NOT NULL, idade INTEGER NOT NULL, email TEXT NOT NULL UNIQUE, cargo INTEGER NOT NULL)";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+        tx.executeSql(' SELECT COUNT(*) FROM colaboradores', [],
+            function(_, result) {
+                var count = result.rows[0]['COUNT(*)'];
+                if (count == 0) {
+                    //* Função utilizada para criar dados fictícios com a intensão de povoar as tabelas do bdd, afim de realizar testes e demostrações.
+                    iserirDadosColab();
+                }
+            }
+        );
+    });
+}
+
+function iserirDadosColab() {
+    db.transaction(function(tx) {
+        //* query operador 01
+        var queryColab = "INSERT INTO colaboradores (id, nome, idade, email, cargo) VALUES ('99790135-49d1-4ed6-8890-9f9ea985c96a', 'op01', 26, 'op1@email.com', 3);";
+        var queryUser = "INSERT INTO usuarios ( nome, senha, email, tipoUsuario, logado, idColaborador) VALUES ('op01', '123456', 'op1@email.com', 3, 0, '99790135-49d1-4ed6-8890-9f9ea985c96a')";
+        tx.executeSql(queryColab);
+        tx.executeSql(queryUser);
+
+        //* query vet 01
+        var queryVet = "INSERT INTO colaboradores (id, nome, idade, email, cargo) VALUES ('59a29eef-7e8d-4db0-80f4-5737cd4a65fa', 'vet01', 44, 'vet1@email.com', 2);";
+        var queryUserVet = "INSERT INTO usuarios ( nome, senha, email, tipoUsuario, logado, idColaborador) VALUES ('vet01', '123456', 'vet1@email.com', 2, 0, '59a29eef-7e8d-4db0-80f4-5737cd4a65fa')";
+        tx.executeSql(queryVet);
+        tx.executeSql(queryUserVet);
+    });
+}
+
+
+//* ====================================== /Colaboradores ========================================
+
+//* ====================================== Animais ========================================
+function createTableAnimals() {
+    var query = "CREATE TABLE IF NOT EXISTS animais (id INTEGER PRIMARY KEY, tag TEXT NOT NULL, raca TEXT NOT NULL,idade INTEGER NOT NULL,sexo TEXT NOT NULL,peso REAL NOT NULL,idDieta TEXT)";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+        //* Verifica tabela de animais
+        tx.executeSql(' SELECT COUNT(*) FROM animais', [],
+            function(_, result) {
+                var count = result.rows[0]['COUNT(*)'];
+                if (count == 0) {
+                    //* Função utilizada para criar dados fictícios com a intensão de povoar as tabelas do bdd, afim de realizar testes e demostrações.
+                    iserirDadosAnimal();
+                }
+            }
+        );
+
+    });
+
+}
+
+function criarTabelaBaixaAnimal() {
+    var query = "CREATE TABLE IF NOT EXISTS baixaanimal (id INTEGER PRIMARY KEY, tag TEXT NOT NULL, raca TEXT NOT NULL,idade INTEGER NOT NULL, peso REAL NOT NULL, motivo TEXT)";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+        //* Verifica tabela de  baixa animais
+        tx.executeSql(' SELECT COUNT(*) FROM baixaanimal', [],
+            function(_, result) {
+                var count = result.rows[0]['COUNT(*)'];
+                if (count == 0) {
+                    //* Função utilizada para criar dados fictícios com a intensão de povoar as tabelas do bdd, afim de realizar testes e demostrações.
+                    iserirDadosBaixaAnimal();
+                }
+            }
+        );
+    });
+
+}
+
+function criarTabelaPesagemAnimal() {
+    var query = "CREATE TABLE IF NOT EXISTS pesagemanimal (id INTEGER PRIMARY KEY, idAnimal INTEGER, tag TEXT NOT NULL, peso REAL NOT NULL, dtPesagem TEXT )";
+    db.transaction(function(tx) {
+        tx.executeSql(query);
+        //* Verifica tabela de  pesagem animais
+        tx.executeSql(' SELECT COUNT(*) FROM pesagemanimal', [],
+            function(_, result) {
+                var count = result.rows[0]['COUNT(*)'];
+                if (count == 0) {
+                    //* Função utilizada para criar dados fictícios com a intensão de povoar as tabelas do bdd, afim de realizar testes e demostrações.
+                    iserirDadosPesoAnimal();
+                }
+            }
+        );
+    });
+
+}
+
+function iserirDadosAnimal() {
+    db.transaction(function(tx) {
+        var animais = [
+            "INSERT INTO animais (tag, raca, idade, sexo, peso) VALUES ('0001', 'Indubrasil', 26, 'Macho', 498)",
+            "INSERT INTO animais (tag, raca, idade, sexo, peso) VALUES ('0002', 'Nelore', 18, 'Macho', 130)",
+            "INSERT INTO animais (tag, raca, idade, sexo, peso) VALUES ('0003', 'Pantaneiro', 25, 'Fêmea', 200)"
+        ];
+
+        for (let animal of animais) {
+            tx.executeSql(animal);
+        }
+
+    });
+}
+
+function iserirDadosBaixaAnimal() {
+    db.transaction(function(tx) {
+        var baixas = [
+            "INSERT INTO baixaanimal (tag, raca, idade, peso, motivo ) VALUES ('639', 'Indubrasil', 22, 430, 'abate')",
+            "INSERT INTO baixaanimal (tag, raca, idade, peso, motivo ) VALUES ('756', 'Pantaneiro', 22, 523, 'venda')",
+            "INSERT INTO baixaanimal (tag, raca, idade, peso, motivo ) VALUES ('214', 'Nelore', 06, 105, 'acidente')",
+        ];
+
+        for (let baixa of baixas) {
+            tx.executeSql(baixa);
+        }
+
+    });
+}
+
+function iserirDadosPesoAnimal() {
+    db.transaction(function(tx) {
+        var pesagens = [
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 206, '2021-10-01')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 227, '2021-10-10')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 231, '2021-10-15')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 265, '2021-10-25')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 304, '2021-11-01')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 327, '2021-11-05')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 361, '2021-11-10')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 415, '2021-11-20')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 442, '2021-11-25')",
+            "INSERT INTO pesagemanimal (idAnimal, tag, peso, dtPesagem ) VALUES (1, 0001, 498, '2021-11-30')",
+        ];
+
+        for (let pesagem of pesagens) {
+            tx.executeSql(pesagem);
+        }
+
+    });
+}
+//* ====================================== /Animais ========================================
+
+
+
+
 
 function setBtns() {
     db.transaction(function(tx) {
@@ -69,9 +358,9 @@ function buildSvgsCadastros() {
 }
 
 
-
-
 function redy() {
+
     buildSvgsCadastros();
     setBtns();
+    criarTabelas();
 }

@@ -106,7 +106,7 @@ function buildNavProprietario() {
                 <div class="dropdown-menu">\
                     <a class="dropdown-item" href="../insumos/cadastro_insumos.html">Cadastro</a>\
                     <a class="dropdown-item" href="../insumos/buscainsumos.html">Busca</a>\
-                    <a class="dropdown-item" href="#">Busca Baixa</a>\
+                    <a class="dropdown-item" href="../insumos/baixa_insumos.html">Busca Baixa</a>\
                 </div>\
             </li>\
             <li class="nav-item dropdown">\
