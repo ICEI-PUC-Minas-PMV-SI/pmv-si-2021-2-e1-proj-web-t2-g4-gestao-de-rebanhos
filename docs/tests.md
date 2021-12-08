@@ -54,6 +54,7 @@ Tipo     | Subtipo | Teste                                        | Resultado | 
 |Funcional|Requisitos| Cadastrar Dieta  |Ok|08.12.2021|Thiago| Foi possível cadastrar Dieta e armazenar no banco de dados.|
 |Funcional|Requisitos| Buscar Dieta  |Ok|08.12.2021|Thiago|Foi possível buscar a dieta do banco. |
 |Funcional|Requisitos| Editar e deletar dieta |Ok|08.12.2021|Thiago|Foi possível editar o nome da dieta e deletá-la do banco de dados.|
+|Funcional|Requisitos| Compras|OK|08.12.2021|Thiago| Foi possível cadastrar a compra de insumos e sua nota fiscal no banco de dadso.|
 |Não Funcional|Requisitos| Autenticação - RNF-001|OK|08.12.2021|Thiago|Foi possível acessar as funcionalidades a partir da entrada de usuários e senhas cadastrados, sendo a senha definida por padrão, tendo que ser implementada uma função para guardar senhas nas proximas versões|
 |Não Funcional|Implementação| O sistema deve ser responsivo para rodar em um dispositivo móvel - RNF-002|OK|08.12.2021|Thiago| O sistema foi responsivo e as telas se ajustaram a um dispositivo móvel|
 |Não Funcional|Implementação| O sistema deve permitir o armazenamento mesmo offline - RNF-003|Ok|08.12.2021|Thiago| Foi possível executar as funcionalidades mesmo offline com o sistema já inicializado previamente.|
