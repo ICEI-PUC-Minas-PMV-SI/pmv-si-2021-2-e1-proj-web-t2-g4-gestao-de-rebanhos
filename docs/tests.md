@@ -4,12 +4,8 @@
 # 1.Requisitos a Testar 
 *Detalhamento da abordagem de teste:*    
   
-A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não funcionais) que foram identificados como alvos de teste. Essa lista representa o que será testado. <image src="img/teste de software.png"></image> 
-
-
-
-   
-  
+A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não funcionais) que foram identificados como alvos de teste. Essa lista representa o que será testado. <image src="img/plano 001.jpg"></image> 
+<image src="img/plano 002.jpg"></image>   
 # 2.Ferramentas de Teste
   
   As seguintes ferramentas serão empregadas neste projeto de testes:
@@ -31,7 +27,7 @@ A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não f
 *Objetivos e Prioridades:*
   
 • O sistema deve possibilitar ao usuário administrador a realização de cadastros e gerenciamentos de cadastros.   
-• O sistema deve possibilitar ao usuário comum a realização de cadastro.        
+• O sistema deve possibilitar ao proprietário a realização de cadastro.        
 • O sistema deve possuir níveis de acesso.    
 • O sistema deve possibilitar a visualização de resultados individuais e totais, de acordo com o nível de acesso do usuário.   
 • O sistema deve possuir um Design para mobile responsivo.    
@@ -49,8 +45,7 @@ A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não f
 Relatório contendo as evidências dos testes de software, realizados no sistema. O registro de testes foi baseado no Plano de Testes de Software, Seção 8. Plano de Testes de Software deste documento.
 
 ## 1.Avaliação dos Requisitos a Testar
-
-Os resultados alcançados estavam, em sua maioria, dentro do esperado para os Requisitos, porém, para a implementação completa da solução, seria necessária a aplicação de banco de dados (que não é o foco deste projeto) e, para atender completamente os requisitos, a implementação de maior responsividade em todo o sistema.
+Os resultados estavam dentro do esperado para os requisitos.
 
 
 ### Resultados dos Requisitos a Testar
@@ -58,5 +53,31 @@ Tipo     | Subtipo | Teste                                        | Resultado | 
 |---------|----------|----------------------------------------------|-----------|------|------------|---------|
 |Funcional|Requisitos| Cadastrar Dieta  |Ok|08.12.2021|Thiago| Foi possível cadastrar Dieta e armazenar no banco de dados.|
 |Funcional|Requisitos| Buscar Dieta  |Ok|08.12.2021|Thiago|Foi possível buscar a dieta do banco. |
-|Funcional|Requisitos| Editar e deletar dieta -|Ok|08.12.2021|Thiago|Foi possível editar o nome da dieta e deletá-la do banco de dados.|
+|Funcional|Requisitos| Editar e deletar dieta |Ok|08.12.2021|Thiago|Foi possível editar o nome da dieta e deletá-la do banco de dados.|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2.Avaliação dos Resultados dos Casos de Teste
+
+Os resultados alcançados estavam, em sua maioria, dentro do esperado para os Casos de Teste.
+
+### Resultados dos Casos de Teste
+|Caso  de Uso| ID| Teste                                        | Resultado | Data | Responsável|Descrição|
+|---------|----------|----------------------------------------------|-----------|------|------------|---------|
+|UC001 - HOME  | 1| Acessar página Home do site                                     | Ok | 08.12.2021 | Thiago |Foi possível acessar a página de Home e ver seu conteúdo. |
+|UC001 - HOME  | 2| Clicar em uma das categorias                                     | Ok | 08.12.2021 | Thiago |Ao clicar na categoria na página, a mesma foi redirecionada para a página de equivalência da categoria.|
+|FA01 –  Fazer Login | 1| Acessar página Home do site                                     | Ok | 08.12.2021 | Thiago |Foi possível acessar a página de Home e ver seu conteúdo. |
+| FA01 –  Fazer Login | 2| Clicar no link superior direito “Login”                                     | Ok | 08.12.2021 | Thiago |Foi possível acessar a página para se realizar Login. |
+| FA01 –  Fazer Login | 3| Informar Usuário e Senha                                     | Ok | 27.06.2021 | Thiago |Foi possível acessar a página de workpage |
 
