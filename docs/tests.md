@@ -43,18 +43,20 @@ A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não f
 
 
 
-
-
-
- 
-
+   
 # Registro de Testes de Software
 
-Relatório com as evidências dos testes de software realizados no sistema pela equipe, baseado em um plano de testes pré-definido.
+Relatório contendo as evidências dos testes de software, realizados no sistema. O registro de testes foi baseado no Plano de Testes de Software, Seção 8. Plano de Testes de Software deste documento.
 
-## Avaliação
+## 1.Avaliação dos Requisitos a Testar
 
-Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
+Os resultados alcançados estavam, em sua maioria, dentro do esperado para os Requisitos, porém, para a implementação completa da solução, seria necessária a aplicação de banco de dados (que não é o foco deste projeto) e, para atender completamente os requisitos, a implementação de maior responsividade em todo o sistema.
 
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
+
+### Resultados dos Requisitos a Testar
+Tipo     | Subtipo | Teste                                        | Resultado | Data | Responsável|Descrição|
+|---------|----------|----------------------------------------------|-----------|------|------------|---------|
+|Funcional|Requisitos| Cadastrar Dieta  |Ok|08.12.2021|Thiago| Foi possível cadastrar Dieta e armazenar no banco de dados.|
+|Funcional|Requisitos| Buscar Dieta  |Ok|08.12.2021|Thiago|Foi possível buscar a dieta do banco. |
+|Funcional|Requisitos| Editar e deletar dieta -|Ok|08.12.2021|Thiago|Foi possível editar o nome da dieta e deletá-la do banco de dados.|
+
