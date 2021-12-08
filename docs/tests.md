@@ -79,5 +79,5 @@ Os resultados alcançados estavam, em sua maioria, dentro do esperado para os Ca
 |UC001 - HOME  | 2| Clicar em uma das categorias                                     | Ok | 08.12.2021 | Thiago |Ao clicar na categoria na página, a mesma foi redirecionada para a página de equivalência da categoria.|
 |FA01 –  Fazer Login | 1| Acessar página Home do site                                     | Ok | 08.12.2021 | Thiago |Foi possível acessar a página de Home e ver seu conteúdo. |
 | FA01 –  Fazer Login | 2| Clicar no link superior direito “Login”                                     | Ok | 08.12.2021 | Thiago |Foi possível acessar a página para se realizar Login. |
-| FA01 –  Fazer Login | 3| Informar Usuário e Senha                                     | Ok | 27.06.2021 | Thiago |Foi possível acessar a página de workpage |
+| FA01 –  Fazer Login | 3| Informar Usuário e Senha                                     | Ok | 08.12.2021 | Thiago |Foi possível acessar a página de workpage |
 
