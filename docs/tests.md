@@ -19,7 +19,7 @@ A lista abaixo identifica os itens (casos de uso, requisitos funcionais e não f
 
 • Teremos testes unitários desenvolvidos individualmente por desenvolvedores de cada pagina, com um volume pequeno de dados.  
 • Teremos testes em toda a aplicação com os desenvolvedores de cada pagina com um volume grande de dados pequenos, serão utilizados dados reais ou criados na hora, também teremos testes de aceitação com toda a aplicação ,de testadores e diferentes perfis usuários com um volume pequeno de dados reais ou fictícios.  
-• O sistema deverá ser desenvolvido em linguagem java, com html, css, javascript.
+• O sistema deverá ser desenvolvido com html, css, javascript.
 
 
 
