@@ -37,6 +37,15 @@
             margin-top: 3em;
             margin-bottom: 1.3em;
         }
+        
+        #btn-cep {
+            position: absolute !important;
+            margin-top: 2em;
+        }
+        
+        #btn-save {
+            margin-top: 2em;
+        }
     </style>
 </head>
 
@@ -90,10 +99,46 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="input-group  col-sm-3">
+                            <div class="form-group">
+                                <label>CEP</label>
+                                <input type="text" class="form-control cep" id="cep" name="CEP">
+                            </div>
+                            <div class="input-group-append">
+                                <button onclick="buscarCEP()" class="btn btn-primary" type="button" id="btn-cep"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label>Cidade</label>
+                                <input class="form-control" type="text" id="cidade" maxlength="100" name="Cidade" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Bairro</label>
+                                <input class="form-control" type="text" id="bairro" maxlength="100" name="Bairro" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label>Logradouro</label>
+                                <input class="form-control" type="text" id="logradouro" maxlength="100" name="Logradouro" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Número</label>
+                                <input class="form-control" type="text" id="numero" maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
                             <div class="form-group">
                                 <label></label>
-                                <button id="btn-save" type="button" class="btn btn-success float-right semlabel-formgroup">Salvar</button>
+                                <button id="btn-save" type="button" class="btn btn-success semlabel-formgroup">Salvar</button>
                             </div>
                         </div>
                     </div>
@@ -102,7 +147,19 @@
             </div>
         </div>
     </form>
+    <script>
+        const inputValue = document.querySelector("#cep");
+        let zipCode = "";
 
+        inputValue.addEventListener("keyup", () => {
+            zipCode = inputValue.value;
+            if (zipCode)
+                if (zipCode.length === 8) {
+                    inputValue.value = `${zipCode.substr(0,5)}-${zipCode.substr(5,9)}`;
+                    console.log(zipCode);
+                }
+        });
+    </script>
 
 </body>
 

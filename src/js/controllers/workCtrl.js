@@ -148,7 +148,7 @@ function inserirDadosDieta() {
 
 
 function criarTabelaColaboradores() {
-    var query = "CREATE TABLE IF NOT EXISTS colaboradores ( id TEXT PRIMARY KEY, nome TEXT NOT NULL, idade INTEGER NOT NULL, email TEXT NOT NULL UNIQUE, cargo INTEGER NOT NULL)";
+    var query = `CREATE TABLE IF NOT EXISTS colaboradores ( id TEXT PRIMARY KEY, nome TEXT NOT NULL, idade INTEGER NOT NULL, email TEXT NOT NULL UNIQUE, cargo INTEGER NOT NULL, logradouro TEXT, bairro TEXT, cidade TEXT, uf TEXT, cep TEXT, numero TEXT)`;
     db.transaction(function(tx) {
         tx.executeSql(query);
         tx.executeSql(' SELECT COUNT(*) FROM colaboradores', [],
@@ -166,13 +166,13 @@ function criarTabelaColaboradores() {
 function iserirDadosColab() {
     db.transaction(function(tx) {
         //* query operador 01
-        var queryColab = "INSERT INTO colaboradores (id, nome, idade, email, cargo) VALUES ('99790135-49d1-4ed6-8890-9f9ea985c96a', 'op01', 26, 'op1@email.com', 3);";
+        var queryColab = "INSERT INTO colaboradores (id, nome, idade, email, cargo, logradouro, bairro, cidade, uf, cep, numero) VALUES ('99790135-49d1-4ed6-8890-9f9ea985c96a', 'op01', 26, 'op1@email.com', 3, 'Rua teste', 'bairro teste', 'BH', 'MG', '31.581-622', '347');";
         var queryUser = "INSERT INTO usuarios ( nome, senha, email, tipoUsuario, logado, idColaborador) VALUES ('op01', '123456', 'op1@email.com', 3, 0, '99790135-49d1-4ed6-8890-9f9ea985c96a')";
         tx.executeSql(queryColab);
         tx.executeSql(queryUser);
 
         //* query vet 01
-        var queryVet = "INSERT INTO colaboradores (id, nome, idade, email, cargo) VALUES ('59a29eef-7e8d-4db0-80f4-5737cd4a65fa', 'vet01', 44, 'vet1@email.com', 2);";
+        var queryVet = "INSERT INTO colaboradores (id, nome, idade, email, cargo, logradouro, bairro, cidade, uf, cep, numero) VALUES ('59a29eef-7e8d-4db0-80f4-5737cd4a65fa', 'vet01', 44, 'vet1@email.com', 2, 'Rua teste', 'bairro teste', 'BH', 'MG', '31.581-622', '122');";
         var queryUserVet = "INSERT INTO usuarios ( nome, senha, email, tipoUsuario, logado, idColaborador) VALUES ('vet01', '123456', 'vet1@email.com', 2, 0, '59a29eef-7e8d-4db0-80f4-5737cd4a65fa')";
         tx.executeSql(queryVet);
         tx.executeSql(queryUserVet);

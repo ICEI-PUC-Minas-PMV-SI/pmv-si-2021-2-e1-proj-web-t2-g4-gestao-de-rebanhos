@@ -278,7 +278,7 @@ function baixa(idInsumo, name, qtd) {
         if (formValues[0].length >= 1 && formValues[1].length >= 1) {
             var qtdUsada = formValues[0];
             var motivo = formValues[1];
-
+            debugger
             if (qtdUsada < qtd) {
                 qtd -= qtdUsada;
 
