@@ -54,7 +54,7 @@ Tipo     | Subtipo | Teste                                        | Resultado | 
 |Funcional|Requisitos|Editar Colaborador|OK|12.12.2021|Markus| Foi possível editar o colaborador alterando seus valores no banco de dados.|
 |Funcional|Requisitos|Deletar Colaborador|OK|12.12.2021|Markus| Foi possível deletar o colaborador do banco de dados.|
 |Funcional|Requisitos|Buscar Colaborador|OK|12.12.2021|Markus| Foi possível buscar o colaborador no banco de dados.|
-|Funcional|Requisitos|Cadastro de colaborador|Ok|12.12.2021|Markus|Foi possível cadastrar o colaborador e armazenar no banco de dados.|
+|Funcional|Requisitos|Cadastrar Colaborador|Ok|12.12.2021|Markus|Foi possível cadastrar o colaborador e armazenar no banco de dados.|
 |Funcional|Requisitos|Cadastrar Insumo |Ok|12.12.2021|Mariana|Foi possível cadastrar o insumo e armazenar no banco de dados.|
 |Funcional|Requisitos|Buscar Insumo |Ok|12.12.2021|Mariana|Foi possível buscar o insumo cadastrado no banco.|
 |Funcional|Requisitos|Editar insumo |Ok|12.12.2021|Mariana|Foi possível editar o campo quantidade mínima do insumo, alterando o valor no banco de dados.|
