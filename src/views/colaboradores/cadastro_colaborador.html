@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
     <script src="../../js/controllers/colaboradoresCtrl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js"></script>
     <title>Cadastro Colaboradores</title>
 
     <style>
@@ -147,19 +148,7 @@
             </div>
         </div>
     </form>
-    <script>
-        const inputValue = document.querySelector("#cep");
-        let zipCode = "";
 
-        inputValue.addEventListener("keyup", () => {
-            zipCode = inputValue.value;
-            if (zipCode)
-                if (zipCode.length === 8) {
-                    inputValue.value = `${zipCode.substr(0,5)}-${zipCode.substr(5,9)}`;
-                    console.log(zipCode);
-                }
-        });
-    </script>
 
 </body>
 

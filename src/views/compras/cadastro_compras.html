@@ -20,7 +20,7 @@
     <script src="../../js/controllers/comprasCtrl.js"></script>
     <script src="../../js/system_utilities/buildNavbar.js" type="module"></script>
     <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
-    <script src="https://cdnjs.com/libraries/jquery.mask"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js"></script>
     <style>
         #botao {
             margin: 33px 0;
@@ -90,7 +90,7 @@
             var quantidade = document.getElementById("Quantidadeinsumos").value;
             document.getElementById("content-total").innerHTML = `
                 <label for="total" class="control-label">Total R$</label>
-                <input type="number" value="0" class="form-control money" id="total" name="total" readonly>
+                <input style="background-color: #f8f9fa;" type="text" value="0" class="form-control money" id="total" name="total" readonly>
             `;
 
             if (quantidade > 0) {
@@ -103,20 +103,33 @@
                  </div>
                 <div class="form-group col-md-3">
                     <label for="Quantidade" class="control-label">Quantidade*</label>
-                     <input type="number" class="form-control " name="Quantidade" min="1" id="quantity${i}" onblur="calcSubtotal('${i}')"></input> 
+                     <input type="number" class="form-control" name="Quantidade" min="1" id="quantity${i}"onblur="calcSubtotal('${i}')"></input> 
                </div>
-                <div class="form-group col-md-3">
-                    <label for="tempo" class="control-label">Preço Unitario R$*</label>
-                    <input type="number" class="form-control money" name="preco" min="1" id="preco${i}" onblur="calcSubtotal('${i}')"></input> 
+               <div class="form-group col-md-3">
+                    <label>Preço Unitario*</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+                        <input type="text" class="form-control money" name="preco" min="1" id="preco${i}" onblur="calcSubtotal('${i}')">
+                    </div>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="tempo" class="control-label">Subtotal R$</label>
-                    <input type="number" class="form-control money" name="subtotal" min="1" id="subtotal${i}" readonly></input> 
+                    <label>Subtotal*</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+                        <input style="background-color: #f8f9fa;" type="text" class="form-control money" min="1" name="subtotal" min="1" id="subtotal${i}" readonly>
+                    </div>
                 </div>
             </div>`;
                 };
                 document.getElementById("InserirDados").innerHTML += `<div class="row">
         </div>`;
+                $('.money').mask('#.##0,00', {
+                    reverse: true
+                });
             };
         };
 

@@ -185,12 +185,17 @@ function calcSubtotal(i) {
     //quantity - preco - subtotal
 
     var qtd = document.getElementById("quantity" + i).value;
-    var preco = document.getElementById("preco" + i).value;
+    var inputPreco = document.getElementById("preco" + i).value;
+    var preco = parseFloat(inputPreco.replace('.', ''));
     var subtotal = document.getElementById("subtotal" + i);
     //var total = document.getElementById("total");
+    var sub = 0;
 
-    if (qtd.length > 0 && preco.length > 0) {
-        subtotal.value = preco * qtd;
+    if (qtd.length > 0 && inputPreco.length > 0) {
+        sub = preco * qtd;
+        debugger
+        subtotal.value = sub.toFixed(2).toString().replace('.', ',');
+        $(subtotal).keyup();
         calcTotal();
     }
 }
@@ -203,10 +208,13 @@ function calcTotal() {
     for (var i = 0; i < qtdInsumos; i++) {
         var subtotal = document.getElementById("subtotal" + i).value;
         if (subtotal.length > 0) {
-            soma += parseFloat(subtotal);
+            soma += parseFloat(subtotal.replace('.', ''));
         }
     }
-    total.value = soma;
+
+    total.value = soma.toFixed(2).toString().replace('.', ',');
+    $(total).keyup();
+    //$('.money').mask('#.##0,00', { reverse: true });
 }
 
 function ready() {

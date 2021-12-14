@@ -33,7 +33,7 @@ function buscarCEP() {
                 else {
                     //CEP pesquisado não foi encontrado.
                     swal.fire({
-                        icon: "error",
+                        icon: "warning",
                         title: "CEP não encontrado.",
                     });
                     notifica('Cep não encontrado', 'erro');
@@ -347,6 +347,7 @@ function ready() {
     if (document.getElementById('btn-save')) {
         document.getElementById('btn-save').addEventListener('click', salvar);
         popularDados();
+        $('#cep').mask('99999-999')
     }
     if (document.getElementById('btn-search')) {
         document.getElementById('btn-search').addEventListener('click', buscar);
