@@ -51,6 +51,11 @@ Os resultados estavam dentro do esperado para os requisitos.
 ### Resultados dos Requisitos a Testar
 Tipo     | Subtipo | Teste                                        | Resultado | Data | Responsável|Descrição|
 |---------|----------|----------------------------------------------|-----------|------|------------|---------|
+|Funcional|Requisitos|Cadastrar Insumo |Ok|12.12.2021|Mariana|Foi possível cadastrar o insumo e armazenar no banco de dados.|
+|Funcional|Requisitos|Buscar Insumo |Ok|12.12.2021|Mariana|Foi possível buscar o insumo cadastrado no banco.|
+|Funcional|Requisitos|Editar insumo |Ok|12.12.2021|Mariana|Foi possível editar o campo quantidade mínima do insumo, alterando o valor no banco de dados.|
+|Funcional|Requisitos|Deletar insumo |Ok|12.12.2021|Mariana| Foi possível deletar o insumo e removê-lo do banco de dados.|
+|Funcional|Requisitos|Baixa insumo |Ok|12.12.2021|Mariana| Foi possível realizar a baixa do insumo e salva-la no banco de dados.|
 |Funcional|Requisitos| Cadastrar Dieta  |Ok|08.12.2021|Thiago| Foi possível cadastrar Dieta e armazenar no banco de dados.|
 |Funcional|Requisitos| Buscar Dieta  |Ok|08.12.2021|Thiago|Foi possível buscar a dieta do banco. |
 |Funcional|Requisitos| Editar e deletar dieta |Ok|08.12.2021|Thiago|Foi possível editar o nome da dieta e deletá-la do banco de dados.|
