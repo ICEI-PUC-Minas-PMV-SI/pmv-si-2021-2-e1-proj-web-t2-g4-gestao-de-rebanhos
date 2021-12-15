@@ -51,6 +51,14 @@ Os resultados estavam dentro do esperado para os requisitos.
 ### Resultados dos Requisitos a Testar
 Tipo     | Subtipo | Teste                                        | Resultado | Data | Responsável|Descrição|
 |---------|----------|----------------------------------------------|-----------|------|------------|---------|
+|Funcional|Requisitos|Cadastrar animal|OK|15.12.2021|Fábio| Foi possível cadastrar e salvar o animal no banco de dados.|
+|Funcional|Requisitos|Buscar animal|OK|15.12.2021|Fábio| Foi possível buscar o animal no banco de dados.|
+|Funcional|Requisitos|Editar animal|OK|15.12.2021|Fábio| Foi possível editar e salvar a idade e a dieta do animal no banco de dados.|
+|Funcional|Requisitos|Pesagem animal|OK|15.12.2021|Fábio| Foi possível pesar o animal com novos dados e data de pesagem e salvar no banco de dados.|
+|Funcional|Requisitos|Baixa animal|OK|15.12.2021|Fábio| Foi possível dar baixa do animal no banco de dados especificando o motivo da baixa.|
+|Funcional|Requisitos|Info animal|OK|15.12.2021|Fábio| Foi possível buscar as informações do animal no banco de dados.|
+|Funcional|Requisitos|Gerar gráfico da pesagem animal|OK|15.12.2021|Fábio| Foi possível gerar um gráfico com um histórico de pesagem do animal salvo no banco de dados.|
+|Funcional|Requisitos|Buscar baixa animal|OK|15.12.2021|Fábio| Foi possível buscar as baixas dos animais no banco de dados.|
 |Funcional|Requisitos|Editar Colaborador|OK|12.12.2021|Markus| Foi possível editar o colaborador alterando seus valores no banco de dados.|
 |Funcional|Requisitos|Deletar Colaborador|OK|12.12.2021|Markus| Foi possível deletar o colaborador do banco de dados.|
 |Funcional|Requisitos|Buscar Colaborador|OK|12.12.2021|Markus| Foi possível buscar o colaborador no banco de dados.|
