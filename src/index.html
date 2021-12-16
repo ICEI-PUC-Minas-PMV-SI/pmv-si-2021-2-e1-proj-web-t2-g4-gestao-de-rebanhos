@@ -33,6 +33,7 @@
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="https://unpkg.com/sweetalert2@9/dist/sweetalert2.all.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -571,7 +572,7 @@
                         <div class="img-footer-1">
                             <img src="./images/embrapa.png">
                         </div>
-                        <div class="img-footer-2">
+                        <div class="img-footer-2" onmouseover="vlwProf()">
                             <img src="./images/puc.png" />
                         </div>
 
@@ -617,7 +618,33 @@
     </div>
     <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
 
+    <script>
+        var vlw = false;
 
+        function vlwProf() {
+            if (vlw == false) {
+                Swal.fire({
+                    title: 'Obrigado Mestre!',
+                    html: ` <div>
+                                <strong><p>É muito bom tê-lo como professor para nos auxiliar nessa jornada.</p></strong>
+                                <p> <strong>r:</strong> Professor é cabuloso.</p>
+                                <p><strong>s:</strong> Alunos são Brilhantes.</p>
+                                <p><strong>r -> s</strong></p>
+                            </div>`,
+                    width: 600,
+                    padding: '3em',
+                    color: '#716add',
+                    //background: '#fff url(/images/trees.png)',
+                    backdrop: `
+                                rgba(54,174,106,0.4)
+                                url("https://media.giphy.com/media/OtbZhLpNLxDoc/giphy.gif")
+                                center top
+                                no-repeat`
+                })
+                vlw = true;
+            }
+        }
+    </script>
 </body>
 
 </html>
