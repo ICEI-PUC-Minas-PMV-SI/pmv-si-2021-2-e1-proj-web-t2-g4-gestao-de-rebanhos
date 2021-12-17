@@ -9,13 +9,16 @@
 
 Sistema de gerenciamento de rebanhos em fazendas que otimiza o controle e manutenção de estoque de alimentos e insumos alimentares, gestão e otimização de dietas e acompanhamento de ganho de peso dos animais.
 
+Devido ao alto número de indivíduos no rebanho que podem incluir raças, idades, peso e sexo diferentes, a gestão de rações e suplementos alimentares pode não ser eficiente levando a prejuízos por nutrição ineficaz do gado. O excesso de estoque de ração pode levar a perda por validade dos produtos e compra de proporções incorretas dos insumos.
+
+O Projeto tem como finalidade auxiliar os pecuaristas com informações da quantidade de alimentos a ser distribuída para o gado, proporcionando redução do custo de produção em relação ao consumo.
+
 ## Integrantes
 
 * Fábio Henrique Santos Pereira
 * Geovanni Henrique Cadorin
 * Mariana Rodrigues de Lima
 * Markus Antonio Machel
-* Tiago Antônio de Oliveira Mendes
 * Thiago Augusto Cardoso e Silva
 * Túlio Almeida Lopes
 
